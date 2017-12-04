@@ -1,63 +1,83 @@
+#user{
+    -fx-background-color:#f1f1f1;
+}
+#user:hover{
+    -fx-background-color:#f1f1f1;
+    -fx-text-fill:Black;
+}
+
 #home{
     -fx-background-color:#f1f1f1;
+    -fx-border-style:solid;
+    -fx-border-color: #ABB2B9   #ABB2B9   #ABB2B9    #f1f1f1;
+    -fx-border-height: 2px 6px 2px 2px;
+}
+
+#home:hover{
+    -fx-background-color:#f1f1f1;
+}
+
+.button:hover{
+    -fx-background-color:#433e3a;
+    -fx-text-fill:#b3b1af;
+    -fx-border-style: none;
+}
+
+.button:focused {
+    -fx-background-color:#373635;
+    -fx-text-fill:#c4c4c4;
+    -fx-border-style: none;
 }
 
 #ForemanBaseAnchorPane{
     -fx-content-display:block;
-    -fx-background-color:#c4c4c4;
+    -fx-font-weight :bold;
+    -fx-background-color:darkgrey;
 }
 
 .tab-pane *.tab-header-area *.tab-header-background {
-    -fx-background-color:#c4c4c4;
-    -fx-border-style: solid;
-    -fx-border-color: #f1f1f1;
-    -fx-border-width: 0px 0px 1px 0px;
+    -fx-background-color:Black;
 }
 
 .tab-pane .tab:selected .tab-label{
-    -fx-text-fill: #fd5f3a;
-}
+    -fx-background-color: #000000;
+    -fx-alignment: CENTER;
+    -fx-text-fill: #ff6600;
 
-.tab-pane .tab:selected{
-    -fx-background-color: #f1f1f1;
+
 }
 
 .tab-pane {
-    -fx-tab-min-width:198px;
-    -fx-tab-max-width: 1090px;
-    -fx-tab-min-height:30px;
+    -fx-tab-min-width:210px;
+    -fx-tab-max-width:210px;
+    -fx-tab-min-height:50px;
+    -fx-tab-max-height:50px;
     /*-fx-background-image: url("train.jpg");*/
+
 }
+
+
 
 .tab-pane .tab  {
+
     -fx-alignment: CENTER;
-    -fx-background-color: #c4c4c4;
-    -fx-font-size: 16px;
-
+    -fx-background-color: #000000;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
 }
-
-.tab-pane .tab:hover{
-    -fx-background-color: #f1f1f1;
+#homeTab{
+    -fx-tab-min-width:300px;
+    -fx-tab-max-width:300px;
+    -fx-tab-min-height:50px;
+    -fx-tab-max-height:50px;
 }
-
 .tab-label{
-    -fx-text-fill: #433e3a;
+    -fx-text-fill: gray;
 }
 
 .tab:hover .tab-label  {
     -fx-alignment: CENTER;
-    -fx-text-fill: #fd5f3a;
+    -fx-text-fill: #ffb380;
 }
 
-.tab {
-    -fx-focus-color: transparent;
-    -fx-faint-focus-color: transparent;
-}
 
-.tab-down-button {
-    -fx-padding: 0;
-}
-
-.tab-down-button .arrow {
-    -fx-padding: 0;
-}
