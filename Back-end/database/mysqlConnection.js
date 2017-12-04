@@ -8,7 +8,7 @@ var connection=mysql.createPool({
     user:'root',
     password:'',
     dateStrings:true,
-    database:'database'
+    database:'locomagazine'
 });
 
 module.exports=connection;

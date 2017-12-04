@@ -60,4 +60,22 @@ public class Update {
         }
     }
 
+    public static void updateFailures(){
+        final String targetUrlLocos = "http://localhost:3000/api/locomotive/";
+
+        try {
+            String response = GetRequest.sendGetRequest(targetUrlLocos);
+            try{
+                FileWriter fw=new FileWriter("localDB/locomotives.txt");
+                fw.write(response);
+                fw.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }

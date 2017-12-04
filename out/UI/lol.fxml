@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="getImg" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ATE.AddLoco.AddLocoController">
+   <children>
+      <Button layoutX="247.0" layoutY="157.0" mnemonicParsing="false" onAction="#imgSelect" text="Button" />
+      <Button layoutX="247.0" layoutY="219.0" mnemonicParsing="false" onAction="#getImg" text="get" />
+      <Pagination layoutX="157.0" layoutY="298.0" pageCount="20" prefHeight="79.0" prefWidth="310.0" />
+   </children>
+</AnchorPane>

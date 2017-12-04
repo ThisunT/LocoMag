@@ -14,7 +14,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 /**
@@ -26,23 +25,28 @@ public class IndexController implements Initializable{
     public  AnchorPane holderPane;
 
     @FXML
-    public StackPane home;
+    public AnchorPane home;
 
-    public AnchorPane locomotives,failures,trips,delays,schedule,maintenance, employees, locoposition;
+    @FXML
+    public AnchorPane failures;
+
+    @FXML
+    public AnchorPane locomotives,trips,delays,schedule,maintenance, employees, locoposition;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //Load all fxmls in a cache
         try {
-            home = FXMLLoader.load(getClass().getResource("../ATE/TabPane/tabPane.fxml"));
-           /* failures = FXMLLoader.load(getClass().getResource("Alerts.fxml"));
-            trips = FXMLLoader.load(getClass().getResource("Pricing.fxml"));
-            delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
-            schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
-            maintenance = FXMLLoader.load(getClass().getResource("Controls.fxml"));
-            employees = FXMLLoader.load(getClass().getResource("Controls.fxml"));
-            locoposition = FXMLLoader.load(getClass().getResource("Controls.fxml")); */
-            setNode(home);
+            home = FXMLLoader.load(getClass().getResource("home.fxml"));
+            failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
+            //trips = FXMLLoader.load(getClass().getResource("Pricing.fxml"));
+            //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
+            //schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
+            //maintenance = FXMLLoader.load(getClass().getResource("Controls.fxml"));
+            //employees = FXMLLoader.load(getClass().getResource("Controls.fxml"));
+            //locoposition = FXMLLoader.load(getClass().getResource("Controls.fxml"));
+            //setNode(home);
+
         } catch (IOException ex) {
             Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -58,6 +62,7 @@ public class IndexController implements Initializable{
     private void setNode(Node node) {
         holderPane.getChildren().clear();
         holderPane.getChildren().add((Node) node);
+
 
         FadeTransition ft = new FadeTransition(Duration.millis(500));
         ft.setNode(node);
@@ -83,6 +88,8 @@ public class IndexController implements Initializable{
         ft.setAutoReverse(false);
         ft.play();
     }
+
+
 
     @FXML
     private void switchLocomotives(ActionEvent event) {
@@ -124,4 +131,16 @@ public class IndexController implements Initializable{
     private void switchTab(ActionEvent event){
         transPane();
     }*/
+
+    @FXML
+    private void switchFailures(ActionEvent event){
+        try {
+
+            setNode(failures);
+        }
+        catch (Exception e){
+            System.out.println("vv");
+        }
+
+        }
 }

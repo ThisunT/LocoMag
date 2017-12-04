@@ -149,10 +149,9 @@ public class LocomotiveViewer {
     }
 
     public AnchorPane pages(){
-        JSONArray response = DBReader.returnLocomotives();
-
+        final JSONArray response = DBReader.returnLocomotives();
         int pageCount=((response.length())/6+(response.length())%6);
-        int numberOfObjects = response.length();
+        final int numberOfObjects = response.length();
 
         pagination = new Pagination(pageCount, 0);
         pagination.setPrefHeight(720.0); pagination.setPrefWidth(1090.0);
