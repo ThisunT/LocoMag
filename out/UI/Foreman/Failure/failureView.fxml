@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1000.0" stylesheets="@home.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="1000.0" stylesheets="@../../Index/home.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane layoutX="71.0" layoutY="122.0" prefHeight="563.0" prefWidth="855.0" styleClass="card">
             <children>
@@ -61,11 +61,11 @@
                         <Font size="18.0" />
                     </font>
                 </Text>
-                <HBox fx:id="v1" layoutX="-14.0" layoutY="-11.0" prefHeight="73.0" prefWidth="1210.0" stylesheets="@home.css" />
+                <HBox fx:id="v1" layoutX="-14.0" layoutY="-11.0" prefHeight="73.0" prefWidth="1210.0" stylesheets="@../../Index/home.css" />
                 <CubicCurve controlX1="-50.0" controlX2="50.0" controlY1="-100.0" controlY2="100.0" endX="150.0" fill="#9e9691" layoutX="359.0" layoutY="44.0" startX="-150.0" stroke="BLACK" />
                 <ImageView fitHeight="101.0" fitWidth="59.0" layoutX="393.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../Images/train.png" />
+                        <Image url="@../../Images/train.png" />
                     </image>
                 </ImageView>
             </children>
