@@ -31,7 +31,10 @@ public class IndexController implements Initializable{
     public AnchorPane failures;
 
     @FXML
-    public AnchorPane locomotives,trips,delays,schedule,maintenance, employees, locoposition;
+    public AnchorPane schedule;
+
+    @FXML
+    public AnchorPane locomotives,trips,delays,maintenance, employees, locoposition;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -39,6 +42,7 @@ public class IndexController implements Initializable{
         try {
             home = FXMLLoader.load(getClass().getResource("home.fxml"));
             failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
+            schedule = FXMLLoader.load(getClass().getResource("../Foreman/Schedule/schedule.fxml"));
             //trips = FXMLLoader.load(getClass().getResource("Pricing.fxml"));
             //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
             //schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
@@ -133,6 +137,18 @@ public class IndexController implements Initializable{
         try {
 
             setNode(failures);
+        }
+        catch (Exception e){
+            System.out.println("vv");
+        }
+
+    }
+
+    @FXML
+    private void switchSchedule(ActionEvent event){
+        try {
+
+            setNode(schedule);
         }
         catch (Exception e){
             System.out.println("vv");
