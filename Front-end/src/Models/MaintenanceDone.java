@@ -28,7 +28,7 @@ public class MaintenanceDone {
     public void setMaintenance_ID(int maintenance_ID){this.maintenance_ID= maintenance_ID;}
 
     public int getLoco_ID (){ return this.loco_ID;}
-    public void setLoco_ID(String loco_id){this.loco_ID= loco_ID;}
+    public void setLoco_ID(int loco_ID){this.loco_ID= loco_ID;}
 
     public Date getDate_done (){ return this.date_done;}
     public void setDate_done(Date date_done){this.date_done = date_done;}

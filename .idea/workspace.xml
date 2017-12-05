@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6604e685-8b65-411e-b46c-2379c5aed91e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Front-end/src/Models/MaintenanceDone.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/Models/Failure_Occured.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/UI/Foreman/Schedule/ScheduleController.class" afterPath="$PROJECT_DIR$/out/UI/Foreman/Schedule/ScheduleController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Front-end/src/Models/FailureOccured.java" afterPath="$PROJECT_DIR$/Front-end/src/Models/FailureOccured.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Front-end/src/UI/Foreman/Failure/FailureAddController.java" afterPath="$PROJECT_DIR$/Front-end/src/UI/Foreman/Failure/FailureAddController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Front-end/src/UI/Foreman/Schedule/ScheduleController.java" afterPath="$PROJECT_DIR$/Front-end/src/UI/Foreman/Schedule/ScheduleController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Front-end/src/Models/MaintenanceDone.java" afterPath="$PROJECT_DIR$/Front-end/src/Models/MaintenanceDone.java" />
     </list>
     <ignored path="LocoMag.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,19 +23,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="failureAdd.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Front-end/src/UI/Foreman/Failure/failureAdd.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="FailureOccured.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Front-end/src/Models/FailureOccured.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -54,11 +35,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MaintenanceDone.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Trip.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Front-end/src/Models/Trip.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1156">
+              <caret line="68" column="86" selection-start-line="68" selection-start-column="86" selection-end-line="68" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MaintenanceDone.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Front-end/src/Models/MaintenanceDone.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="243">
+              <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Delay.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Front-end/src/Models/Delay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="614">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -97,19 +98,6 @@
               <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lol.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Front-end/src/UI/lol.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
@@ -196,6 +184,8 @@
         <option value="$PROJECT_DIR$/Front-end/src/Models/FailureOccured.java" />
         <option value="$PROJECT_DIR$/Front-end/src/Models/Employee.java" />
         <option value="$PROJECT_DIR$/Front-end/src/Models/MaintenanceDone.java" />
+        <option value="$PROJECT_DIR$/Front-end/src/Models/Delay.java" />
+        <option value="$PROJECT_DIR$/Front-end/src/Models/Trip.java" />
       </list>
     </option>
   </component>
@@ -618,17 +608,17 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\piumiindeevari\IdeaProjects\LocoMag\Front-end\src\UI\Foreman\Schedule" />
-      <recent name="C:\Users\piumiindeevari\IdeaProjects\LocoMag\Front-end\src\UI\Foreman\Maintenance" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\piumiindeevari\IdeaProjects\LocoMag\Front-end\src\UI\Foreman\Failure" />
+      <recent name="C:\Users\piumiindeevari\IdeaProjects\LocoMag\Front-end\src\UI\Index" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Models" />
       <recent name="UI.Foreman.Schedule" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\piumiindeevari\IdeaProjects\LocoMag\Front-end\src\UI\Foreman\Failure" />
-      <recent name="C:\Users\piumiindeevari\IdeaProjects\LocoMag\Front-end\src\UI\Index" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\piumiindeevari\IdeaProjects\LocoMag\Front-end\src\UI\Foreman\Schedule" />
+      <recent name="C:\Users\piumiindeevari\IdeaProjects\LocoMag\Front-end\src\UI\Foreman\Maintenance" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1139,12 +1129,12 @@
       <workItem from="1512454850634" duration="2501000" />
       <workItem from="1512462548315" duration="3801000" />
       <workItem from="1512467297532" duration="2164000" />
-      <workItem from="1512479089032" duration="8288000" />
+      <workItem from="1512479089032" duration="10140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23471000" />
+    <option name="totallyTimeSpent" value="25323000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1370" height="754" extended-state="1" />
@@ -1226,14 +1216,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Front-end/src/UI/Dashboard/Locomotive/LocomotiveViewer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2567">
-          <caret line="151" column="64" selection-start-line="151" selection-start-column="64" selection-end-line="151" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Front-end/src/UI/Foreman/Failure/test.java" />
     <entry file="file://$PROJECT_DIR$/Back-end/database/mysqlConnection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1603,10 +1585,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Front-end/src/UI/Foreman/Maintenance/maintenanceAdd.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="530">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Front-end/src/Models/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Front-end/src/Models/MaintenanceDone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Front-end/src/Models/Delay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1621,21 +1630,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Front-end/src/UI/Foreman/Maintenance/maintenanceAdd.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Front-end/src/Models/MaintenanceDone.java">
+    <entry file="file://$PROJECT_DIR$/Front-end/src/Models/Trip.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="1156">
+          <caret line="68" column="86" selection-start-line="68" selection-start-column="86" selection-end-line="68" selection-end-column="86" />
           <folding />
         </state>
       </provider>
