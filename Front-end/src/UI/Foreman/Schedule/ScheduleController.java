@@ -36,7 +36,8 @@ public ScrollPane scrollPane;
 
                         }
                     });*/
-            webEngine.load("http://colombofort.com/timetable.htm");
+            webEngine.load("http://colombofort.com/train.schedule.htm");
+
 
         }
 

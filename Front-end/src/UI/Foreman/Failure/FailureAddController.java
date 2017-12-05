@@ -1,6 +1,6 @@
 package UI.Foreman.Failure;
 
-//import Model.Failure_Occured;
+//import Model.FailureOccured;
 //import UI.Index.Connect;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -109,7 +109,7 @@ public class FailureAddController implements Initializable {
                 String loco_state = combo_engineState.getValue();
                 String driver_note =txt_driverNote.getText();
                 String description = txt_description.getText();
-                //Failure_Occured failure_occured = new Failure_Occured(loco_ID, failure_ID, trip_ID, place, nearest_yard, occured_time, loco_state, driver_note, description);
+                //FailureOccured failure_occured = new FailureOccured(loco_ID, failure_ID, trip_ID, place, nearest_yard, occured_time, loco_state, driver_note, description);
                 //failure_occured.add();
             }
             catch (Exception e) {
