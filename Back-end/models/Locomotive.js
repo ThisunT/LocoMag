@@ -8,7 +8,7 @@ var Locomotive = {
         if(id=="id"){
             return db.query("select EngineNumber from locomotive", callback);
         }else{
-            return db.query("select * from locomotive where id=?", [id], callback);
+            return db.query("select * from locomotive where EngineNumber=?", [id], callback);
         }
 
     },
@@ -22,7 +22,7 @@ var Locomotive = {
         })
     },
     deleteLocomotive: function (id, callback) {
-        return db.query("delete from locomotive where id=?", [id], callback);
+        return db.query("delete from locomotive where EngineNumber=?", [id], callback);
     },
     updateLocomotive: function (id, locomotive, callback) {
         return db.query("update locomotive set name=?, state=? where id=?", [locomotive.name, locomotive.state, id], callback);
