@@ -32,7 +32,7 @@ public class MaintenanceAddController implements Initializable {
     List<String> listComboE = new ArrayList<>(asList("M4","M5","M8","M9","M10"));
     List<String> listComboS = new ArrayList<>(asList("Dead","Idle","Active","Running"));
 
-    public ComboBox<String> combo_engineType;
+    public ComboBox<String> combo_engineClass;
     public ComboBox<String> combo_name;
     public ComboBox<String> combo_type;
     public ComboBox<String> combo_engineState;
@@ -46,7 +46,7 @@ public class MaintenanceAddController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         this.fillCombo_name();
         this.fillCombo_type();
-        this.fillCombo_engineType();
+        this.fillCombo_engineClass();
         this.fillCombo_engineState();
     }
 //Set Combo box lists: Engine Class, Name, Type, Engine State
@@ -57,8 +57,8 @@ public class MaintenanceAddController implements Initializable {
 
     void fillCombo_type(){ combo_type.setItems(FXCollections.observableArrayList(listComboT)); }
 
-    void fillCombo_engineType(){
-        combo_engineType.setItems(FXCollections.observableArrayList(listComboE));
+    void fillCombo_engineClass(){
+        combo_engineClass.setItems(FXCollections.observableArrayList(listComboE));
     }
 
     void fillCombo_engineState(){

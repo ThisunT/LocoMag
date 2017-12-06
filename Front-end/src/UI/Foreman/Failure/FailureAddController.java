@@ -39,7 +39,7 @@ public class FailureAddController implements Initializable {
 
     public ComboBox<String> combo_failureName;
     public ComboBox<String> combo_route;
-    public ComboBox<String> combo_engineType;
+    public ComboBox<String> combo_engineClass;
     public ComboBox<String> combo_engineState;
     public Button btn_submit;
     public TextField txt_engineNo;
@@ -56,17 +56,11 @@ public class FailureAddController implements Initializable {
     private ResultSet rs = null;
 
 
-
-        /*public FailureAddController() {
-            conn= Connect.ConnectDB();
-        }*/
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.fillCombo_failureName();
         this.fillCombo_route();
-        this.fillCombo_engineType();
+        this.fillCombo_engineClass();
         this.fillCombo_engineState();
         this.setTime();
 
@@ -81,8 +75,8 @@ public class FailureAddController implements Initializable {
         combo_route.setItems(FXCollections.observableArrayList(listComboR));
     }
 
-    void fillCombo_engineType(){
-        combo_engineType.setItems(FXCollections.observableArrayList(listComboE));
+    void fillCombo_engineClass(){
+        combo_engineClass.setItems(FXCollections.observableArrayList(listComboE));
     }
 
 
