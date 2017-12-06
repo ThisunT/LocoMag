@@ -1,47 +1,66 @@
 package Models;
 
 import java.util.Date;
+import java.util.SplittableRandom;
 
 /**
  * Created by piumiindeevari on 12/5/2017.
  */
 public class MaintenanceDone {
 
-    private int maintenance_ID;
-    private int loco_ID;
-    private Date date_done;//Should change in the db
+    private int maintenanceId;
+    private int locoId;
+    private String date;//Should change in the db
     private String note;
-    private String sugestion;
-    private String current_state_of_loco;//should add to db
+    private String suggestion;
+    private String currentState;//should add to db
 
-    public MaintenanceDone(int maintenance_ID, int loco_ID,   Date date_done, String note, String sugestion, String current_state_of_loco){
-        this.maintenance_ID = maintenance_ID;
-        this.loco_ID = loco_ID;
-        this.date_done = date_done;
-        this.note = note;
-        this.sugestion = sugestion;
-        this.current_state_of_loco =current_state_of_loco;
+    public int getMaintenanceId() {
+        return maintenanceId;
     }
 
+    public void setMaintenanceId(int maintenanceId) {
+        this.maintenanceId = maintenanceId;
+    }
 
-    public int getMaintenance_ID(){return this.maintenance_ID;}
-    public void setMaintenance_ID(int maintenance_ID){this.maintenance_ID= maintenance_ID;}
+    public int getLocoId() {
+        return locoId;
+    }
 
-    public int getLoco_ID (){ return this.loco_ID;}
-    public void setLoco_ID(int loco_ID){this.loco_ID= loco_ID;}
+    public void setLocoId(int locoId) {
+        this.locoId = locoId;
+    }
 
-    public Date getDate_done (){ return this.date_done;}
-    public void setDate_done(Date date_done){this.date_done = date_done;}
+    public String getDate() {
+        return date;
+    }
 
-    public String getNote (){ return this.note;}
-    public void setNote(String note){this.note= note;}
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-    public String getSugestion (){ return this.sugestion;}
-    public void setSugestion(String sugestion){this.sugestion = sugestion;}
+    public String getNote() {
+        return note;
+    }
 
-    public String getCurrent_state_of_loco(){ return this.current_state_of_loco;}
-    public void setCurrent_state_of_loco(String current_state_of_loco){this.current_state_of_loco = current_state_of_loco;}
+    public void setNote(String note) {
+        this.note = note;
+    }
 
+    public String getSuggestion() {
+        return suggestion;
+    }
 
+    public void setSuggestion(String suggestion) {
+        this.suggestion = suggestion;
+    }
+
+    public String getCurrentState() {
+        return currentState;
+    }
+
+    public void setCurrentState(String currentState) {
+        this.currentState = currentState;
+    }
 }
 

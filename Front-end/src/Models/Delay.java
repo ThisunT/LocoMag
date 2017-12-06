@@ -7,33 +7,24 @@ import java.util.Date;
  */
 public class Delay {
 
-    private int failure_occured_ID;
-    private int loco_ID;
-    private int route_ID;
-    private int delay_time;
+    private int failureOccuredId;
+    private int locoId;
+    private int routeId;
+    private int delayTime;
     private String reason; // change counteraction to reason in db
 
 
-    public Delay(int failure_occured_ID, int loco_ID, int route_ID, int delay_time, String reason){
-        this.failure_occured_ID = failure_occured_ID;
-        this.loco_ID = loco_ID;
-        this.route_ID = route_ID;
-        this.delay_time = delay_time;
-        this.reason = reason;
-    }
+    public int getFailureOccuredId(){return this.failureOccuredId;}
+    public void setFailureOccuredId(int failureOccuredId){this.failureOccuredId = failureOccuredId;}
 
+    public int getLocoId (){ return this.locoId;}
+    public void setLocoId(int locoId){this.locoId= locoId;}
 
-    public int getFailure_occured_ID(){return this.failure_occured_ID;}
-    public void setFailure_occured_ID(int failure_occured_ID){this.failure_occured_ID = failure_occured_ID;}
+    public int getRouteId (){ return this.routeId;}
+    public void setRouteId(int routeId){this.routeId = routeId;}
 
-    public int getLoco_ID (){ return this.loco_ID;}
-    public void setLoco_ID(int loco_ID){this.loco_ID= loco_ID;}
-
-    public int getRoute_ID (){ return this.route_ID;}
-    public void setRoute_ID(int route_ID){this.route_ID = route_ID;}
-
-    public int getDelay_time (){ return this.delay_time;}
-    public void setDelay_time(int delay_time){this.delay_time= delay_time;}
+    public int getDelayTime (){ return this.delayTime;}
+    public void setDelayTime(int delayTime){this.delayTime= delayTime;}
 
     public String getReason (){ return this.reason;}
     public void setReason(String reason){this.reason = reason;}

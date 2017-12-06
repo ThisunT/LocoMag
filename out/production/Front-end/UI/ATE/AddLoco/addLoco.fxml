@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="failureAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../../Foreman/StyleForeman/foremanCss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ATE.AddLoco.AddLocoController">
+   <children>
+      <Button fx:id="btnSubmit" layoutX="320.0" layoutY="629.0" mnemonicParsing="false" onAction="#submitClicked" prefHeight="26.0" prefWidth="110.0" text="Submit" />
+      <Label layoutX="40.0" layoutY="67.0" prefHeight="26.0" prefWidth="208.0" text="Engine Type:" />
+      <ChoiceBox fx:id="engineType" layoutX="275.0" layoutY="70.0" prefHeight="25.0" prefWidth="102.0" value="M6">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="M6" />
+               <String fx:value="S8" />
+               <String fx:value="M2" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <Label layoutX="453.0" layoutY="75.0" text="Engine No:" />
+      <TextField fx:id="engineNo" layoutX="553.0" layoutY="71.0" prefHeight="25.0" prefWidth="77.0" />
+      <Label layoutX="40.0" layoutY="137.0" text="Date:" />
+      <Label layoutX="40.0" layoutY="284.0" text="Manufacturer" />
+      <DatePicker fx:id="dateToday" layoutX="275.0" layoutY="128.0" prefHeight="25.0" prefWidth="129.0" />
+      <TextArea fx:id="manufacturer" layoutX="275.0" layoutY="267.0" prefHeight="31.0" prefWidth="355.0" />
+      <TextArea fx:id="topSpeed" layoutX="276.0" layoutY="355.0" prefHeight="31.0" prefWidth="355.0" />
+      <Label layoutX="43.0" layoutY="373.0" text="Top Speed (kmph)" />
+      <Label layoutX="40.0" layoutY="455.0" text="Date manufactured" />
+      <Label layoutX="39.0" layoutY="572.0" text="Current State of the engine:" />
+      <ComboBox fx:id="currentState" layoutX="275.0" layoutY="568.0" prefHeight="25.0" prefWidth="189.0" value="Idle">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Idle" />
+               <String fx:value="Running" />
+               <String fx:value="Active" />
+               <String fx:value="Dead" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <ImageView fitHeight="695.0" fitWidth="372.0" layoutX="728.0" layoutY="2.0" opacity="0.52" pickOnBounds="true">
+         <image>
+            <Image url="@../../Images/trainbw.jpg" />
+         </image>
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX" height="112.67" offsetX="1.0" offsetY="0.9" radius="91.4175" spread="0.44" width="255.0" />
+         </effect>
+      </ImageView>
+      <DatePicker fx:id="dateManufactured" layoutX="275.0" layoutY="451.0" prefHeight="25.0" prefWidth="129.0" />
+      <Label layoutX="40.0" layoutY="201.0" prefHeight="21.0" prefWidth="122.0" text="Shed allocated" />
+      <TextArea fx:id="shedAllocated" layoutX="275.0" layoutY="184.0" prefHeight="31.0" prefWidth="355.0" />
+      <Label layoutX="40.0" layoutY="516.0" text="Choose Image" />
+      <JFXButton fx:id="imgSelect" layoutX="274.0" layoutY="513.0" prefHeight="21.0" prefWidth="122.0" text="Select path" onAction="#imgSelect">
+         <graphic>
+            <FontAwesomeIconView glyphName="FOLDER_OPEN" />
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

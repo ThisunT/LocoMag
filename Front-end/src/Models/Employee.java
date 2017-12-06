@@ -12,32 +12,18 @@ import java.util.Date;
  */
 public class Employee {
 
-    private int employee_ID;
+    private int employeeId;
     private String profession;
     private String name;
+    private String nic;
     private int age;
-    private String contactNo;
-    private Date appointmentDate;//Should add to the db
+    private String contactNumber;
+    private String appointmentDate;//Should add to the db
     private String email;
     private String address;
 
-
-
-    public Employee(int employee_ID,  String profession, String name, int age, String contactNo, Date appointmentDate, String email, String address){
-        this.employee_ID =employee_ID;
-        this.profession =profession;
-        this.name = name;
-        this.age = age;
-        this.contactNo = contactNo;
-        this.appointmentDate = appointmentDate;
-        this.email = email;
-        this.address = address;
-
-    }
-
-
-    public int getEmployee_ID (){ return this.employee_ID;}
-    public void setEmployee_ID(int employee_ID){this.employee_ID= employee_ID;}
+    public int getEmployeeId (){ return this.employeeId;}
+    public void setEmployeeId(int employeeId){this.employeeId= employeeId;}
 
     public String getProfession (){ return this.profession;}
     public void setProfession(String profession){this.profession= profession;}
@@ -48,11 +34,11 @@ public class Employee {
     public int getAge (){ return this.age;}
     public void setAge(int age){this.age= age;}
 
-    public String getContactNo (){ return this.contactNo;}
-    public void setContactNo(String contactNo){this.contactNo= contactNo;}
+    public String getContactNumber (){ return this.contactNumber;}
+    public void setContactNumber(String contactNumber){this.contactNumber= contactNumber;}
 
-    public Date getAppointmentDate(){ return this.appointmentDate;}
-    public void setAppointmentDate(Date appointmentDate){this.appointmentDate= appointmentDate;}
+    public String getAppointmentDate(){ return this.appointmentDate;}
+    public void setAppointmentDate(String appointmentDate){this.appointmentDate= appointmentDate;}
 
     public String getEmail (){ return this.email;}
     public void setEmail(String email){this.email= email;}
@@ -61,6 +47,11 @@ public class Employee {
     public void setAddress(String address){this.address= address;}
 
 
+    public String getNic() {
+        return nic;
+    }
 
-
+    public void setNic(String nic) {
+        this.nic = nic;
+    }
 }

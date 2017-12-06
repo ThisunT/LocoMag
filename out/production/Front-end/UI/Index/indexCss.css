@@ -1,0 +1,35 @@
+.button:hover{
+    -fx-background-color:#433e3a;
+    -fx-text-fill:#b3b1af;
+    -fx-border-style: none;
+}
+
+.button:focused {
+    -fx-background-color:#373635;
+    -fx-text-fill:#c4c4c4;
+    -fx-border-style: none;
+}
+
+#btnHome{
+    -fx-border-style: solid;
+    -fx-border-color: #433e3a;
+    -fx-border-width: 0px 2px 0px 0px;
+}
+#user{
+    -fx-background-color:#f1f1f1;
+}
+#user:hover{
+    -fx-background-color:#f1f1f1;
+    -fx-text-fill:Black;
+}
+
+#home{
+    -fx-background-color:#f1f1f1;
+    -fx-border-style:solid;
+    -fx-border-color: #ABB2B9   #ABB2B9   #ABB2B9    #f1f1f1;
+    -fx-border-height: 2px 6px 2px 2px;
+}
+
+#home:hover{
+    -fx-background-color:#f1f1f1;
+}
