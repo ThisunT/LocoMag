@@ -5,6 +5,7 @@ import Connection.GetImage;
 import Connection.Update;
 import javafx.scene.Node;
 import javafx.scene.control.Pagination;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
@@ -143,8 +144,8 @@ public class LocomotiveViewer {
                 box3.getChildren().add(element);
             }
         }
-
         boxAnchor.getChildren().addAll(box1,box2,box3);
+
         return boxAnchor;
     }
 
@@ -171,6 +172,15 @@ public class LocomotiveViewer {
         AnchorPane.setLeftAnchor(pagination, 10.0);
         anchor.getChildren().add(pagination);
 
-        return anchor;
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setLayoutX(0.0); scrollPane.setLayoutY(0.0);
+        scrollPane.setPrefHeight(740.0); scrollPane.setPrefWidth(1090.0);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.setContent(anchor);
+
+        AnchorPane anchor1 = new AnchorPane();
+        anchor.prefWidth(1090.0); anchor.prefHeight(740.0); anchor.setStyle("-fx-background-color: #f1f1f1;");
+        anchor1.getChildren().add(scrollPane);
+        return anchor1;
     }
 }
