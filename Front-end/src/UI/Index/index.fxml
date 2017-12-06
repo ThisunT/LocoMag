@@ -72,7 +72,7 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnPosition" layoutY="543.0" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Loco Position" textFill="#9e9691">
+                <JFXButton fx:id="btnPosition" layoutY="543.0" onAction="#switchLocoPosition" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Loco Position" textFill="#9e9691">
                     <graphic>
                         <MaterialDesignIconView fill="#9e9691" glyphName="HOME_VARIANT" size="20" />
                     </graphic>

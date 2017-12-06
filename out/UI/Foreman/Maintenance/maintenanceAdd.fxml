@@ -11,7 +11,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="failureAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../StyleForeman/foremanCss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Foreman.Maintenance.MaintenanceAddController">
+<AnchorPane fx:id="failureAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../StyleForeman/foremanCss.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Foreman.Maintenance.MaintenanceAddController">
     <children>
         <Button fx:id="btn_submit" layoutX="321.0" layoutY="569.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Submit" />
         <Label layoutX="40.0" layoutY="78.0" prefHeight="26.0" prefWidth="208.0" text="Engine class:" />
@@ -37,6 +37,6 @@
                 <DropShadow blurType="ONE_PASS_BOX" height="112.67" offsetX="1.0" offsetY="0.9" radius="91.4175" spread="0.44" width="255.0" />
             </effect>
         </ImageView>
-      <ComboBox fx:id="combo_engineType" layoutX="274.0" layoutY="79.0" prefWidth="150.0" />
+      <ComboBox fx:id="combo_engineClass" layoutX="274.0" layoutY="79.0" prefWidth="150.0" />
     </children>
 </AnchorPane>

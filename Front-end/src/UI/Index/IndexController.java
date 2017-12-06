@@ -25,34 +25,28 @@ public class IndexController implements Initializable{
     public  AnchorPane holderPane;
 
     @FXML
-    public AnchorPane home;
-
-    @FXML
-    public AnchorPane failures;
-
-    @FXML
-    public AnchorPane schedule;
-
-    @FXML
-    public AnchorPane locomotives,trips,delays,maintenance, employees, locoposition;
+    public AnchorPane home,failures,schedule,locomotives,trips,delays,maintenance, employees, locoposition;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //Load all fxmls in a cache
-        try {
-            home = FXMLLoader.load(getClass().getResource("home.fxml"));
-            failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
-            schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
-            //trips = FXMLLoader.load(getClass().getResource("Pricing.fxml"));
-            //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
-            //schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
-            maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
-            //employees = FXMLLoader.load(getClass().getResource("Controls.fxml"));
-            //locoposition = FXMLLoader.load(getClass().getResource("Controls.fxml"));
-            //setNode(home);
 
-        } catch (IOException ex) {
-            Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
+        if (UI.setGlobals.user == "Foreman") {
+            try {
+                home = FXMLLoader.load(getClass().getResource("home.fxml"));
+                failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
+                schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
+                //trips = FXMLLoader.load(getClass().getResource("Pricing.fxml"));
+                //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
+                //schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
+                maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
+                //employees = FXMLLoader.load(getClass().getResource("Controls.fxml"));
+                locoposition = FXMLLoader.load(getClass().getResource("../Foreman/LocoPosition/locoPositionTab.fxml"));
+                //setNode(home);
+
+            } catch (IOException ex) {
+                Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }
@@ -142,4 +136,7 @@ public class IndexController implements Initializable{
 
     @FXML
     private void switchMaintenance(ActionEvent event){ setNode(maintenance);}
+
+    @FXML
+    private void switchLocoPosition(ActionEvent event){ setNode(locoposition);}
 }
