@@ -42,11 +42,11 @@ public class IndexController implements Initializable{
         try {
             home = FXMLLoader.load(getClass().getResource("home.fxml"));
             failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
-            schedule = FXMLLoader.load(getClass().getResource("../Foreman/Schedule/schedule.fxml"));
+            schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
             //trips = FXMLLoader.load(getClass().getResource("Pricing.fxml"));
             //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
             //schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
-            //maintenance = FXMLLoader.load(getClass().getResource("Controls.fxml"));
+            maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
             //employees = FXMLLoader.load(getClass().getResource("Controls.fxml"));
             //locoposition = FXMLLoader.load(getClass().getResource("Controls.fxml"));
             //setNode(home);
@@ -133,26 +133,13 @@ public class IndexController implements Initializable{
     }*/
 
     @FXML
-    private void switchFailures(ActionEvent event){
-        try {
+    private void switchFailures(ActionEvent event){setNode(failures);}
 
-            setNode(failures);
-        }
-        catch (Exception e){
-            System.out.println("vv");
-        }
-
-    }
 
     @FXML
-    private void switchSchedule(ActionEvent event){
-        try {
+    private void switchSchedule(ActionEvent event){setNode(schedule);}
 
-            setNode(schedule);
-        }
-        catch (Exception e){
-            System.out.println("vv");
-        }
 
-    }
+    @FXML
+    private void switchMaintenance(ActionEvent event){ setNode(maintenance);}
 }

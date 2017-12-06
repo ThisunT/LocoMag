@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -12,22 +11,21 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="failureAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../StyleForeman/foremanCss.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="failureAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../StyleForeman/foremanCss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Foreman.Failure.RecoveryAddController">
     <children>
-        <Button layoutX="301.0" layoutY="546.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Submit" />
+        <Button fx:id="btn_submit" layoutX="301.0" layoutY="546.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Submit" />
         <Label layoutX="40.0" layoutY="78.0" prefHeight="26.0" prefWidth="208.0" text="Engine Type:" />
-        <ChoiceBox layoutX="275.0" layoutY="79.0" prefHeight="25.0" prefWidth="102.0" />
         <Label layoutX="453.0" layoutY="83.0" text="Engine No:" />
-        <TextField layoutX="553.0" layoutY="79.0" prefHeight="25.0" prefWidth="77.0" />
-        <Label layoutX="42.0" layoutY="144.0" text="Failure Id:" />
+        <TextField fx:id="txt_engineNo" layoutX="553.0" layoutY="79.0" prefHeight="25.0" prefWidth="77.0" />
+        <Label layoutX="42.0" layoutY="144.0" text="Failure Name:" />
         <Label layoutX="42.0" layoutY="208.0" text="Date:" />
         <Label layoutX="40.0" layoutY="284.0" text="Recovery option taken: " />
-        <DatePicker layoutX="274.0" layoutY="204.0" prefHeight="25.0" prefWidth="129.0" />
-        <TextArea layoutX="275.0" layoutY="273.0" prefHeight="70.0" prefWidth="355.0" />
-        <TextArea layoutX="275.0" layoutY="360.0" prefHeight="70.0" prefWidth="355.0" />
+        <DatePicker fx:id="date_done" layoutX="274.0" layoutY="204.0" prefHeight="25.0" prefWidth="129.0" />
+        <TextArea fx:id="txt_recoveryOption" layoutX="275.0" layoutY="273.0" prefHeight="70.0" prefWidth="355.0" />
+        <TextArea fx:id="txt_note" layoutX="275.0" layoutY="360.0" prefHeight="70.0" prefWidth="355.0" />
         <Label layoutX="42.0" layoutY="378.0" text="Note:" />
         <Label layoutX="40.0" layoutY="479.0" text="Current State of the engine:" />
-        <ComboBox layoutX="274.0" layoutY="475.0" prefHeight="25.0" prefWidth="189.0" />
+        <ComboBox fx:id="combo_engineState" layoutX="274.0" layoutY="475.0" prefHeight="25.0" prefWidth="189.0" />
         <ImageView fitHeight="689.0" fitWidth="372.0" layoutX="728.0" layoutY="2.0" opacity="0.75" pickOnBounds="true">
             <image>
                 <Image url="@../StyleForeman/t3.jpg" />
@@ -36,6 +34,7 @@
                 <DropShadow blurType="ONE_PASS_BOX" height="112.67" offsetX="1.0" offsetY="0.9" radius="91.4175" spread="0.44" width="255.0" />
             </effect>
         </ImageView>
-        <TextField layoutX="274.0" layoutY="140.0" prefHeight="25.0" prefWidth="129.0" />
+      <ComboBox fx:id="combo_engineType" layoutX="274.0" layoutY="79.0" prefHeight="25.0" prefWidth="129.0" />
+      <ComboBox fx:id="combo_failureName" layoutX="275.0" layoutY="131.0" prefHeight="25.0" prefWidth="236.0" />
     </children>
 </AnchorPane>
