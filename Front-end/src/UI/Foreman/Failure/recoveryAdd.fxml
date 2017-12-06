@@ -11,7 +11,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="failureAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../StyleForeman/foremanCss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Foreman.Failure.RecoveryAddController">
+<AnchorPane fx:id="recoveryAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../../UICss.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Foreman.Failure.RecoveryAddController">
     <children>
         <Button fx:id="btn_submit" layoutX="301.0" layoutY="546.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Submit" />
         <Label layoutX="40.0" layoutY="78.0" prefHeight="26.0" prefWidth="208.0" text="Engine Type:" />
@@ -28,7 +28,7 @@
         <ComboBox fx:id="combo_engineState" layoutX="274.0" layoutY="475.0" prefHeight="25.0" prefWidth="189.0" />
         <ImageView fitHeight="689.0" fitWidth="372.0" layoutX="728.0" layoutY="2.0" opacity="0.75" pickOnBounds="true">
             <image>
-                <Image url="@../StyleForeman/t3.jpg" />
+                <Image url="@../../Images/t3.jpg" />
             </image>
             <effect>
                 <DropShadow blurType="ONE_PASS_BOX" height="112.67" offsetX="1.0" offsetY="0.9" radius="91.4175" spread="0.44" width="255.0" />

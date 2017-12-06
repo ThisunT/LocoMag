@@ -11,7 +11,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="failureAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../StyleForeman/foremanCss.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Foreman.Failure.FailureAddController">
+<AnchorPane fx:id="failureAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../../UICss.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Foreman.Failure.FailureAddController">
    <children>
       <Button fx:id="btn_submit" layoutX="315.0" layoutY="527.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Submit" />
       <Label layoutX="38.0" layoutY="58.0" prefHeight="26.0" prefWidth="208.0" text="Engine Class:" />

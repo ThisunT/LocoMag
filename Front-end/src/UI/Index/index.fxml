@@ -16,7 +16,7 @@
         <AnchorPane prefHeight="800.0" prefWidth="190.0" style="-fx-background-color: #4c4743;" BorderPane.alignment="CENTER">
             <children>
 
-                <JFXButton fx:id="btnEmployee" layoutX="1.0" layoutY="489.0" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Employees" textFill="#9e9691">
+                <JFXButton fx:id="btnEmployee" layoutX="1.0" layoutY="489.0" onAction="#switchEmployee" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Employees" textFill="#9e9691">
                     <graphic>
                         <OctIconView fill="#9e9691" glyphName="ORGANIZATION" size="20" />
                     </graphic>

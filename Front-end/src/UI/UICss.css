@@ -80,4 +80,52 @@
     -fx-text-fill: #ffb380;
 }
 
+.label{
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+#btn_submit {
+    -fx-background-color:  #293D52;
+    -fx-border-color: white;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
+ .text-area{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-border-width: 1;
+     -fx-effect: none;
+    -fx-border-color: Black black black black;
 
+}
+
+ .text-field{
+     -fx-background-color: transparent;
+     -fx-text-fill: black;
+     -fx-font-weight: bold;
+     -fx-border-width: 1;
+     -fx-border-color: transparent transparent black transparent;
+ }
+
+.combo-box{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-border-width: 1;
+    -fx-border-color: transparent transparent black transparent;
+}
+
+.date-picker{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-border-width: 1;
+    -fx-border-color: transparent transparent transparent transparent;
+}
+
+/* #txt_active #txt_counteraction #txt_active #txt_dead #txt_description #txt_driverNote #txt_empID #txt_engineNo #txt_idle #txt_nearestYard #txt_note #txt_place #txt_recoveryOption #txt_running #txt_sugessions #txt_time #txt_userName*/
