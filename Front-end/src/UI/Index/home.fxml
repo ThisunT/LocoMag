@@ -8,7 +8,7 @@
     <children>
         <ImageView fitHeight="717.0" fitWidth="1000.0" layoutY="-6.0" pickOnBounds="true">
             <image>
-                <Image url="@../Foreman/StyleForeman/night-scot-at-tamworth.jpg" />
+                <Image url="@../Images/night-scot-at-tamworth.jpg" />
             </image>
         </ImageView>
         <ImageView fitHeight="61.0" fitWidth="200.0" layoutX="417.0" layoutY="-140.0">
@@ -18,7 +18,7 @@
         </ImageView>
         <ImageView fitHeight="139.0" fitWidth="561.0" layoutX="137.0" layoutY="63.0" pickOnBounds="true">
             <image>
-                <Image url="@../Foreman/StyleForeman/SLR.png" />
+                <Image url="@../Images/SLR.png" />
             </image>
         </ImageView>
     </children>

@@ -16,7 +16,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="failureAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../../Foreman/StyleForeman/foremanCss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ATE.AddLoco.AddLocoController">
+<AnchorPane fx:id="addLocoAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../../UICss.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ATE.AddLoco.AddLocoController">
    <children>
       <Button fx:id="btnSubmit" layoutX="320.0" layoutY="629.0" mnemonicParsing="false" onAction="#submitClicked" prefHeight="26.0" prefWidth="110.0" text="Submit" />
       <Label layoutX="40.0" layoutY="67.0" prefHeight="26.0" prefWidth="208.0" text="Engine Type:" />
@@ -61,7 +61,7 @@
       <Label layoutX="40.0" layoutY="201.0" prefHeight="21.0" prefWidth="122.0" text="Shed allocated" />
       <TextArea fx:id="shedAllocated" layoutX="275.0" layoutY="184.0" prefHeight="31.0" prefWidth="355.0" />
       <Label layoutX="40.0" layoutY="516.0" text="Choose Image" />
-      <JFXButton fx:id="imgSelect" layoutX="274.0" layoutY="513.0" prefHeight="21.0" prefWidth="122.0" text="Select path" onAction="#imgSelect">
+      <JFXButton fx:id="imgSelect" layoutX="274.0" layoutY="513.0" onAction="#imgSelect" prefHeight="21.0" prefWidth="122.0" text="Select path">
          <graphic>
             <FontAwesomeIconView glyphName="FOLDER_OPEN" />
          </graphic>

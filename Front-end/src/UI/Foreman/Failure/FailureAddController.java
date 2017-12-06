@@ -32,7 +32,7 @@ import Connection.*;
 public class FailureAddController implements Initializable {
 
 
-    List<String> listComboF = new ArrayList<>(asList("Ground relay tripped","Hot engine","Low oil pressure","Crankcase exhauster failure","Traction motor blower failure","No battery charge","Diesel engine overspeed"));
+    List<String> listComboF = new ArrayList<>(asList("Ground relay tripped","Hot engine","Low oil pressure","Crankcase exhauster failure","Traction motor blower failure","No battery charge","Diesel engine overspeed","other"));
     List<String> listComboR = new ArrayList<>(asList("Main Line","Matale Line","Puttlam Line","Nothern Line","Coastal Line","Kelaniweli Line"));
     List<String> listComboE = new ArrayList<>(asList("M4","M5","M8","M9","M10"));
     List<String> listComboS = new ArrayList<>(asList("Dead","Idle","Active","Running"));

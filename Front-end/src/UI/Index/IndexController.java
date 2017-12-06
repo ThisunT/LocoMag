@@ -49,6 +49,24 @@ public class IndexController implements Initializable{
             }
         }
 
+        else if (UI.setGlobals.user == "ATE") {
+            try {
+                home = FXMLLoader.load(getClass().getResource("home.fxml"));
+                failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
+                schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
+                //trips = FXMLLoader.load(getClass().getResource("Pricing.fxml"));
+                //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
+                //schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
+                maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
+                employees = FXMLLoader.load(getClass().getResource("../ATE/Employee/employeeTab.fxml"));
+                locoposition = FXMLLoader.load(getClass().getResource("../Foreman/LocoPosition/locoPositionTab.fxml"));
+                //setNode(home);
+
+            } catch (IOException ex) {
+                Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
     }
 
     //Set selected node to a content holder
@@ -139,4 +157,9 @@ public class IndexController implements Initializable{
 
     @FXML
     private void switchLocoPosition(ActionEvent event){ setNode(locoposition);}
+
+    @FXML
+    private void switchEmployee(ActionEvent event){ setNode(employees);}
+
+
 }
