@@ -16,24 +16,6 @@ import java.io.IOException;
  */
 public class Update {
 
-    public static void updateLocomotives(){
-        final String targetUrlLocos = "http://localhost:3000/api/locomotive/";
-
-        try {
-            String response = GetRequest.sendGetRequest(targetUrlLocos);
-            try{
-                FileWriter fw=new FileWriter("localDB/locomotives.txt");
-                fw.write(response);
-                fw.close();
-            }catch(Exception e){
-                System.out.println(e.getMessage());
-            }
-
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
     public static void updateLocomotiveImages(){
         final String targetUrlLocoImgs = "http://localhost:3000/api/locomotive/id";
 
@@ -60,4 +42,75 @@ public class Update {
         }
     }
 
+    public static void updateLocomotives(){
+        final String targetUrlLocos = "http://localhost:3000/api/locomotive/";
+
+        try {
+            String response = GetRequest.sendGetRequest(targetUrlLocos);
+            try{
+                FileWriter fw=new FileWriter("localDB/locomotives.txt");
+                fw.write(response);
+                fw.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void updateFailures(){
+        final String targetUrlFailures = "http://localhost:3000/api/failure/";
+
+        try {
+            String response = GetRequest.sendGetRequest(targetUrlFailures);
+            try{
+                FileWriter fw=new FileWriter("localDB/failures.txt");
+                fw.write(response);
+                fw.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void updateTrips(){
+        final String targetUrlTrips = "http://localhost:3000/api/trip/";
+
+        try {
+            String response = GetRequest.sendGetRequest(targetUrlTrips);
+            try{
+                FileWriter fw=new FileWriter("localDB/trips.txt");
+                fw.write(response);
+                fw.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void updateEmployees(){
+        final String targetUrlEmployees = "http://localhost:3000/api/employee/";
+
+        try {
+            String response = GetRequest.sendGetRequest(targetUrlEmployees);
+            try{
+                FileWriter fw=new FileWriter("localDB/employees.txt");
+                fw.write(response);
+                fw.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

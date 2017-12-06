@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dashboard.Schedule.ScheduleController">
+   <children>
+      <ScrollPane fx:id="scrollPane" layoutX="0.0" layoutY="0.0" prefHeight="740.0" prefWidth="1090.0">
+         <content>
+            <AnchorPane prefHeight="725.0" prefWidth="1010.0">
+               <children>
+                  <WebView fx:id="web" prefHeight="718.0" prefWidth="1090.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
