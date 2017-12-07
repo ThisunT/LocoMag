@@ -39,12 +39,11 @@ public class LocomotiveViewer {
                 VBox element = new VBox();
                 LocoProfile locoProfile = new LocoProfile();
                 try {
-                    String engNo = String.valueOf(response.getJSONObject(i).getInt("EngineNumber"));
+                    locoProfile.setTrueImage("UI/Images/locos/"+String.valueOf(response.getJSONObject(i).getInt("EngineNumber"))+".png");
                     locoProfile.setLocoNumber(response.getJSONObject(i).getInt("EngineNumber"));
                     locoProfile.setLocoType(response.getJSONObject(i).getString("EngineType"));
                     locoProfile.setLocoState(response.getJSONObject(i).getString("State"));
                     locoProfile.setLocoPosition(response.getJSONObject(i).getString("Shed"));
-                    locoProfile.setTrueImage("UI/Images/locos/"+String.valueOf(response.getJSONObject(i).getInt("EngineNumber"))+".png");
                 } catch (JSONException e) {
                     System.out.println(e.getMessage());
                 } catch (Exception e) {
@@ -81,12 +80,11 @@ public class LocomotiveViewer {
                 VBox element = new VBox();
                 LocoProfile locoProfile = new LocoProfile();
                 try {
-                    String engNo = String.valueOf(response.getJSONObject(j).getInt("EngineNumber"));
+                    locoProfile.setTrueImage("UI/Images/locos/"+String.valueOf(response.getJSONObject(j).getInt("EngineNumber"))+".png");
                     locoProfile.setLocoNumber(response.getJSONObject(j).getInt("EngineNumber"));
                     locoProfile.setLocoType(response.getJSONObject(j).getString("EngineType"));
                     locoProfile.setLocoState(response.getJSONObject(j).getString("State"));
                     locoProfile.setLocoPosition(response.getJSONObject(j).getString("Shed"));
-                    locoProfile.setTrueImage("UI/Images/locos/"+String.valueOf(response.getJSONObject(j).getInt("EngineNumber"))+".png");
                 } catch (JSONException e) {
                     System.out.println(e.getMessage());
                 } catch (Exception e) {
@@ -120,12 +118,11 @@ public class LocomotiveViewer {
                 VBox element = new VBox();
                 LocoProfile locoProfile = new LocoProfile();
                 try {
-                    String engNo = String.valueOf(response.getJSONObject(k).getInt("EngineNumber"));
+                    locoProfile.setTrueImage("UI/Images/locos/"+String.valueOf(response.getJSONObject(k).getInt("EngineNumber"))+".png");
                     locoProfile.setLocoNumber(response.getJSONObject(k).getInt("EngineNumber"));
                     locoProfile.setLocoType(response.getJSONObject(k).getString("EngineType"));
                     locoProfile.setLocoState(response.getJSONObject(k).getString("State"));
                     locoProfile.setLocoPosition(response.getJSONObject(k).getString("Shed"));
-                    locoProfile.setTrueImage("UI/Images/locos/"+String.valueOf(response.getJSONObject(k).getInt("EngineNumber"))+".png");
                 } catch (JSONException e) {
                     System.out.println(e.getMessage());
                 } catch (Exception e) {
@@ -152,7 +149,16 @@ public class LocomotiveViewer {
     public AnchorPane pages(){
         JSONArray response = DBReader.returnLocomotives();
 
-        int pageCount=((response.length())/6+(response.length())%6);
+        int limitingFac = (response.length())%6;
+        int var;
+        if(limitingFac==0){
+            var=0;
+        }
+        else{
+            var=1;
+        }
+
+        int pageCount=((response.length())/6+var);
         int numberOfObjects = response.length();
 
         pagination = new Pagination(pageCount, 0);
