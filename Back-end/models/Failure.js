@@ -16,7 +16,7 @@ var Failure = {
 
     },
     addFailure: function (failure, callback) {
-        return db.query("insert into failure_occured(loco_ID,failure_ID,trip_ID,place,nearest_yard,occured_time,emp_ID,driver_note,failure_description,recovery_option,foremans_note,ATEs_review,chief_engs_justification,current_state_of_loco) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [failure.engineNumber, failure.failureId, failure.tripId, failure.place, failure.nearestYard, failure.occuredTime, failure.employeeId, failure.driverNote, failure.failureDescription, failure.recoveryOption, failure.foremanNote, failure.ATEReview, failure.cheifEngineerReview, failure.currentState], function (err, count) {
+        return db.query("insert into failure_occured(loco_ID,failure_ID,trip_ID,place,nearest_yard,occured_time,emp_ID,driver_note,failure_description,recovery_option,foremans_note,ATEs_review,chief_engs_justification,current_state_of_loco) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [failure.engineNumber, failure.failureId, failure.tripId, failure.place, failure.nearestYard, failure.occuredTime, failure.employeeId, failure.driverNote, failure.failureDescription, failure.recoveryOption, failure.foremanNote, failure.ATEReview, failure.cheifEngineerReview, failure.currentState, failure.solvedState], function (err, count) {
             if (err) {
                 callback(err, null);
             } else {
