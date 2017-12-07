@@ -51,14 +51,32 @@ public class FailureProfile {
     }
 
     public void setResolvedColor(String bool){
-        if(bool=="1"){
-            resolvedOrNot.setStyle("-fx-background-color: #66BB6A; -fx-text-fill: white; -fx-font-size: 14;");
-            resolvedOrNot.setText("Failure Resolved");
+        if(bool.equals("0")){
+            resolvedOrNot.setStyle("-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 14;");
+            resolvedOrNot.setText("Not Resolved Yet");
             resolvedOrNot.setLayoutX(10.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
         }
+        else if(bool.equals("1")){
+            resolvedOrNot.setStyle("-fx-background-color: #A569BD; -fx-text-fill: white; -fx-font-size: 14;");
+            resolvedOrNot.setText("Foreman has not reviewed");
+            resolvedOrNot.setLayoutX(10.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
+        }
+
+        else if(bool.equals("2")){
+            resolvedOrNot.setStyle("-fx-background-color: #85929E; -fx-text-fill: white; -fx-font-size: 14;");
+            resolvedOrNot.setText("ATE has not reviewed");
+            resolvedOrNot.setLayoutX(10.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
+        }
+
+        else if(bool.equals("3")){
+            resolvedOrNot.setStyle("-fx-background-color: #F4D03F ; -fx-text-fill: white; -fx-font-size: 14;");
+            resolvedOrNot.setText("Chief Engineer has not reviewed");
+            resolvedOrNot.setLayoutX(10.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
+        }
+
         else {
-            resolvedOrNot.setStyle("-fx-background-color: #EF5350   ; -fx-text-fill: white; -fx-font-size: 14;");
-            resolvedOrNot.setText("Not Resolved Yet");
+            resolvedOrNot.setStyle("-fx-background-color: #66BB6A; -fx-text-fill: white; -fx-font-size: 14;");
+            resolvedOrNot.setText("Failure Resolved");
             resolvedOrNot.setLayoutX(10.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
         }
     }

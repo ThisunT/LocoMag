@@ -40,7 +40,7 @@ public class FailureViewer {
                     failureProfile.setPlace(failureResponse.getJSONObject(i).getString("place"));
                     failureProfile.setTime(failureResponse.getJSONObject(i).getString("occured_time"));
                     failureProfile.setRecordedEmployee(DBReader.readByValues("employees","employee_ID",failureResponse.getJSONObject(i).getString("emp_ID"),"name"));
-                    failureProfile.setResolvedColor(String.valueOf(failureResponse.getJSONObject(i).getInt("sloved_state")));
+                    failureProfile.setResolvedColor(String.valueOf(failureResponse.getJSONObject(i).getInt("solved_state")));
                 } catch (JSONException e) {
                     System.out.println(e.getMessage());
                 } catch (Exception e) {
@@ -75,7 +75,7 @@ public class FailureViewer {
                     failureProfile.setPlace(failureResponse.getJSONObject(j).getString("place"));
                     failureProfile.setTime(failureResponse.getJSONObject(j).getString("occured_time"));
                     failureProfile.setRecordedEmployee(DBReader.readByValues("employees","employee_ID",failureResponse.getJSONObject(j).getString("emp_ID"),"name"));
-                    failureProfile.setResolvedColor(String.valueOf(failureResponse.getJSONObject(j).getInt("sloved_state")));
+                    failureProfile.setResolvedColor(String.valueOf(failureResponse.getJSONObject(j).getInt("solved_state")));
                 } catch (JSONException e) {
                     System.out.println(e.getMessage());
                 } catch (Exception e) {
@@ -108,7 +108,7 @@ public class FailureViewer {
                     failureProfile.setPlace(failureResponse.getJSONObject(k).getString("place"));
                     failureProfile.setTime(failureResponse.getJSONObject(k).getString("occured_time"));
                     failureProfile.setRecordedEmployee(DBReader.readByValues("employees","employee_ID",failureResponse.getJSONObject(k).getString("emp_ID"),"name"));
-                    failureProfile.setResolvedColor(String.valueOf(failureResponse.getJSONObject(k).getInt("sloved_state")));
+                    failureProfile.setResolvedColor(String.valueOf(failureResponse.getJSONObject(k).getInt("solved_state")));
                 } catch (JSONException e) {
                     System.out.println(e.getMessage());
                 } catch (Exception e) {

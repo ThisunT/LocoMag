@@ -42,7 +42,6 @@ public class IndexController implements Initializable{
         //Load all fxmls in a cache
         try {
             home = FXMLLoader.load(getClass().getResource("home.fxml"));
-            failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
             schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
             //trips = FXMLLoader.load(getClass().getResource("Pricing.fxml"));
             //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
