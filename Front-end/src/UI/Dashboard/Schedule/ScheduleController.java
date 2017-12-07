@@ -1,4 +1,4 @@
-package UI.Foreman.Schedule;
+package UI.Dashboard.Schedule;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

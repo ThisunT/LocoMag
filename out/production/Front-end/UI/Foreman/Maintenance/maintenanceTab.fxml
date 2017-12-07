@@ -9,28 +9,21 @@
         <TabPane layoutX="124.0" layoutY="32.0" prefHeight="734.0" prefWidth="926.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
 
-                <Tab text="View Failures">
+                <Tab text="View Maintenance done">
 
+                    
                 </Tab>
 
 
-                <Tab text="Add Failure">
+                <Tab text="Add Maintenance Done">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <fx:include source="../Failure/failureAdd.fxml" />
+                                <fx:include source="maintenanceAdd.fxml" />
                             </children></AnchorPane>
                     </content>
                 </Tab>
-            <Tab text="Add Recovery Options Taken">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <fx:include source="recoveryAdd.fxml" />
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
+
 
             </tabs>
         </TabPane>
