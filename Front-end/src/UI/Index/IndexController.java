@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import UI.Dashboard.Failure.FailureViewer;
 import UI.Dashboard.Locomotive.LocomotiveViewer;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
@@ -32,17 +31,12 @@ public class IndexController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         //Load all fxmls in a cache
 
-
-
-        if (UI.setGlobals.user == "Foreman") {
+        if (UI.setGlobals.user.equals("Foreman")) {
             try {
                 home = FXMLLoader.load(getClass().getResource("home.fxml"));
                 failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
-
                 schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
                 trips = FXMLLoader.load(getClass().getResource("../Home/AddTrip.fxml"));
-
-                
                 //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
                 //schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
                 maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
@@ -55,24 +49,23 @@ public class IndexController implements Initializable{
             }
         }
 
-        else if (UI.setGlobals.user == "ATE") {
-            try {
-                home = FXMLLoader.load(getClass().getResource("home.fxml"));
-                failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
+        else {
+            if (UI.setGlobals.user.equals("ATE")) {
+                try {
+                    home = FXMLLoader.load(getClass().getResource("home.fxml"));
+                    failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
+                    schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
+                    trips = FXMLLoader.load(getClass().getResource("../Home/AddTrip.fxml"));
+                    //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
+                    //schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
+                    maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
+                    employees = FXMLLoader.load(getClass().getResource("../ATE/Employee/employeeTab.fxml"));
+                    locoposition = FXMLLoader.load(getClass().getResource("../Foreman/LocoPosition/locoPositionTab.fxml"));
+                    //setNode(home);
 
-                schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
-                trips = FXMLLoader.load(getClass().getResource("../Home/AddTrip.fxml"));
-
-                
-                //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
-                //schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
-                maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
-                employees = FXMLLoader.load(getClass().getResource("../ATE/Employee/employeeTab.fxml"));
-                locoposition = FXMLLoader.load(getClass().getResource("../Foreman/LocoPosition/locoPositionTab.fxml"));
-                //setNode(home);
-
-            } catch (IOException ex) {
-                Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -114,21 +107,6 @@ public class IndexController implements Initializable{
         ft.play();
     }
 
-    private void setNodeFailure(){
-        FailureViewer failureViewer = new FailureViewer();
-        AnchorPane failureViewerAnchor = new AnchorPane();
-        failureViewerAnchor.getChildren().add(failureViewer.pages());
-        holderPane.getChildren().clear();
-        holderPane.getChildren().add(failureViewerAnchor);
-
-        FadeTransition ft = new FadeTransition(Duration.millis(1000));
-        ft.setNode(failureViewerAnchor);
-        ft.setFromValue(0.1);
-        ft.setToValue(1);
-        ft.setCycleCount(1);
-        ft.setAutoReverse(false);
-        ft.play();
-    }
 
 
     @FXML
@@ -169,26 +147,14 @@ public class IndexController implements Initializable{
     }*/
 
     @FXML
-    private void switchFailures(ActionEvent event){
-        setNodeFailure();
-    }
-
-    @FXML
-    private void switchTrips(ActionEvent event){setNode(trips);}
+    private void switchFailures(ActionEvent event){setNode(failures);}
 
 
     @FXML
-    private void switchSchedule(ActionEvent event){
-        try {
+    private void switchSchedule(ActionEvent event){setNode(schedule);}
 
-            setNode(schedule);
-        }
-        catch (Exception e){
-            System.out.println("vv");
-        }
-
-    }
-
+    @FXML
+    private void switchTrips(ActionEvent event){ setNode(trips);}
 
     @FXML
     private void switchMaintenance(ActionEvent event){ setNode(maintenance);}
