@@ -16,10 +16,10 @@ public class DBReader {
         FileReader fr = null;
         String[] textData = new String[1];
         try {
-            fr = new FileReader("localDB/locomotives.txt");
-            BufferedReader txt = new BufferedReader(fr);
-            textData[0] = txt.readLine();
-            txt.close();
+            fr = new FileReader("localDB/locomotives.json");
+            BufferedReader text = new BufferedReader(fr);
+            textData[0] = text.readLine();
+            text.close();
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -39,10 +39,10 @@ public class DBReader {
         FileReader fr = null;
         String[] textData = new String[1];
         try {
-            fr = new FileReader("localDB/failures.txt");
-            BufferedReader txt = new BufferedReader(fr);
-            textData[0] = txt.readLine();
-            txt.close();
+            fr = new FileReader("localDB/failures.json");
+            BufferedReader text = new BufferedReader(fr);
+            textData[0] = text.readLine();
+            text.close();
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -62,10 +62,10 @@ public class DBReader {
         FileReader fr = null;
         String[] textData = new String[1];
         try {
-            fr = new FileReader("localDB/trips.txt");
-            BufferedReader txt = new BufferedReader(fr);
-            textData[0] = txt.readLine();
-            txt.close();
+            fr = new FileReader("localDB/trips.json");
+            BufferedReader text = new BufferedReader(fr);
+            textData[0] = text.readLine();
+            text.close();
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -85,10 +85,10 @@ public class DBReader {
         FileReader fr = null;
         String[] textData = new String[1];
         try {
-            fr = new FileReader("localDB/employees.txt");
-            BufferedReader txt = new BufferedReader(fr);
-            textData[0] = txt.readLine();
-            txt.close();
+            fr = new FileReader("localDB/employees.json");
+            BufferedReader text = new BufferedReader(fr);
+            textData[0] = text.readLine();
+            text.close();
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -108,10 +108,10 @@ public class DBReader {
         FileReader fr = null;
         String[] textData = new String[1];
         try {
-            fr = new FileReader("localDB/User.txt");
-            BufferedReader txt = new BufferedReader(fr);
-            textData[0] = txt.readLine();
-            txt.close();
+            fr = new FileReader("localDB/User.json");
+            BufferedReader text = new BufferedReader(fr);
+            textData[0] = text.readLine();
+            text.close();
 
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
@@ -132,10 +132,10 @@ public class DBReader {
         String[] textData = new String[1];
         String result=null;
         try {
-            fr = new FileReader("localDB/"+file+".txt");
-            BufferedReader txt = new BufferedReader(fr);
-            textData[0] = txt.readLine();
-            txt.close();
+            fr = new FileReader("localDB/"+file+".json");
+            BufferedReader text = new BufferedReader(fr);
+            textData[0] = text.readLine();
+            text.close();
 
             JSONArray jsonArray = null;
             try {
@@ -163,10 +163,10 @@ public class DBReader {
         String[] textData = new String[1];
         String result=null;
         try {
-            fr = new FileReader("localDB/"+file+".txt");
-            BufferedReader txt = new BufferedReader(fr);
-            textData[0] = txt.readLine();
-            txt.close();
+            fr = new FileReader("localDB/"+file+".json");
+            BufferedReader text = new BufferedReader(fr);
+            textData[0] = text.readLine();
+            text.close();
 
             JSONArray jsonArray = null;
             try {
