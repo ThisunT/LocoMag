@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="878.0" stylesheets="@../UICss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Home.AddEmpController">
+   <children>
+      <AnchorPane layoutX="129.0" layoutY="58.0" prefHeight="524.0" prefWidth="651.0">
+         <children>
+            <Label layoutX="34.0" layoutY="69.0" text="Employee ID" />
+            <Label layoutX="34.0" layoutY="130.0" text="Profession" />
+            <Label layoutX="34.0" layoutY="179.0" text="Name" />
+            <Label layoutX="34.0" layoutY="234.0" text="Age" />
+            <Label layoutX="34.0" layoutY="279.0" text="Contact Number" />
+            <Label layoutX="36.0" layoutY="330.0" text="Email" />
+            <TextField fx:id="Txt_ID" layoutX="203.0" layoutY="65.0" prefHeight="25.0" prefWidth="286.0" />
+            <TextField fx:id="Txt_Name" layoutX="203.0" layoutY="167.0" prefHeight="25.0" prefWidth="286.0" />
+            <TextField fx:id="Txt_Ag" layoutX="203.0" layoutY="222.0" prefHeight="25.0" prefWidth="286.0" />
+            <TextField fx:id="Txt_No" layoutX="203.0" layoutY="275.0" onAction="#ValidateNo" prefHeight="25.0" prefWidth="286.0" />
+            <TextField fx:id="Txt_Email" layoutX="203.0" layoutY="326.0" prefHeight="25.0" prefWidth="286.0" />
+            <Label layoutX="35.0" layoutY="381.0" text="Address" />
+            <TextArea fx:id="TA_add" layoutX="203.0" layoutY="359.0" prefHeight="103.0" prefWidth="286.0" />
+            <Button fx:id="btn_Sub" layoutX="368.0" layoutY="478.0" mnemonicParsing="false" onAction="#Submit" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #6E7173; -fx-text-fill: white;" text="Submit" />
+            <ComboBox fx:id="Cmb_Pro" layoutX="203.0" layoutY="126.0" prefHeight="27.0" prefWidth="286.0" />
+            <Button layoutX="32.0" layoutY="472.0" mnemonicParsing="false" onAction="#Reset" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #6E7173; -fx-text-fill: white;" text="Reset" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

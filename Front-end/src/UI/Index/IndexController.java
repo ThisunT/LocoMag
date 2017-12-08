@@ -32,12 +32,17 @@ public class IndexController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         //Load all fxmls in a cache
 
+
+
         if (UI.setGlobals.user == "Foreman") {
             try {
                 home = FXMLLoader.load(getClass().getResource("home.fxml"));
                 failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
-                schedule = FXMLLoader.load(getClass().getResource("/UI/Dashboard/Schedule/schedule.fxml"));
-                //trips = FXMLLoader.load(getClass().getResource("Pricing.fxml"));
+
+                schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
+                trips = FXMLLoader.load(getClass().getResource("../Home/AddTrip.fxml"));
+
+                
                 //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
                 //schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
                 maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
@@ -54,8 +59,11 @@ public class IndexController implements Initializable{
             try {
                 home = FXMLLoader.load(getClass().getResource("home.fxml"));
                 failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
-                schedule = FXMLLoader.load(getClass().getResource("/UI/Dashboard/Schedule/schedule.fxml"));
-                //trips = FXMLLoader.load(getClass().getResource("Pricing.fxml"));
+
+                schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
+                trips = FXMLLoader.load(getClass().getResource("../Home/AddTrip.fxml"));
+
+                
                 //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
                 //schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
                 maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
@@ -164,6 +172,9 @@ public class IndexController implements Initializable{
     private void switchFailures(ActionEvent event){
         setNodeFailure();
     }
+
+    @FXML
+    private void switchTrips(ActionEvent event){setNode(trips);}
 
 
     @FXML
