@@ -1,0 +1,51 @@
+#AP1{
+
+    -fx-background-image: url("../Images/train-station.jpg");
+    -fx-background-size:cover,auto;
+    -fx-border-color: #293D52;
+    -fx-border-width: 5px;
+}
+#AP2{
+    -fx-border-color: #E6FAFF;
+    -fx-background-color:  #FFFFFF;
+    -fx-opacity:0.8;
+
+
+    -fx-effect: dropshadow(gaussian,#E6FAFF , 50, 0, 0, 0);
+
+
+}
+#tf_login{
+    -fx-background-color: transparent;
+    -fx-text-fill:#1C1C45;
+}
+#btn_login{
+    -fx-background-color:  #293D52;
+    -fx-border-color: white;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
+#tf_uname{
+    -fx-background-color: transparent;
+    -fx-text-fill:black;
+    -fx-font-weight: bold;
+    -fx-border-width: 2;
+    -fx-border-color: transparent transparent red transparent ;
+
+
+}
+#btn_pwd{
+    -fx-background-color: transparent;
+    -fx-text-fill:black;
+    -fx-font-weight: bold;
+    -fx-border-width: 2;
+    -fx-border-color: transparent transparent red transparent ;
+
+}
+.glyph-icon{
+    -fx-fill: red;
+}

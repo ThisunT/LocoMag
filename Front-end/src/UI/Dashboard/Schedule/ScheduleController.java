@@ -1,4 +1,4 @@
-package UI.Foreman.Schedule;
+package UI.Dashboard.Schedule;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,17 +15,17 @@ import java.util.ResourceBundle;
  */
 public class ScheduleController implements Initializable {
 
-@FXML
-public WebView web;
-@FXML
-public ScrollPane scrollPane;
+    @FXML
+    public WebView web;
+    @FXML
+    public ScrollPane scrollPane;
 
-        @Override
-        public void initialize(URL location, ResourceBundle resources) {
-            final WebEngine webEngine = web.getEngine();
-            scrollPane.setContent(web);
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        final WebEngine webEngine = web.getEngine();
+        scrollPane.setContent(web);
 
-            webEngine.getLoadWorker().stateProperty();
+        webEngine.getLoadWorker().stateProperty();
                     /*.addListener(new ChangeListener<Worker.State>() {
                         @Override
                         public void changed(ObservableValue ov, Worker.State oldState, Worker.State newState) {
@@ -36,10 +36,10 @@ public ScrollPane scrollPane;
 
                         }
                     });*/
-            webEngine.load("http://colombofort.com/train.schedule.htm");
+        webEngine.load("http://colombofort.com/train.schedule.htm");
 
 
-        }
+    }
 
 
 
