@@ -48,7 +48,7 @@ public class Update {
         try {
             String response = GetRequest.sendGetRequest(targetUrlLocos);
             try{
-                FileWriter fw=new FileWriter("localDB/locomotives.txt");
+                FileWriter fw=new FileWriter("localDB/locomotives.json");
                 fw.write(response);
                 fw.close();
             }catch(Exception e){
@@ -66,7 +66,7 @@ public class Update {
         try {
             String response = GetRequest.sendGetRequest(targetUrlFailures);
             try{
-                FileWriter fw=new FileWriter("localDB/failures.txt");
+                FileWriter fw=new FileWriter("localDB/failures.json");
                 fw.write(response);
                 fw.close();
             }catch(Exception e){
@@ -84,7 +84,7 @@ public class Update {
         try {
             String response = GetRequest.sendGetRequest(targetUrlTrips);
             try{
-                FileWriter fw=new FileWriter("localDB/trips.txt");
+                FileWriter fw=new FileWriter("localDB/trips.json");
                 fw.write(response);
                 fw.close();
             }catch(Exception e){
@@ -102,7 +102,7 @@ public class Update {
         try {
             String response = GetRequest.sendGetRequest(targetUrlEmployees);
             try{
-                FileWriter fw=new FileWriter("localDB/employees.txt");
+                FileWriter fw=new FileWriter("localDB/employees.json");
                 fw.write(response);
                 fw.close();
             }catch(Exception e){
@@ -121,7 +121,7 @@ public class Update {
             String response = GetRequest.sendGetRequest(targetUrlUser);
             System.out.println(response);
             try{
-                FileWriter fw=new FileWriter("localDB/User.txt");
+                FileWriter fw=new FileWriter("localDB/User.json");
                 fw.write(response);
                 fw.close();
             }catch(Exception e){
