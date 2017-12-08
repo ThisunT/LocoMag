@@ -15,8 +15,9 @@
                 </Tab>
 
                 <Tab text="Add Employee">
-
-                </Tab>
+               <content>
+                  <fx:include source="../../Home/AddEmployee.fxml" />
+               </content></Tab>
 
                 <Tab text="Add User">
                     <content>
