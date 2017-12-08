@@ -19,6 +19,9 @@ var router = express.Router();
 var LocomotiveRoute = require("./routes/LocomotiveRoute");
 router.use('/locomotive', LocomotiveRoute);
 
+var UserRoute = require("./routes/UserRoute");
+router.use('/user', UserRoute);
+
 app.use('/api', router);
 
 app.listen(port);

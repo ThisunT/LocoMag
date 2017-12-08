@@ -113,4 +113,23 @@ public class Update {
             System.out.println(e.getMessage());
         }
     }
+
+    public static void updateUser(){
+        final String targetUrlUser = "http://localhost:3000/api/user/";
+
+        try {
+            String response = GetRequest.sendGetRequest(targetUrlUser);
+            System.out.println(response);
+            try{
+                FileWriter fw=new FileWriter("localDB/User.txt");
+                fw.write(response);
+                fw.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

@@ -29,6 +29,7 @@ public class Main extends Application {
         Update.updateFailures();
         Update.updateTrips();
         Update.updateEmployees();
+        Update.updateUser();
         launch(args);
     }
 }

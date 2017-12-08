@@ -16,14 +16,14 @@
 
                 <Tab text="Add Employee">
                <content>
-                  <fx:include source="../../Home/AddEmployee.fxml" />
+                  <fx:include source="AddEmployee.fxml" />
                </content></Tab>
 
-                <Tab text="Add User">
+                <Tab text="Add/Remove User">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <fx:include source="userAdd.fxml" />
+                                <fx:include source="userAddRemove.fxml" />
                             </children>
                         </AnchorPane>
                     </content>
