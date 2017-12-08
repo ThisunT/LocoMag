@@ -18,7 +18,7 @@
 
 <AnchorPane fx:id="addLocoAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../../UICss.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ATE.AddLoco.AddLocoController">
    <children>
-      <Button fx:id="btnSubmit" layoutX="320.0" layoutY="629.0" mnemonicParsing="false" onAction="#submitClicked" prefHeight="26.0" prefWidth="110.0" text="Submit" />
+      <Button fx:id="btnSubmit" layoutX="509.0" layoutY="413.0" mnemonicParsing="false" onAction="#submitClicked" prefHeight="26.0" prefWidth="110.0" text="Submit" />
       <Label layoutX="40.0" layoutY="67.0" prefHeight="26.0" prefWidth="208.0" text="Engine Type:" />
       <ChoiceBox fx:id="engineType" layoutX="275.0" layoutY="70.0" prefHeight="25.0" prefWidth="102.0" value="M6">
          <items>

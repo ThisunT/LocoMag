@@ -10,22 +10,22 @@
             <tabs>
 
 
-                <Tab text="View Employees">
+                <Tab text="View Locomotives">
 
                 </Tab>
 
-                <Tab text="Add Employee">
-
-                </Tab>
-
-                <Tab text="Add / Remove User">
+                <Tab text="Add Loco">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <fx:include source="userAddRemove.fxml" />
+                                <fx:include source="addLoco.fxml" />
                             </children>
                         </AnchorPane>
                     </content>
+                </Tab>
+
+                <Tab text="Add / Remove User">
+
                 </Tab>
 
             </tabs>

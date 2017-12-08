@@ -11,11 +11,7 @@
                 <Image url="@../Images/night-scot-at-tamworth.jpg" />
             </image>
         </ImageView>
-        <ImageView fitHeight="61.0" fitWidth="200.0" layoutX="417.0" layoutY="-140.0">
-            <image>
-                <Image url="@../Images/BlackWelcome_2.gif" />
-            </image>
-        </ImageView>
+
         <ImageView fitHeight="139.0" fitWidth="561.0" layoutX="137.0" layoutY="63.0" pickOnBounds="true">
             <image>
                 <Image url="@../Images/SLR.png" />

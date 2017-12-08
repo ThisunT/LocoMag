@@ -91,25 +91,5 @@ public class FailureAddController implements Initializable {
     }
 
 
-
-    public void onSubmitButtonPress(ActionEvent actionEvent) throws Exception{
-            /*try {
-                int loco_ID = Integer.parseInt(txt_engineNo.getText());//class ekai engine No ekai anuwa ganna
-                int failure_ID =3;//methana faillure type eken  ganna
-                int trip_ID = 3;//date ekai locoId ekai anuwa ganna
-                String place = txt_place.getText();
-                String nearest_yard = txt_nearestYard.getText();
-                Date occured_time =new SimpleDateFormat("HH:mm").parse(txt_time.getText());
-                String loco_state = combo_engineState.getValue();
-                String driver_note =txt_driverNote.getText();
-                String description = txt_description.getText();
-                //FailureOccured failure_occured = new FailureOccured(loco_ID, failure_ID, trip_ID, place, nearest_yard, occured_time, loco_state, driver_note, description);
-                //failure_occured.add();
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }*/
-    }
-
-
+    
 }

@@ -94,6 +94,17 @@
     -fx-font-size: 14px;
     -fx-padding: 10 20 10 20;
 }
+
+#btn_submit1 {
+    -fx-background-color:  #293D52;
+    -fx-border-color: white;
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20 10 20;
+}
  .text-area{
     -fx-background-color: transparent;
     -fx-text-fill: black;

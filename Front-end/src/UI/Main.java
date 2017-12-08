@@ -26,6 +26,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         Update.updateLocomotiveImages();
         Update.updateLocomotives();
+        Update.updateUser();
         launch(args);
     }
 }

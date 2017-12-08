@@ -31,7 +31,7 @@ public class IndexController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         //Load all fxmls in a cache
 
-        if (UI.setGlobals.user == "Foreman") {
+        if (UI.setGlobals.user.equals("Foreman")) {
             try {
                 home = FXMLLoader.load(getClass().getResource("home.fxml"));
                 failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
@@ -49,7 +49,7 @@ public class IndexController implements Initializable{
             }
         }
 
-        else if (UI.setGlobals.user == "ATE") {
+        else if (UI.setGlobals.user.equals("ATE")) {
             try {
                 home = FXMLLoader.load(getClass().getResource("home.fxml"));
                 failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
