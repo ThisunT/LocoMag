@@ -23,19 +23,17 @@ import java.util.ResourceBundle;
 import static java.util.Arrays.asList;
 
 
-/**
- * Created by piumiindeevari on 10/20/2017.
- */
-public class MaintenanceAddController implements Initializable {
+
+public class MaintenanceAddController implements Initializable { //put constant data like comboBox data when load the interface
 
 
-    List<String> listComboN = new ArrayList<>(asList("MName1","MName2","MName3","MName4"));
+    List<String> listComboN = new ArrayList<>(asList("MName1","MName2","MName3","MName4"));// put data of comboBox in String array
     List<String> listComboT = new ArrayList<>(asList("MType1","MType2","MType3","MType4"));
     List<String> listComboE = new ArrayList<>(asList("M4","M5","M8","M9","M10"));
     List<String> listComboS = new ArrayList<>(asList("Dead","Idle","Active","Running"));
 
     @FXML
-    public ComboBox<String> combo_engineClass;
+    public ComboBox<String> combo_engineClass;//
     @FXML
     public ComboBox<String> combo_name;
     @FXML
@@ -47,7 +45,7 @@ public class MaintenanceAddController implements Initializable {
     @FXML
     public TextField txt_engineNo;
     @FXML
-    public DatePicker date_done;
+    public DatePicker date_done;//Pick a date as a local date
     @FXML
     public TextArea txt_note;
     @FXML
@@ -57,7 +55,7 @@ public class MaintenanceAddController implements Initializable {
 
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) {//??
         this.fillCombo_name();
         this.fillCombo_type();
         this.fillCombo_engineClass();
@@ -80,23 +78,23 @@ public class MaintenanceAddController implements Initializable {
     }
 
 
-    public void submit(){//ooooooooooooooooooooo
+    public void submit(){
         MaintenanceDone maintenance= new MaintenanceDone(); //create a object from MaintenanceDone model class
+        //set data to the maintenance object
+        LocalDate localDate = date_done.getValue();//
+        Date date_today1 = java.sql.Date.valueOf(localDate);//
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");//
+        String date_today = df.format(date_today1);//
+        maintenance.setDate(date_today) ; //
+        maintenance.setNote(txt_note.getText());//set data to the stNode() method in model class
+        maintenance.setSuggestion(txt_sugessions.getText());//
 
-        LocalDate localDate = date_done.getValue();
-        Date date_today1 = java.sql.Date.valueOf(localDate);
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        String date_today = df.format(date_today1);
-        maintenance.setDate(date_today) ;
-        maintenance.setNote(txt_note.getText());
-        maintenance.setSuggestion(txt_sugessions.getText());
-
-        String userObject = ObjectToJson.converter(maintenance);
+        String userObject = ObjectToJson.converter(maintenance); //convert maintenance object to jason object using converter method in ObjectToJson class
         System.out.println(userObject);
 
 
         try {
-            PostRequest.sendPostRequest(addMaintenanceUrl,userObject);
+            PostRequest.sendPostRequest(addMaintenanceUrl,userObject);//
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
