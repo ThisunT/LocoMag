@@ -41,23 +41,22 @@ public class IndexController implements Initializable{
         if (switchUser.equals("F")) {
             labl_username.setText("Foreman");
             try {
+                home = FXMLLoader.load(getClass().getResource("home.fxml"));
                 try {
-                    locoBase = FXMLLoader.load(getClass().getResource("../ATE/AddLoco/locoView.fxml"));
+                    locoBase = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 setNodeLoco(locoBase);
                 locomotives = locoBase;
-                home = FXMLLoader.load(getClass().getResource("home.fxml"));
                 failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
-                schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
                 trips = FXMLLoader.load(getClass().getResource("../Foreman/Trip/AddTrip.fxml"));
                 //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
-                //schedule = FXMLLoader.load(getClass().getResource("Widgets.fxml"));
+                schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
                 maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
                 employees = FXMLLoader.load(getClass().getResource("../Foreman/Employee/employeeView.fxml"));
                 locoposition = FXMLLoader.load(getClass().getResource("../Foreman/LocoPosition/locoPositionTab.fxml"));
-                //setNode(home);
+
 
             } catch (IOException ex) {
                 Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
@@ -68,15 +67,15 @@ public class IndexController implements Initializable{
         else if (switchUser.equals("A")) {
             try {
                 labl_username.setText("ATE");
-                locomotives = FXMLLoader.load(getClass().getResource("../ATE/AddLoco/locoTab.fxml"));
                 home = FXMLLoader.load(getClass().getResource("home.fxml"));
-                failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
+                locomotives = FXMLLoader.load(getClass().getResource("../ATE/AddLoco/locoTab.fxml"));
+                failures = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
+                trips = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
+                delays = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
-                trips = FXMLLoader.load(getClass().getResource("../Foreman/Trip/AddTrip.fxml"));
-                //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
-                maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
+                maintenance = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 employees = FXMLLoader.load(getClass().getResource("../ATE/Employee/employeeTab.fxml"));
-                locoposition = FXMLLoader.load(getClass().getResource("../Foreman/LocoPosition/locoPositionTab.fxml"));
+                locoposition = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
 
 
             } catch (IOException ex) {
@@ -89,13 +88,13 @@ public class IndexController implements Initializable{
             try {
                 home = FXMLLoader.load(getClass().getResource("home.fxml"));
                 locomotives = FXMLLoader.load(getClass().getResource("../ChiefEngineer/Locomotive/locoTab.fxml"));
-                failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
+                failures = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
+                trips = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
+                delays = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
-                trips = FXMLLoader.load(getClass().getResource("../Foreman/Trip/AddTrip.fxml"));
-                //delays = FXMLLoader.load(getClass().getResource("Profiles.fxml"));
-                maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
-                employees = FXMLLoader.load(getClass().getResource("../ATE/Employee/employeeTab.fxml"));
-                locoposition = FXMLLoader.load(getClass().getResource("../Foreman/LocoPosition/locoPositionTab.fxml"));
+                maintenance = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
+                employees = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
+                locoposition = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
 
 
             } catch (IOException ex) {
