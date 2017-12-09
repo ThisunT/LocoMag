@@ -119,6 +119,12 @@
                         <Font size="17.0" />
                     </font>
                 </JFXButton>
+            <ImageView fitHeight="44.0" fitWidth="57.0" layoutX="1016.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/avatar.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labl_username" layoutX="1067.0" layoutY="22.0" prefHeight="17.0" prefWidth="111.0" text="Label" textFill="#c3baba" />
             </children>
         </AnchorPane>
     </top>
