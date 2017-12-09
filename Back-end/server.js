@@ -19,8 +19,17 @@ var router = express.Router();
 var LocomotiveRoute = require("./routes/LocomotiveRoute");
 router.use('/locomotive', LocomotiveRoute);
 
-var MaintenanceRoute = require("./routes/MaintenanceRoute");//oooooooooooooooooo
-router.use('/maintenance', MaintenanceRoute);//000000000
+var FailureRoute = require("./routes/FailureRoute");
+router.use('/failure', FailureRoute);
+
+var TripRoute = require("./routes/TripRoute");
+router.use('/trip', TripRoute);
+
+var EmployeeRoute = require("./routes/EmployeeRoute");
+router.use('/employee', EmployeeRoute);
+
+var MaintenanceRoute = require("./routes/MaintenanceRoute");
+router.use('/maintenance', MaintenanceRoute);
 
 var UserRoute = require("./routes/UserRoute");
 router.use('/user', UserRoute);

@@ -1,4 +1,4 @@
-package UI.Index;
+package UI;
 
 
 import Models.User;

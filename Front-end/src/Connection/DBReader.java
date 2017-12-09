@@ -206,11 +206,14 @@ public class DBReader {
 
                 for (int i = 0; i < jsonArray.length(); i++) {
                     try {
-                        if (valueKnown.equals(jsonArray.getJSONObject(i).get(field))) {
+                        if (Integer.parseInt(valueKnown)==(jsonArray.getJSONObject(i).getInt(field))) {
+                            results.put(jsonArray.getJSONObject(i));
+                        }
+                        else if (valueKnown.equals(jsonArray.getJSONObject(i).get(field))) {
                             results.put(jsonArray.getJSONObject(i));
                         }
                     } catch (Exception e) {
-                        if (Integer.parseInt(valueKnown) == jsonArray.getJSONObject(i).getInt(field)) {
+                        if (valueKnown.equals(jsonArray.getJSONObject(i).get(field))) {
                             results.put(jsonArray.getJSONObject(i));
                         }
                     }

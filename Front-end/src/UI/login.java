@@ -1,4 +1,4 @@
-package UI.Index;
+package UI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -7,14 +7,11 @@ package UI.Dashboard.Locomotive;
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
-<<<<<<< HEAD
 import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import javafx.event.EventHandler;
-=======
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
->>>>>>> 8c693f2d18aa091b55ab1ec1cbb8e0ddcfdeed5d
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -42,10 +39,6 @@ public class LocoProfile {
     private ImageView imageView = new ImageView();
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8c693f2d18aa091b55ab1ec1cbb8e0ddcfdeed5d
     public void setLocoNumber(int locoNumber) {
         this.locoNumber.setText(Integer.toString(locoNumber));
     }
@@ -74,10 +67,6 @@ public class LocoProfile {
 
     }
 
-<<<<<<< HEAD
-    public void profileClicked(){
-        System.out.println("click");
-=======
     public AnchorPane profileClicked(){
 
         try {
@@ -96,7 +85,6 @@ public class LocoProfile {
         }
 
         return anchor;
->>>>>>> 8c693f2d18aa091b55ab1ec1cbb8e0ddcfdeed5d
     }
 
     public AnchorPane createLocoProfile() {
@@ -152,8 +140,6 @@ public class LocoProfile {
         circle.setFill(Paint.valueOf("#e5e8eb")); circle.setLayoutX(210.0); circle.setLayoutY(104.0); circle.setRadius(70.0); circle.setStroke(Paint.valueOf("#c3c3c3")); circle.setStrokeType(StrokeType.INSIDE);
 
         anchor.getChildren().addAll(locoNumber, locoType, locoState, locoPosition, pane, circle, imageView);
-
-
 
 
         profile.setOnAction(e->{

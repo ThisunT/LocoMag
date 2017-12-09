@@ -20,10 +20,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.json.JSONArray;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -221,16 +221,36 @@ public class IndexController implements Initializable{
             LocomotiveViewer locomotiveViewer = new LocomotiveViewer();
             if (searchField.getValue().toString().equals("") || searchValue.getText().equals("")){
                 setNode(locomotiveViewer.pages(DBReader.returnLocomotives()));
-            }else {
-                setNode(locomotiveViewer.pages(DBReader.readByFields("Locomotives",searchField.getValue().toString(),searchValue.getText())));
             }
+            else {
+                JSONArray response1=DBReader.readByFields("Locomotives", searchField.getValue().toString(), searchValue.getText());
+                if(response1.toString().equals("[]")){
+                    AnchorPane emptyResponse = new AnchorPane(); emptyResponse.setPrefHeight(400.0); emptyResponse.setPrefWidth(600.0);
+                    Label label = new Label("Error 404: Files not found"); label.setLayoutY(122.0); label.setLayoutX(120.0); label.setPrefHeight(122.0); label.setPrefWidth(375.0); label.setStyle("-fx-font-size: 28");
+                    emptyResponse.getChildren().add(label);
+                    setNode(emptyResponse);
+                }
+                else {
+                    setNode(locomotiveViewer.pages(response1));
+                }
+            }
+
         }
         else if(searchBy.getValue().toString().equals("Failures")){
             FailureViewer failureViewer = new FailureViewer();
             if (searchField.getValue().toString().equals("") || searchValue.getText().equals("")){
                 setNode(failureViewer.pages(DBReader.returnFailures()));
             }else {
-                setNode(failureViewer.pages(DBReader.readByFields("Failures",searchField.getValue().toString(),searchValue.getText())));
+                JSONArray response = DBReader.readByFields("Failures",searchField.getValue().toString(),searchValue.getText());
+                if(response.toString().equals("[]")){
+                    AnchorPane emptyResponse = new AnchorPane(); emptyResponse.setPrefHeight(400.0); emptyResponse.setPrefWidth(600.0);
+                    Label label = new Label("Error 404: Files not found"); label.setLayoutY(122.0); label.setLayoutX(120.0); label.setPrefHeight(122.0); label.setPrefWidth(375.0); label.setStyle("-fx-font-size: 28");
+                    emptyResponse.getChildren().add(label);
+                    setNode(emptyResponse);
+                }
+                else {
+                    setNode(failureViewer.pages(response));
+                }
             }
         }
         /*
@@ -238,15 +258,33 @@ public class IndexController implements Initializable{
             if (searchField.getValue().toString().equals("") || searchValue.getText().equals("")){
                 setNode(LocomotiveViewer.pages(DBReader.returnLocomotives()));
             }else {
-                setNode(LocomotiveViewer.pages(DBReader.readByFields("Employees",searchField.getValue().toString(),searchValue.getText())));
+                JSONArray response = DBReader.readByFields("Employees",searchField.getValue().toString(),searchValue.getText());
+                if(response.toString().equals("[]")){
+                    AnchorPane emptyResponse = new AnchorPane(); emptyResponse.setPrefHeight(400.0); emptyResponse.setPrefWidth(600.0);
+                    Label label = new Label("Error 404: Files not found"); label.setLayoutY(122.0); label.setLayoutX(120.0); label.setPrefHeight(122.0); label.setPrefWidth(375.0); label.setStyle("-fx-font-size: 28");
+                    emptyResponse.getChildren().add(label);
+                    setNode(emptyResponse);
+                }
+                else {
+                    setNode(employeeViewer.pages(response));
+                }
             }
         }
 
         else if(searchBy.getValue().toString().equals("Trips")){
             if (searchField.getValue().toString().equals("") || searchValue.getText().equals("")){
-                setNode(LocomotiveViewer.pages(DBReader.returnLocomotives()));
+                setNode(TripViewer.pages(DBReader.returnTrips()));
             }else {
-                setNode(LocomotiveViewer.pages(DBReader.readByFields("Trips",searchField.getValue().toString(),searchValue.getText())));
+                JSONArray response = DBReader.readByFields("Trips",searchField.getValue().toString(),searchValue.getText());
+                if(response.toString().equals("[]")){
+                    AnchorPane emptyResponse = new AnchorPane(); emptyResponse.setPrefHeight(400.0); emptyResponse.setPrefWidth(600.0);
+                    Label label = new Label("Error 404: Files not found"); label.setLayoutY(122.0); label.setLayoutX(120.0); label.setPrefHeight(122.0); label.setPrefWidth(375.0); label.setStyle("-fx-font-size: 28");
+                    emptyResponse.getChildren().add(label);
+                    setNode(emptyResponse);
+                }
+                else {
+                    setNode(tripViewer.pages(response));
+                }
             }
         }*/
     }
@@ -338,7 +376,7 @@ public class IndexController implements Initializable{
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             ((Node) (event.getSource())).getScene().getWindow().hide();
-            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../login.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setTitle("Login");
