@@ -16,7 +16,7 @@ var Maintenance = {
 
     },
     addWIP: function (maintenance, callback) {
-        return db.query("insert into maintenance_done(maintenance_ID,loco_ID,date,note,	suggestion) values(?,?,?,?,?)", [maintenance.maintenanceId, maintenance.locoId, maintenance.date, maintenance.note, maintenance.suggestion], function (err, count) {
+        return db.query("insert into maintenance_done(date,note,suggestion) values(?,?,?)", [maintenance.date, maintenance.note, maintenance.suggestion], function (err, count) {//oooooooooooooooooo
             if (err) {
                 callback(err, null);
             } else {
