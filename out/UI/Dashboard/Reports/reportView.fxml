@@ -9,45 +9,45 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dashboard.Reports.ReportViewController">
    <children>
-      <ImageView fitHeight="421.0" fitWidth="617.0" layoutY="-5.0" opacity="0.64" pickOnBounds="true">
+      <ImageView fitHeight="421.0" fitWidth="617.0" layoutY="-5.0" opacity="0.8" pickOnBounds="true">
          <image>
-            <Image url="@../../Images/report2.jpg" />
+            <Image url="@../../Images/repo.jpg" />
          </image>
       </ImageView>
       <Button layoutX="224.0" layoutY="97.0" mnemonicParsing="false" onAction="#Failures" prefHeight="37.0" prefWidth="182.0" text="Engine Failures">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font size="16.0" />
          </font>
          <effect>
-            <InnerShadow choke="0.83" color="#120946" height="32.86" radius="18.1525" width="41.75" />
+            <InnerShadow />
          </effect></Button>
       <Button layoutX="224.0" layoutY="237.0" mnemonicParsing="false" onAction="#rout" prefHeight="25.0" prefWidth="182.0" text=" Routes">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font size="16.0" />
          </font>
          <effect>
-            <InnerShadow choke="0.83" color="#120946" height="32.86" radius="18.1525" width="41.75" />
+            <InnerShadow />
          </effect></Button>
       <Button layoutX="224.0" layoutY="188.0" mnemonicParsing="false" onAction="#Loco" prefHeight="37.0" prefWidth="182.0" text="Loco Classes">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font size="16.0" />
          </font>
          <effect>
-            <InnerShadow choke="0.83" color="#120946" height="32.86" radius="18.1525" width="41.75" />
+            <InnerShadow />
          </effect></Button>
       <Button layoutX="224.0" layoutY="285.0" mnemonicParsing="false" onAction="#Trip" prefHeight="37.0" prefWidth="182.0" text="Trips">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font size="16.0" />
          </font>
          <effect>
-            <InnerShadow choke="0.83" color="#120946" height="32.86" radius="18.1525" width="41.75" />
+            <InnerShadow />
          </effect></Button>
       <Button layoutX="224.0" layoutY="145.0" mnemonicParsing="false" onAction="#failureOcuured" prefHeight="37.0" prefWidth="182.0" text="Failure Occured">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font size="16.0" />
          </font>
          <effect>
-            <InnerShadow choke="0.83" color="#120946" height="32.86" radius="18.1525" width="41.75" />
+            <InnerShadow />
          </effect></Button>
    </children>
 </AnchorPane>
