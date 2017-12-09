@@ -16,7 +16,7 @@ public class DBReader {
         FileReader fr = null;
         String[] textData = new String[1];
         try {
-            fr = new FileReader("localDB/locomotives.json");
+            fr = new FileReader("localDB/Locomotives.json");
             BufferedReader text = new BufferedReader(fr);
             textData[0] = text.readLine();
             text.close();
@@ -39,7 +39,7 @@ public class DBReader {
         FileReader fr = null;
         String[] textData = new String[1];
         try {
-            fr = new FileReader("localDB/failures.json");
+            fr = new FileReader("localDB/Failures.json");
             BufferedReader text = new BufferedReader(fr);
             textData[0] = text.readLine();
             text.close();
@@ -62,7 +62,7 @@ public class DBReader {
         FileReader fr = null;
         String[] textData = new String[1];
         try {
-            fr = new FileReader("localDB/trips.json");
+            fr = new FileReader("localDB/Trips.json");
             BufferedReader text = new BufferedReader(fr);
             textData[0] = text.readLine();
             text.close();
@@ -85,7 +85,7 @@ public class DBReader {
         FileReader fr = null;
         String[] textData = new String[1];
         try {
-            fr = new FileReader("localDB/employees.json");
+            fr = new FileReader("localDB/Employees.json");
             BufferedReader text = new BufferedReader(fr);
             textData[0] = text.readLine();
             text.close();
@@ -187,5 +187,45 @@ public class DBReader {
             System.out.println(e.getMessage());
         }
         return result;
+    }
+
+    public static JSONArray readByFields(String file, String field, String valueKnown) {
+        FileReader fr = null;
+        String[] textData = new String[1];
+        JSONArray results = null;
+        try {
+            fr = new FileReader("localDB/" + file + ".json");
+            BufferedReader text = new BufferedReader(fr);
+            textData[0] = text.readLine();
+            text.close();
+
+            JSONArray jsonArray = null;
+            results = new JSONArray();
+            try {
+                jsonArray = new JSONArray(textData[0]);
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    try {
+                        if (valueKnown.equals(jsonArray.getJSONObject(i).get(field))) {
+                            results.put(jsonArray.getJSONObject(i));
+                        }
+                    } catch (Exception e) {
+                        if (Integer.parseInt(valueKnown) == jsonArray.getJSONObject(i).getInt(field)) {
+                            results.put(jsonArray.getJSONObject(i));
+                        }
+                    }
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.print(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return results;
     }
 }

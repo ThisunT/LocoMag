@@ -48,7 +48,7 @@ public class Update {
         try {
             String response = GetRequest.sendGetRequest(targetUrlLocos);
             try{
-                FileWriter fw=new FileWriter("localDB/locomotives.json");
+                FileWriter fw=new FileWriter("localDB/Locomotives.json");
                 fw.write(response);
                 fw.close();
             }catch(Exception e){
@@ -66,7 +66,7 @@ public class Update {
         try {
             String response = GetRequest.sendGetRequest(targetUrlFailures);
             try{
-                FileWriter fw=new FileWriter("localDB/failures.json");
+                FileWriter fw=new FileWriter("localDB/Failures.json");
                 fw.write(response);
                 fw.close();
             }catch(Exception e){
@@ -84,7 +84,7 @@ public class Update {
         try {
             String response = GetRequest.sendGetRequest(targetUrlTrips);
             try{
-                FileWriter fw=new FileWriter("localDB/trips.json");
+                FileWriter fw=new FileWriter("localDB/Trips.json");
                 fw.write(response);
                 fw.close();
             }catch(Exception e){
@@ -102,7 +102,7 @@ public class Update {
         try {
             String response = GetRequest.sendGetRequest(targetUrlEmployees);
             try{
-                FileWriter fw=new FileWriter("localDB/employees.json");
+                FileWriter fw=new FileWriter("localDB/Employees.json");
                 fw.write(response);
                 fw.close();
             }catch(Exception e){

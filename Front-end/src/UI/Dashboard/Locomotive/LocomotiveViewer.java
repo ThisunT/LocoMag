@@ -189,4 +189,47 @@ public class LocomotiveViewer {
         anchor1.getChildren().add(scrollPane);
         return anchor1;
     }
+
+    public AnchorPane pages(JSONArray response){
+
+        int limitingFac = (response.length())%6;
+        int var;
+        if(limitingFac==0){
+            var=0;
+        }
+        else{
+            var=1;
+        }
+
+        int pageCount=((response.length())/6+var);
+        int numberOfObjects = response.length();
+
+        pagination = new Pagination(pageCount, 0);
+        pagination.setPrefHeight(720.0); pagination.setPrefWidth(1090.0);
+        pagination.setPageFactory(new Callback<Integer, Node>() {
+            @Override
+            public Node call(Integer pageIndex) {
+                return createPage(numberOfObjects, pageIndex, response);
+            }
+        });
+
+        AnchorPane anchor = new AnchorPane();
+        anchor.prefWidth(1090.0); anchor.prefHeight(740.0); anchor.setStyle("-fx-background-color: #f1f1f1;");
+        AnchorPane.setTopAnchor(pagination, 10.0);
+        AnchorPane.setRightAnchor(pagination, 10.0);
+        AnchorPane.setBottomAnchor(pagination, 5.0);
+        AnchorPane.setLeftAnchor(pagination, 10.0);
+        anchor.getChildren().add(pagination);
+
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setLayoutX(0.0); scrollPane.setLayoutY(0.0);
+        scrollPane.setPrefHeight(740.0); scrollPane.setPrefWidth(1090.0);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        scrollPane.setContent(anchor);
+
+        AnchorPane anchor1 = new AnchorPane();
+        anchor.prefWidth(1090.0); anchor.prefHeight(740.0); anchor.setStyle("-fx-background-color: #f1f1f1;");
+        anchor1.getChildren().add(scrollPane);
+        return anchor1;
+    }
 }

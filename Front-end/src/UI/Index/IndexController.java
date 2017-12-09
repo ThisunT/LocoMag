@@ -1,8 +1,13 @@
 package UI.Index;
 
+import Connection.DBReader;
+import UI.Dashboard.Failure.FailureViewer;
 import UI.Dashboard.Locomotive.LocomotiveViewer;
 import UI.setGlobals;
+import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,15 +15,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -31,6 +36,21 @@ public class IndexController implements Initializable{
 
     @FXML
     public  AnchorPane holderPane;
+
+    @FXML
+    public Pane searchPane;
+
+    @FXML
+    public JFXButton btnSearchDummy;
+
+    @FXML
+    public ComboBox searchField;
+
+    @FXML
+    public ComboBox searchBy;
+
+    @FXML
+    public TextField searchValue;
 
     @FXML
     private Label labl_username;
@@ -151,15 +171,95 @@ public class IndexController implements Initializable{
         ft.play();
     }
 
+    boolean visibility = false;
 
+    @FXML
+    private void searchDummyClicked(){
+        if(!visibility){
+            searchPane.setVisible(true);
+            visibility=true;
+        }
+        else {
+            searchPane.setVisible(false);
+            visibility = false;
+        }
+
+    }
+
+    @FXML
+    private void searchByCompositeClicked(){
+        if(searchBy.getValue().toString().equals("SeachBy")){
+
+        }
+        else if(searchBy.getValue().toString().equals("Locomotives")){
+            ObservableList<String> list = FXCollections.observableArrayList("EngineNumber","EngineType","Shed","State");
+            searchField.setItems(list);
+        }
+
+        else if(searchBy.getValue().toString().equals("Failures")){
+            ObservableList<String> list = FXCollections.observableArrayList("ID","loco_ID","failure_ID","trip_ID","nearest_yard");
+            searchField.setItems(list);
+        }
+
+        else if(searchBy.getValue().toString().equals("Employees")){
+            ObservableList<String> list = FXCollections.observableArrayList("employee_ID","profession","nic");
+            searchField.setItems(list);
+        }
+
+        else if(searchBy.getValue().toString().equals("Trips")){
+            ObservableList<String> list = FXCollections.observableArrayList("ID","route_ID","loco_ID","driver_ID","");
+            searchField.setItems(list);
+        }
+    }
+
+    @FXML
+    private void btnSearchClicked(){
+        if(searchBy.getValue().toString().equals("SearchBy")){
+
+        }
+        else if(searchBy.getValue().toString().equals("Locomotives")){
+            LocomotiveViewer locomotiveViewer = new LocomotiveViewer();
+            if (searchField.getValue().toString().equals("") || searchValue.getText().equals("")){
+                setNode(locomotiveViewer.pages(DBReader.returnLocomotives()));
+            }else {
+                setNode(locomotiveViewer.pages(DBReader.readByFields("Locomotives",searchField.getValue().toString(),searchValue.getText())));
+            }
+        }
+        else if(searchBy.getValue().toString().equals("Failures")){
+            FailureViewer failureViewer = new FailureViewer();
+            if (searchField.getValue().toString().equals("") || searchValue.getText().equals("")){
+                setNode(failureViewer.pages(DBReader.returnFailures()));
+            }else {
+                setNode(failureViewer.pages(DBReader.readByFields("Failures",searchField.getValue().toString(),searchValue.getText())));
+            }
+        }
+        /*
+        else if(searchBy.getValue().toString().equals("Employees")){
+            if (searchField.getValue().toString().equals("") || searchValue.getText().equals("")){
+                setNode(LocomotiveViewer.pages(DBReader.returnLocomotives()));
+            }else {
+                setNode(LocomotiveViewer.pages(DBReader.readByFields("Employees",searchField.getValue().toString(),searchValue.getText())));
+            }
+        }
+
+        else if(searchBy.getValue().toString().equals("Trips")){
+            if (searchField.getValue().toString().equals("") || searchValue.getText().equals("")){
+                setNode(LocomotiveViewer.pages(DBReader.returnLocomotives()));
+            }else {
+                setNode(LocomotiveViewer.pages(DBReader.readByFields("Trips",searchField.getValue().toString(),searchValue.getText())));
+            }
+        }*/
+    }
 
     @FXML
     private void switchLocomotives(ActionEvent event) {
+        searchPane.setVisible(false);
         setNode(locomotives);
     }
 
     @FXML
     private void switchHome(ActionEvent event) {
+        searchPane.setVisible(false);
         setNode(home);
     }
 
@@ -191,26 +291,40 @@ public class IndexController implements Initializable{
     }*/
 
     @FXML
-    private void switchFailures(ActionEvent event){setNode(failures);}
+    private void switchFailures(ActionEvent event){
+        searchPane.setVisible(false);
+        setNode(failures);}
 
     @FXML
-    private void switchSchedule(ActionEvent event){setNode(schedule);}
+    private void switchSchedule(ActionEvent event){
+        searchPane.setVisible(false);
+        setNode(schedule);}
 
     @FXML
-    private void switchTrips(ActionEvent event){ setNode(trips);}
+    private void switchTrips(ActionEvent event){
+        searchPane.setVisible(false);
+        setNode(trips);}
 
     @FXML
-    private void switchMaintenance(ActionEvent event){ setNode(maintenance);}
+    private void switchMaintenance(ActionEvent event){
+        searchPane.setVisible(false);
+        setNode(maintenance);}
 
     @FXML
-    private void switchLocoPosition(ActionEvent event){ setNode(locoposition);}
+    private void switchLocoPosition(ActionEvent event){
+        searchPane.setVisible(false);
+        setNode(locoposition);}
 
     @FXML
-    private void switchEmployee(ActionEvent event){ setNode(employees);}
+    private void switchEmployee(ActionEvent event){
+        searchPane.setVisible(false);
+        setNode(employees);}
 
 
     @FXML
-    private void switchReports(ActionEvent event){ setNode(report);}
+    private void switchReports(ActionEvent event){
+        searchPane.setVisible(false);
+        setNode(report);}
 
 
 

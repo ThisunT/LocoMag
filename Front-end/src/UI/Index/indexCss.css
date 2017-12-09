@@ -15,6 +15,13 @@
     -fx-border-color: #433e3a;
     -fx-border-width: 0px 2px 0px 0px;
 }
+
+#searchPane{
+    -fx-border-style: solid;
+    -fx-border-color: #433e3a;
+    -fx-border-width: 0px 2px 0px 0px;
+}
+
 #user{
     -fx-background-color:#f1f1f1;
 }

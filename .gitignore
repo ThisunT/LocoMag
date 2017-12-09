@@ -1,0 +1,9 @@
+
+*.xml
+*.html
+Back-end/npm-debug.log
+Front-end/Front-end.iml
+Front-end/Front-end.iml
+Back-end/npm-debug.log
+*.log
+*.iml
