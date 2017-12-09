@@ -19,6 +19,9 @@ var router = express.Router();
 var LocomotiveRoute = require("./routes/LocomotiveRoute");
 router.use('/locomotive', LocomotiveRoute);
 
+var MaintenanceRoute = require("./routes/MaintenanceRoute");//oooooooooooooooooo
+router.use('/maintenance', MaintenanceRoute);//000000000
+
 var UserRoute = require("./routes/UserRoute");
 router.use('/user', UserRoute);
 

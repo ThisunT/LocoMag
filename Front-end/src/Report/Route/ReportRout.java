@@ -1,4 +1,4 @@
-package Report.Rout;
+package Report.Route;
 
 import Connection.DBReader;
 import net.sf.jasperreports.engine.*;
@@ -25,7 +25,7 @@ public class ReportRout extends JFrame {
 
     public void generateReportRout() throws JRException, ClassNotFoundException, SQLException {
 
-        File file = new File("C:\\Users\\Toshiba®\\Documents\\GitHub\\report-LocoMag\\Front-end\\src\\Report\\Rout\\Routs.jrxml");
+        File file = new File("C:\\Users\\Toshiba®\\Documents\\GitHub\\report-LocoMag\\Front-end\\src\\Report\\Route\\Routs.jrxml");
 
         try {
             JasperDesign jd  = JRXmlLoader.load(new FileInputStream(file));

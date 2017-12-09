@@ -21,7 +21,7 @@
          <effect>
             <InnerShadow />
          </effect></Button>
-      <Button layoutX="224.0" layoutY="237.0" mnemonicParsing="false" onAction="#rout" prefHeight="25.0" prefWidth="182.0" text=" Routs">
+      <Button layoutX="224.0" layoutY="237.0" mnemonicParsing="false" onAction="#rout" prefHeight="25.0" prefWidth="182.0" text=" Routes">
          <font>
             <Font size="16.0" />
          </font>
