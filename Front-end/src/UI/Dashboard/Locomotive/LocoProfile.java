@@ -3,19 +3,29 @@ package UI.Dashboard.Locomotive;
 /**
  * Created by Thisun Pathirage on 10/13/2017.
  */
+
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
+<<<<<<< HEAD
 import de.jensd.fx.glyphs.materialicons.MaterialIconView;
 import javafx.event.EventHandler;
+=======
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+>>>>>>> 8c693f2d18aa091b55ab1ec1cbb8e0ddcfdeed5d
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 import java.awt.event.ActionEvent;
 
@@ -32,6 +42,10 @@ public class LocoProfile {
     private ImageView imageView = new ImageView();
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8c693f2d18aa091b55ab1ec1cbb8e0ddcfdeed5d
     public void setLocoNumber(int locoNumber) {
         this.locoNumber.setText(Integer.toString(locoNumber));
     }
@@ -44,9 +58,9 @@ public class LocoProfile {
         this.locoState.setText(locoState);
     }
 
-    public void setLocoPosition(String locoPosition) {
-        this.locoPosition.setText(locoPosition);
-    }
+    public void setLocoPosition(String locoPosition) { this.locoPosition.setText(locoPosition); }
+
+
 
     public void setTrueImage(String url){
         if(url=="UI/Images/train.png"){
@@ -60,8 +74,29 @@ public class LocoProfile {
 
     }
 
+<<<<<<< HEAD
     public void profileClicked(){
         System.out.println("click");
+=======
+    public AnchorPane profileClicked(){
+
+        try {
+
+            VarLoco.EngineTyp= locoType.getText();
+            VarLoco.EngineNo=locoNumber.getText();
+            System.out.println(VarLoco.EngineTyp);
+            System.out.println(VarLoco.EngineNo);
+            Parent root = FXMLLoader.load(getClass().getResource("locomotiveProfile.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Sri Lanka Railways Motive Power sub Department - Engine Failure management System");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return anchor;
+>>>>>>> 8c693f2d18aa091b55ab1ec1cbb8e0ddcfdeed5d
     }
 
     public AnchorPane createLocoProfile() {
@@ -94,6 +129,8 @@ public class LocoProfile {
         fAiv.setWrappingWidth(22.0);
         locoPosition.setGraphic(fAiv);
 
+
+
         pane.setLayoutY(200.0); pane.prefHeight(50.0); pane.prefWidth(300.0); pane.setStyle("-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 1;");
 
         profile.setOnAction(e -> {
@@ -116,7 +153,17 @@ public class LocoProfile {
 
         anchor.getChildren().addAll(locoNumber, locoType, locoState, locoPosition, pane, circle, imageView);
 
+
+
+
+        profile.setOnAction(e->{
+            profileClicked();
+        });
+
         return anchor;
     }
+
+
+
 }
 
