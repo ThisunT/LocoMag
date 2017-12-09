@@ -66,7 +66,7 @@ public class loginController implements Initializable {
                         Parent root = FXMLLoader.load(getClass().getResource("index.fxml"));
                         Stage stage = new Stage();
                         stage.setScene(new Scene(root));
-                        stage.setTitle("Main");
+                        stage.setTitle("Sri Lanka Railways Motive Power sub Department - Engine Failure management System");
                         stage.show();
 
                     }
