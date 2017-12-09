@@ -1,4 +1,4 @@
-package UI.Home;
+package UI.Foreman.Trip;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,7 +37,7 @@ public class AddTripController implements Initializable {
     public TextField Txt_Ag2;
     public Button btn_sub;
 
-    ObservableList<String> list = FXCollections.observableArrayList("M", "W", "S");
+    ObservableList<String> list = FXCollections.observableArrayList("M4", "M5", "M8","M9","M9");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

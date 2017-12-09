@@ -2,6 +2,7 @@ package UI.Index;
 
 
 import Models.User;
+import UI.setGlobals;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -53,6 +54,7 @@ public class loginController implements Initializable {
 
             String username = tf_uname.getText();
             String pwd = btn_pwd.getText();
+            setGlobals.user = username;
             JSONArray response = DBReader.returnUser();
             Boolean userIn = false;
             for (int i = 0; i < response.length(); i++) {
