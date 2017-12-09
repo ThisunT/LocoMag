@@ -1,5 +1,12 @@
 package UI.Index;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.Optional;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import UI.Dashboard.Locomotive.LocomotiveViewer;
 import UI.setGlobals;
 import javafx.animation.FadeTransition;
@@ -17,12 +24,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.Optional;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static UI.Index.loginController.infoBox;
 
 /**
  * Created by Thisun Pathirage on 9/7/2017.
@@ -36,7 +38,7 @@ public class IndexController implements Initializable{
     private Label labl_username;
 
     @FXML
-    public AnchorPane home,failures,schedule,locomotives,trips,delays,maintenance, employees, locoposition, locoBase,report;
+    public AnchorPane home,failures,schedule,locomotives,trips,delays,maintenance, employees, locoposition, locoBase;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -62,7 +64,6 @@ public class IndexController implements Initializable{
                 maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
                 employees = FXMLLoader.load(getClass().getResource("../Foreman/Employee/employeeView.fxml"));
                 locoposition = FXMLLoader.load(getClass().getResource("../Foreman/LocoPosition/locoPositionTab.fxml"));
-                report= FXMLLoader.load(getClass().getResource("../Dashboard/Reports/reportView.fxml"));
 
 
             } catch (IOException ex) {
@@ -83,7 +84,6 @@ public class IndexController implements Initializable{
                 maintenance = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 employees = FXMLLoader.load(getClass().getResource("../ATE/Employee/employeeTab.fxml"));
                 locoposition = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
-                report= FXMLLoader.load(getClass().getResource("../Dashboard/Reports/reportView.fxml"));
 
 
             } catch (IOException ex) {
@@ -103,7 +103,6 @@ public class IndexController implements Initializable{
                 maintenance = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 employees = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 locoposition = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
-                report= FXMLLoader.load(getClass().getResource("../Dashboard/Reports/reportView.fxml"));
 
 
             } catch (IOException ex) {
@@ -207,12 +206,6 @@ public class IndexController implements Initializable{
 
     @FXML
     private void switchEmployee(ActionEvent event){ setNode(employees);}
-
-
-    @FXML
-    private void switchReports(ActionEvent event){ setNode(report);}
-
-
 
     @FXML
     private void logoutPressed(ActionEvent event) throws Exception{
