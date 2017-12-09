@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@indexCss.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Index.IndexController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@indexCss.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Index.IndexController">
     <left>
         <AnchorPane prefHeight="800.0" prefWidth="190.0" style="-fx-background-color: #4c4743;" BorderPane.alignment="CENTER">
             <children>
@@ -56,6 +56,14 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
+                <JFXButton fx:id="btnReports" layoutY="543.0" onAction="#switchReports" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Reports" textFill="#9e9691">
+                    <graphic>
+                        <MaterialDesignIconView fill="#9e9691" glyphName="NOTE_TEXT" size="20" />
+                    </graphic>
+                    <font>
+                        <Font name="Raleway-Bold" size="15.0" />
+                    </font>
+                </JFXButton>
                 <JFXButton fx:id="btnDelay" layoutX="1.0" layoutY="327.0" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Delays" textFill="#9e9691">
                     <graphic>
                         <OctIconView fill="#9e9691" glyphName="HISTORY" size="20" text="" />
@@ -72,7 +80,7 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnPosition" layoutY="543.0" onAction="#switchLocoPosition" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Loco Position" textFill="#9e9691">
+                <JFXButton fx:id="btnPosition" layoutY="596.0" onAction="#switchLocoPosition" prefHeight="58.0" prefWidth="192.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Loco Position" textFill="#9e9691">
                     <graphic>
                         <MaterialDesignIconView fill="#9e9691" glyphName="HOME_VARIANT" size="20" />
                     </graphic>
