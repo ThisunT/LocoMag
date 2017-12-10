@@ -231,4 +231,29 @@ public class DBReader {
         }
         return results;
     }
+
+    public static String syncState(){
+        FileReader fr = null;
+        String[] textData = new String[1];
+        try {
+            fr = new FileReader("localDB/Sync.json");
+            BufferedReader text = new BufferedReader(fr);
+            textData[0] = text.readLine();
+            text.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        JSONArray jsonArray = null;
+        String state = null;
+        try {
+            jsonArray = new JSONArray(textData[0]);
+            state = jsonArray.getJSONObject(0).get("state").toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return state;
+    }
 }

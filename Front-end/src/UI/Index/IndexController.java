@@ -80,7 +80,7 @@ public class IndexController implements Initializable{
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (synchronising.synId == 2){
+                    if (synchronising.synId == Integer.parseInt(DBReader.syncState())){
                         btnSync.setStyle("-fx-background-color: #388E3C ");
                         btnSync.setText("Updated");
                     }
