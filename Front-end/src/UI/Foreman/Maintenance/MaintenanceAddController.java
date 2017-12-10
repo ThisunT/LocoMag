@@ -2,6 +2,7 @@ package UI.Foreman.Maintenance;
 
 //import Model.FailureOccured;
 //import UI.Index.Connect;
+
 import Connection.ObjectToJson;
 import Connection.PostRequest;
 import Models.MaintenanceDone;
@@ -96,11 +97,25 @@ public class MaintenanceAddController implements Initializable {
         String userObject = ObjectToJson.converter(maintenance);
         System.out.println(userObject);
      try {
-            PostRequest.sendPostRequest(addMaintenanceUrl,userObject);
+
+
+         PostRequest.sendPostRequest(addMaintenanceUrl,userObject);
+         txt_sugessions.clear();
+         txt_engineNo.clear();
+         txt_note.clear();
+         date_done.getEditor().clear();
+         combo_engineClass.setValue(null);
+         combo_engineState.setValue(null);
+         combo_name.setValue(null);
+         combo_type.setValue(null);
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
 
+
+
     }
+
+
 }
 
