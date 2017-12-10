@@ -1,6 +1,7 @@
 package UI.Index;
 
 import Connection.DBReader;
+import Connection.GetRequest;
 import Connection.Synchronising;
 import Connection.Update;
 import UI.Dashboard.Failure.FailureViewer;
@@ -8,10 +9,13 @@ import UI.Dashboard.Locomotive.LocomotiveViewer;
 import UI.setGlobals;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +28,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import javax.rmi.CORBA.Util;
 import java.io.IOException;
@@ -71,10 +76,11 @@ public class IndexController implements Initializable{
         Synchronising synchronising = new Synchronising();
         synchronising.synchronise();
 
-        Thread saveIt = new Thread(new Runnable() {
-            @Override public void run() {
+        Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
                 try {
-                    if (synchronising.synId == 1){
+                    if (synchronising.synId == 2){
                         btnSync.setStyle("-fx-background-color: #388E3C ");
                         btnSync.setText("Updated");
                     }
@@ -86,9 +92,10 @@ public class IndexController implements Initializable{
                     System.out.println(ex.getMessage());
                 }
             }
-        });
-        saveIt.setDaemon(true);
-        saveIt.start();
+        }));
+        fiveSecondsWonder.setCycleCount(Timeline.INDEFINITE);
+        fiveSecondsWonder.play();
+
 
 
 
