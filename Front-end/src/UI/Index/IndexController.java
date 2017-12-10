@@ -100,7 +100,8 @@ public class IndexController implements Initializable{
                 delays = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 failures = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
-                maintenance = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
+                //maintenance = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
+                maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
                 employees = FXMLLoader.load(getClass().getResource("../ATE/Employee/employeeTab.fxml"));
                 locoposition = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 report= FXMLLoader.load(getClass().getResource("../Dashboard/Reports/reportView.fxml"));
