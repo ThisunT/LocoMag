@@ -47,5 +47,15 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="com.cloudinary:cloudinary-http44:1.17.0" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../lib/jasper" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/../lib/jasper" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>

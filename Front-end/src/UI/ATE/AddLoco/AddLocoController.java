@@ -44,7 +44,7 @@ public class AddLocoController {
 
     private File imgFile;
 
-    private String addLocoUrl = "http://localhost:3000/api/locomotive";
+        private String addLocoUrl = "http://localhost:3000/api/locomotive/";
 
 
     public void imgSelect(){
@@ -55,19 +55,12 @@ public class AddLocoController {
 
     }
 
-    public void getImg(){
-        try {
-            GetImage.download("sample_id");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     public void submitClicked(){
 
         Locomotive loco = new Locomotive();
         loco.setEngineNumber(Integer.parseInt(engineNo.getText()));
-        loco.setEngineType((String) engineType.getValue());
+        loco.setEngineType(engineType.getValue().toString());
         loco.setManufacturedDay(dateManufactured.getValue());
         loco.setManufacturer(manufacturer.getText());
         loco.setShed(shedAllocated.getText());

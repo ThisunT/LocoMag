@@ -34,6 +34,9 @@ router.use('/maintenance', MaintenanceRoute);
 var UserRoute = require("./routes/UserRoute");
 router.use('/user', UserRoute);
 
+var SyncRoute = require("./routes/SyncRoute");
+router.use('/sync', SyncRoute);
+
 app.use('/api', router);
 
 app.listen(port);

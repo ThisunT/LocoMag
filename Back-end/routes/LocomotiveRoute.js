@@ -49,15 +49,5 @@ router.delete('/:id',function(req, res){
     })
 })
 
-/*router.post('/:id', function(req, res){
-    Locomotive.updateLocomotive(req.params.id , req.body , function(err, rows){
-        if(err){
-            res.status(400)
-            res.json(err)
-        }else{
-            res.json(rows);
-        }
-    });
-});*/
 
 module.exports=router;

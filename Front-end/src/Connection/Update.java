@@ -132,4 +132,13 @@ public class Update {
             System.out.println(e.getMessage());
         }
     }
+
+    public static void updateAll(){
+        updateLocomotives();
+        updateFailures();
+        updateTrips();
+        updateLocomotiveImages();
+        updateUser();
+        updateEmployees();
+    }
 }
