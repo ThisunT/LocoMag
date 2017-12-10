@@ -92,14 +92,18 @@ public class MaintenanceAddController implements Initializable {
         maintenance.setType(combo_type.getValue());
         maintenance.setName(combo_name.getValue());
         maintenance.setEngineClass(combo_engineClass.getValue());
-        maintenance.setCurrentState(combo_engineState.getId());
+        maintenance.setCurrentState(combo_engineState.getValue());
 
         String userObject = ObjectToJson.converter(maintenance);
         System.out.println(userObject);
      try {
+         validation();
+         PostRequest.sendPostRequest(addMaintenanceUrl, userObject);
 
 
-         PostRequest.sendPostRequest(addMaintenanceUrl,userObject);
+         // JOptionPane.showMessageDialog(null, "Successfully");
+
+         //clear input data
          txt_sugessions.clear();
          txt_engineNo.clear();
          txt_note.clear();
@@ -108,12 +112,35 @@ public class MaintenanceAddController implements Initializable {
          combo_engineState.setValue(null);
          combo_name.setValue(null);
          combo_type.setValue(null);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
+
+
+     }
+     catch (IOException e){
+        System.out.println(e.getMessage());
+     }
+
+
+
+    }
+    public void validation(){
+        if (( txt_note.getText().isEmpty())|| txt_engineNo.getText() == null || txt_note.getText().isEmpty()
+            ||(txt_sugessions.getText() == null || txt_sugessions.getText().isEmpty())||(combo_type.getValue() == null || combo_type.getValue().isEmpty()
+        )||(combo_name.getValue() == null || combo_name.getValue().isEmpty())||(combo_engineState.getValue() == null || combo_engineState.getValue().isEmpty()
+        )||(combo_engineClass.getValue() == null || combo_engineClass.getValue().isEmpty())||(date_done.getEditor() == null )
+                )
+
+        {
+            Alert fail = new Alert(Alert.AlertType.INFORMATION);
+            fail.setHeaderText("failure");
+            fail.setContentText("you havent typed something");
+            fail.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Success");
+            alert.setContentText("Account succesfully created!");
+            alert.showAndWait();
+
         }
-
-
-
     }
 
 
