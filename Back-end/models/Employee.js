@@ -20,7 +20,7 @@ var Employee = {
             if (err) {
                 callback(err, null);
             } else {
-                db.query("SHOW TABLE STATUS LIKE 'trip'", callback);
+                db.query("SHOW TABLE STATUS LIKE 'employee'", callback);
             }
         })
     },

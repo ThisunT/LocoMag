@@ -1,5 +1,8 @@
 package UI.ATE.Employee;
 
+import Connection.ObjectToJson;
+import Connection.PostRequest;
+import Models.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -7,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -22,6 +26,8 @@ public class AddEmpController implements Initializable {
     public TextArea TA_add;
     public Button btn_Sub;
     public ComboBox<String> Cmb_Pro;
+
+    private String addEmpUrl = "http://localhost:3000/api/employee";
 
     @FXML
     ObservableList<String> list = FXCollections.observableArrayList("Chief Engineer", "ATE", "Forman", "Driver", "Gaurd");
@@ -68,8 +74,39 @@ public class AddEmpController implements Initializable {
     public void Submit(ActionEvent actionEvent){
         if (ValidateFields()){
             try {
+                try {
+                    Employee user = new Employee();
 
-            }catch (Exception e){
+
+                    user.setEmployeeId(Integer.parseInt(Txt_ID.getText()));
+                    user.setProfession((String)Cmb_Pro.getValue());
+                    user.setName(Txt_Name.getText());
+                    user.setAge(Integer.parseInt(Txt_Ag.getText()));
+                    user.setContactNumber(Txt_No.getText());
+                    user.setEmail(Txt_Email.getText());
+                    user.setAddress(TA_add.getText());
+
+
+                    String userObject = ObjectToJson.converter(user);
+                    System.out.println(userObject);
+
+                    try {
+                        PostRequest.sendPostRequest(addEmpUrl,userObject);
+
+                    }catch (IOException e){
+                        System.out.println(e.getMessage());
+                    }
+
+                }catch (Exception e){
+                    e.printStackTrace();
+
+                }
+
+                Success("Successful",null,"Successfully updated");
+
+
+
+        }catch (Exception e){
                 e.printStackTrace();
 
             }
@@ -83,6 +120,15 @@ public static void Warning(String Title, String Header, String Content){
     alert.setHeaderText(Header);
     alert.setContentText(Content);
     alert.showAndWait();
+
+}
+public static  void Success(String Title, String Header, String Content){
+    Alert alert=new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle(Title);
+    alert.setHeaderText(Header);
+    alert.setContentText(Content);
+    alert.showAndWait();
+
 
 }
     public void Reset(ActionEvent actionEvent){

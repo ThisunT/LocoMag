@@ -76,7 +76,7 @@ public class IndexController implements Initializable{
                 setNodeLoco(locoBase);
                 locomotives = locoBase;
                 failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
-                trips = FXMLLoader.load(getClass().getResource("../Foreman/Trip/AddTrip.fxml"));
+                trips = FXMLLoader.load(getClass().getResource("../Foreman/Trip/TripTab.fxml"));
                 delays = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
                 maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
@@ -96,7 +96,7 @@ public class IndexController implements Initializable{
             try {
                 home = FXMLLoader.load(getClass().getResource("home.fxml"));
                 locomotives = FXMLLoader.load(getClass().getResource("../ATE/AddLoco/locoTab.fxml"));
-                trips = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
+                trips = FXMLLoader.load(getClass().getResource("../Foreman/Trip/TripTab.fxml"));
                 delays = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 failures = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
