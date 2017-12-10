@@ -1,16 +1,21 @@
 package UI.Foreman.Trip;
 
+import Connection.ObjectToJson;
+import Connection.PostRequest;
+import Models.Trip;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
+import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
@@ -20,39 +25,30 @@ public class AddTripController implements Initializable {
 
     @FXML
     public ComboBox<String> cmbbox;
-    public ComboBox<String> cmbbox2;
-    public ComboBox<String> cmbbox3;
-    public ComboBox<String> cmbbox4;
+
     public TextField txt_En;
     public TextField txt_Dr;
     public TextField Txt_Ag;
-    public TextField Txt_En2;
-    public TextField Txt_Dr2;
-    public TextField Txt_En3;
-    public TextField Txt_Dr3;
-    public TextField Txt_Ag3;
-    public TextField Txt_En4;
-    public TextField Txt_Dr4;
-    public TextField Txt_Ag4;
-    public TextField Txt_Ag2;
-    public Button btn_sub;
 
-    ObservableList<String> list = FXCollections.observableArrayList("M4", "M5", "M8","M9","M9");
+    public Button btn_sub;
+    public DatePicker date;
+    public TextField Txt_Rid;
+
+
+    private String addTripUrl = "http://localhost:3000/api/trip/";
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cmbbox.setItems(list);
-        cmbbox2.setItems(list);
-        cmbbox3.setItems(list);
-        cmbbox4.setItems(list);
+
 
     }
 
     private boolean ValidateFields() {
-        if (txt_En.getText().isEmpty() | txt_Dr.getText().isEmpty()| Txt_Ag.getText().isEmpty() |cmbbox.getSelectionModel().isEmpty()|
-                Txt_En2.getText().isEmpty()| Txt_Dr2.getText().isEmpty()| Txt_Ag2.getText().isEmpty()|cmbbox2.getSelectionModel().isEmpty()|
-                Txt_En3.getText().isEmpty()| Txt_Dr3.getText().isEmpty()| Txt_Ag3.getText().isEmpty()|cmbbox3.getSelectionModel().isEmpty()|
-                Txt_En4.getText().isEmpty()| Txt_Dr4.getText().isEmpty()| Txt_Ag4.getText().isEmpty()|cmbbox4.getSelectionModel().isEmpty()){
+        if (txt_En.getText().isEmpty() | txt_Dr.getText().isEmpty()| Txt_Ag.getText().isEmpty() |Txt_Rid.getText().isEmpty()
+
+               ){
 
 
 
@@ -72,6 +68,35 @@ public class AddTripController implements Initializable {
 public void Submit(ActionEvent actionEvent)throws Exception{
     if (ValidateFields()){
         try {
+            Trip trip=new Trip();
+
+            LocalDate localDate = date.getValue();
+            Date date_today1 = java.sql.Date.valueOf(localDate);
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            String date_today = df.format(date_today1);
+            trip.setDate(date_today);
+            trip.setLocoId(Integer.parseInt(txt_En.getText()));
+            trip.setRouteId(Integer.parseInt(Txt_Rid.getText()));
+            trip.setDriverId(Integer.parseInt(txt_Dr.getText()));
+            trip.setGuardId(Integer.parseInt(Txt_Ag.getText()));
+            trip.setRouteId(Integer.parseInt(Txt_Rid.getText()));
+
+
+
+
+
+
+
+
+
+            String tripObject = ObjectToJson.converter(trip);
+            System.out.println(tripObject);
+
+            try {
+                PostRequest.sendPostRequest(addTripUrl,tripObject);
+            }catch (IOException e){
+                System.out.println(e.getMessage());
+            }
 
         }catch (Exception e){
             e.printStackTrace();
@@ -85,20 +110,12 @@ public void Reset(ActionEvent actionEvent){
     txt_En.setText("");
     txt_Dr.setText("");
     Txt_Ag.setText("");
-    Txt_En2.setText("");
-    Txt_Dr2.setText("");
-    Txt_Ag2.setText("");
-    Txt_En3.setText("");
-    Txt_Dr3.setText("");
-    Txt_Ag3.setText("");
-    Txt_En4.setText("");
-    Txt_Dr4.setText("");
-    Txt_Ag4.setText("");
-    cmbbox.setItems(null);
-    cmbbox2.setItems(null);
-    cmbbox3.setItems(null);
-    cmbbox4.setItems(null);
+    Txt_Rid.setText("");
+
 }
+
+
+
 
 
 
