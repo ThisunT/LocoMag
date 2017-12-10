@@ -1,1 +1,3 @@
-[]
+
+[{"ID":2,"loco_ID":45,"failure_ID":"Hot engine","trip_ID":6,"place":"Badulla","nearest_yard":"BDL","date":"","occured_time":"10:30","emp_ID":"D5","driver_note":"Engine boiled","failure_description":"RAth wela kaduna","recovery_option":"Ane danne na","foremans_note":"","ATEs_review":"","chief_engs_justification":"","current_state_of_loco":"","solved_state":0},{"ID":3,"loco_ID":159,"failure_ID":"Low oil pressure","trip_ID":7,"place":"Akueressa","nearest_yard":"MTR","date":"","occured_time":"13:30","emp_ID":"D2","driver_note":"Pili penna","failure_description":"fault in the railway","recovery_option":"Renovate railway","foremans_note":"","ATEs_review":"","chief_engs_justification":"","current_state_of_loco":"","solved_state":1}]
+

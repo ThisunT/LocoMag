@@ -1,11 +1,14 @@
 package UI.Index;
 
 import Connection.DBReader;
+import Connection.Synchronising;
+import Connection.Update;
 import UI.Dashboard.Failure.FailureViewer;
 import UI.Dashboard.Locomotive.LocomotiveViewer;
 import UI.setGlobals;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,12 +25,15 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.json.JSONArray;
 
+import javax.rmi.CORBA.Util;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static UI.loginController.infoBox;
 
 /**
  * Created by Thisun Pathirage on 9/7/2017.
@@ -41,7 +47,7 @@ public class IndexController implements Initializable{
     public Pane searchPane;
 
     @FXML
-    public JFXButton btnSearchDummy;
+    public JFXButton btnSearchDummy, btnSync;
 
     @FXML
     public ComboBox searchField;
@@ -61,6 +67,31 @@ public class IndexController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //Load all fxmls in a cache
+
+        Synchronising synchronising = new Synchronising();
+        synchronising.synchronise();
+
+        Thread saveIt = new Thread(new Runnable() {
+            @Override public void run() {
+                try {
+                    if (synchronising.synId == 1){
+                        btnSync.setStyle("-fx-background-color: #388E3C ");
+                        btnSync.setText("Updated");
+                    }
+                    else{
+                        btnSync.setStyle("-fx-background-color: #EC7063");
+                        btnSync.setText("Updates Available");
+                    }
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+        });
+        saveIt.setDaemon(true);
+        saveIt.start();
+
+
+
         String switchUser = (setGlobals.user).substring(0,1);
 
 
@@ -98,7 +129,6 @@ public class IndexController implements Initializable{
                 locomotives = FXMLLoader.load(getClass().getResource("../ATE/AddLoco/locoTab.fxml"));
                 trips = FXMLLoader.load(getClass().getResource("../Foreman/Trip/TripTab.fxml"));
                 delays = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
-                failures = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
                 //maintenance = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
@@ -148,6 +178,23 @@ public class IndexController implements Initializable{
 
         FadeTransition ft = new FadeTransition(Duration.millis(500));
         ft.setNode(node);
+        ft.setFromValue(0.1);
+        ft.setToValue(1);
+        ft.setCycleCount(1);
+        ft.setAutoReverse(false);
+        ft.play();
+    }
+
+    public void setNodeFailure(){
+
+        FailureViewer failureViewer = new FailureViewer();
+        AnchorPane failureViewereAnchor = new AnchorPane();
+        failureViewereAnchor.getChildren().add(failureViewer.pages());
+        holderPane.getChildren().clear();
+        holderPane.getChildren().add(failureViewereAnchor);
+
+        FadeTransition ft = new FadeTransition(Duration.millis(1000));
+        ft.setNode(failureViewereAnchor);
         ft.setFromValue(0.1);
         ft.setToValue(1);
         ft.setCycleCount(1);
@@ -302,37 +349,11 @@ public class IndexController implements Initializable{
         setNode(home);
     }
 
-    /*@FXML
-    private void switchContacts(ActionEvent event) {
-        setNode(contacts);
-    }
-    @FXML
-    private void switchWidget(ActionEvent event) {
-        setNode(widgets);
-    }
-    @FXML
-    private void switchProfile(ActionEvent event) {
-        setNode(profiles);
-    }
-    @FXML
-    private void switchAlert(ActionEvent event) {
-        setNode(alerts);
-    }
-    @FXML
-    private void switchControls(ActionEvent event) {
-        setNode(controls);
-    }
-    */
-
-    /*@FXML
-    private void switchTab(ActionEvent event){
-        transPane();
-    }*/
 
     @FXML
     private void switchFailures(ActionEvent event){
-        searchPane.setVisible(false);
-        setNode(failures);}
+        setNodeFailure();
+    }
 
     @FXML
     private void switchSchedule(ActionEvent event){
@@ -365,6 +386,11 @@ public class IndexController implements Initializable{
         searchPane.setVisible(false);
         setNode(report);}
 
+    @FXML
+    private void syncButtonClicked(ActionEvent event){
+        Update.updateAll();
+        infoBox("Update Successful", "Success", null);
+    }
 
 
     @FXML

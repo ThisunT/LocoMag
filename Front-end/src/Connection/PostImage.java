@@ -20,7 +20,7 @@ public class PostImage {
         System.out.println(filename);
         Map uploadResult = null;
         try {
-            uploadResult = cloudinary.uploader().upload(toUpload.toString(), ObjectUtils.asMap("public_id", filename, "transformation", new Transformation().radius("max").width(512).height(512).crop("fit").fetchFormat("png")));
+            uploadResult = cloudinary.uploader().upload(toUpload.toString(), ObjectUtils.asMap("public_id", filename, "transformation", new Transformation().radius("max").width(256).height(256).crop("fill").fetchFormat("png")));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
