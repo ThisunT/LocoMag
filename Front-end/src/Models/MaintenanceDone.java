@@ -1,8 +1,6 @@
 package Models;
 
-/**
- * Created by piumiindeevari on 12/5/2017.
- */
+
 public class MaintenanceDone {
 
    // private int maintenanceId;
@@ -10,7 +8,16 @@ public class MaintenanceDone {
     private String date;//Should change in the db
     private String note;
     private String suggestion;
-   // private String currentState;//should add to db
+    private String engineNo;
+    private String engineClass;
+    private String type;
+    private String name;
+    private String currentState;
+
+
+
+
+    // private String currentState;//should add to db
 
    // public int getMaintenanceId() {
    //     return maintenanceId;
@@ -33,9 +40,7 @@ public class MaintenanceDone {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
+    public void setDate(String date) {this.date = date;}
 
     public String getNote() {
         return note;
@@ -52,14 +57,40 @@ public class MaintenanceDone {
     public void setSuggestion(String suggestion) {
         this.suggestion = suggestion;
     }
-}
 
-//    public String getCurrentState() {
-//        return currentState;
-//    }
-//
-//    public void setCurrentState(String currentState) {
-//        this.currentState = currentState;
-//    }
-//}
+    public String getCurrentState() {return currentState;}
+
+    public void setCurrentState(String currentState) {this.currentState = currentState;}
+
+    public String getEngineNo() {
+        return engineNo;
+    }
+
+    public void setEngineNo(String engineNo) {
+        this.engineNo = engineNo;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {this.type =type;}
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEngineClass() {
+        return engineClass;
+    }
+
+    public void setEngineClass(String engineClass) {
+        this.engineClass = engineClass;
+    }
+
+}
 

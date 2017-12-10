@@ -1,6 +1,4 @@
-/**
- * Created by Thisun Pathirage on 12/5/2017.
- */
+
 var express = require('express')
 var router = express.Router()
 var Maintenance=require('../models/Maintenance')

@@ -2,6 +2,7 @@ package UI.Foreman.Maintenance;
 
 //import Model.FailureOccured;
 //import UI.Index.Connect;
+
 import Connection.ObjectToJson;
 import Connection.PostRequest;
 import Models.MaintenanceDone;
@@ -23,9 +24,6 @@ import java.util.ResourceBundle;
 import static java.util.Arrays.asList;
 
 
-/**
- * Created by piumiindeevari on 10/20/2017.
- */
 public class MaintenanceAddController implements Initializable {
 
 
@@ -90,19 +88,61 @@ public class MaintenanceAddController implements Initializable {
         maintenance.setDate(date_today) ;
         maintenance.setNote(txt_note.getText());
         maintenance.setSuggestion(txt_sugessions.getText());
+        maintenance.setEngineNo(txt_engineNo.getText());
+        maintenance.setType(combo_type.getValue());
+        maintenance.setName(combo_name.getValue());
+        maintenance.setEngineClass(combo_engineClass.getValue());
+        maintenance.setCurrentState(combo_engineState.getValue());
 
         String userObject = ObjectToJson.converter(maintenance);
         System.out.println(userObject);
+     try {
+         validation();
+         PostRequest.sendPostRequest(addMaintenanceUrl, userObject);
 
 
-        try {
-            PostRequest.sendPostRequest(addMaintenanceUrl,userObject);
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
+         // JOptionPane.showMessageDialog(null, "Successfully");
+
+         //clear input data
+         txt_sugessions.clear();
+         txt_engineNo.clear();
+         txt_note.clear();
+         date_done.getEditor().clear();
+         combo_engineClass.setValue(null);
+         combo_engineState.setValue(null);
+         combo_name.setValue(null);
+         combo_type.setValue(null);
+
+
+     }
+     catch (IOException e){
+        System.out.println(e.getMessage());
+     }
 
 
 
     }
+    public void validation(){
+        if (( txt_note.getText().isEmpty())|| txt_engineNo.getText() == null || txt_note.getText().isEmpty()
+            ||(txt_sugessions.getText() == null || txt_sugessions.getText().isEmpty())||(combo_type.getValue() == null || combo_type.getValue().isEmpty()
+        )||(combo_name.getValue() == null || combo_name.getValue().isEmpty())||(combo_engineState.getValue() == null || combo_engineState.getValue().isEmpty()
+        )||(combo_engineClass.getValue() == null || combo_engineClass.getValue().isEmpty())||(date_done.getEditor() == null )
+                )
+
+        {
+            Alert fail = new Alert(Alert.AlertType.INFORMATION);
+            fail.setHeaderText("failure");
+            fail.setContentText("you havent typed something");
+            fail.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Success");
+            alert.setContentText("Account succesfully created!");
+            alert.showAndWait();
+
+        }
+    }
+
+
 }
 

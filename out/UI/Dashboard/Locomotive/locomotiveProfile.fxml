@@ -36,6 +36,6 @@
       </TableView>
       <Label layoutX="49.0" layoutY="450.0" text="Failures occured:" />
       <ImageView fx:id="imageLoco" fitHeight="150.0" fitWidth="200.0" layoutX="283.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" />
-      
+
    </children>
 </AnchorPane>
