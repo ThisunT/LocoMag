@@ -1,6 +1,4 @@
-/**
- * Created by Thisun Pathirage on 12/5/2017.
- */
+
 var db = require('../database/mysqlConnection');
 
 var Maintenance = {
@@ -16,7 +14,7 @@ var Maintenance = {
 
     },
     addWIP: function (maintenance, callback) {
-        return db.query("insert into maintenance_done(date,note,suggestion) values(?,?,?)", [maintenance.date, maintenance.note, maintenance.suggestion], function (err, count) {//oooooooooooooooooo
+        return db.query("insert into added_maintain(date,note,suggestion,name,type,current_state_of_engine,engine_class,engine_no) values(?,?,?,?,?,?,?,?)", [maintenance.date, maintenance.note, maintenance.suggestion,maintenance.name,maintenance.type,maintenance.engineNo,maintenance.engineClass,maintenance.currentState], function (err, count) {//oooooooooooooooooo
             if (err) {
                 callback(err, null);
             } else {

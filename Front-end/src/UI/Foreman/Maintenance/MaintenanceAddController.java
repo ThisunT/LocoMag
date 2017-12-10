@@ -23,9 +23,6 @@ import java.util.ResourceBundle;
 import static java.util.Arrays.asList;
 
 
-/**
- * Created by piumiindeevari on 10/20/2017.
- */
 public class MaintenanceAddController implements Initializable {
 
 
@@ -90,18 +87,19 @@ public class MaintenanceAddController implements Initializable {
         maintenance.setDate(date_today) ;
         maintenance.setNote(txt_note.getText());
         maintenance.setSuggestion(txt_sugessions.getText());
+        maintenance.setEngineNo(txt_engineNo.getText());
+        maintenance.setType(combo_type.getValue());
+        maintenance.setName(combo_name.getValue());
+        maintenance.setEngineClass(combo_engineClass.getValue());
+        maintenance.setCurrentState(combo_engineState.getId());
 
         String userObject = ObjectToJson.converter(maintenance);
         System.out.println(userObject);
-
-
-        try {
+     try {
             PostRequest.sendPostRequest(addMaintenanceUrl,userObject);
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
-
-
 
     }
 }

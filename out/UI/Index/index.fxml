@@ -3,7 +3,9 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import de.jensd.fx.glyphs.octicons.OctIconView?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +13,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@indexCss.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Index.IndexController">
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@indexCss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Index.IndexController">
     <left>
         <AnchorPane prefHeight="800.0" prefWidth="190.0" style="-fx-background-color: #4c4743;" BorderPane.alignment="CENTER">
             <children>
@@ -92,18 +96,18 @@
         </AnchorPane>
     </left>
     <center>
-        <AnchorPane fx:id="holderPane" prefHeight="740.0" prefWidth="1090.0" BorderPane.alignment="TOP_LEFT">
+        <AnchorPane fx:id="holderPane" prefHeight="740.0" prefWidth="1080.0" BorderPane.alignment="TOP_LEFT">
             <children>
-                <AnchorPane fx:id="holderDash" layoutY="6.0" prefHeight="736.0" prefWidth="665.0" />
+                <AnchorPane fx:id="holderDash" layoutY="14.0" prefHeight="736.0" prefWidth="665.0" />
                 <fx:include source="home.fxml" />
 
             </children>
         </AnchorPane>
     </center>
     <top>
-        <AnchorPane prefHeight="38.0" prefWidth="1280.0" style="-fx-background-color: #4c4743;" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="60.0" prefWidth="1291.0" style="-fx-background-color: #4c4743;" BorderPane.alignment="CENTER">
             <children>
-                <Pane prefHeight="60.0" prefWidth="190.0" style="-fx-background-color: #fd5f3a;">
+                <Pane prefHeight="60.0" prefWidth="192.0" style="-fx-background-color: #fd5f3a;">
                     <children>
                         <ImageView fx:id="locoLogo" fitHeight="46.0" fitWidth="51.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -117,7 +121,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <JFXButton fx:id="btnHome" layoutX="190.0" onAction="#switchHome" prefHeight="60.0" prefWidth="220.0" text=" ">
+                <JFXButton fx:id="btnHome" layoutX="191.0" onAction="#switchHome" prefHeight="60.0" prefWidth="87.0" text=" ">
                     <graphic>
                         <MaterialDesignIconView fill="#9e9691" glyphName="HOME" size="40" />
                     </graphic>
@@ -127,12 +131,38 @@
                         <Font size="17.0" />
                     </font>
                 </JFXButton>
-            <ImageView fitHeight="44.0" fitWidth="57.0" layoutX="1016.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="44.0" fitWidth="57.0" layoutX="1025.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/avatar.png" />
                </image>
             </ImageView>
-            <Label fx:id="labl_username" layoutX="1067.0" layoutY="22.0" prefHeight="17.0" prefWidth="111.0" text="Label" textFill="#c3baba" />
+            <Label fx:id="labl_username" layoutX="1072.0" layoutY="22.0" prefHeight="21.0" prefWidth="85.0" text="Label" textFill="#c3baba" />
+            <JFXButton fx:id="btnSearchDummy" layoutX="278.0" layoutY="1.0" onAction="#searchDummyClicked" prefHeight="59.0" prefWidth="65.0" text=" " textFill="#fd5f3a">
+               <graphic>
+                  <MaterialDesignIconView fill="#fd5f3a" glyphName="MAGNIFY" size="20" />
+               </graphic>
+            </JFXButton>
+            <Pane fx:id="searchPane" layoutX="349.0" prefHeight="60.0" prefWidth="568.0" visible="false">
+               <children>
+                  <ComboBox fx:id="searchBy" layoutX="2.0" layoutY="12.0" onAction="#searchByCompositeClicked" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #9c948f;" value="SearchBy">
+                       <items>
+                           <FXCollections fx:factory="observableArrayList">
+                               <String fx:value="Locomotives" />
+                               <String fx:value="Failures" />
+                               <String fx:value="Employees" />
+                               <String fx:value="Trips" />
+                           </FXCollections>
+                       </items>
+                  </ComboBox>
+                  <ComboBox fx:id="searchField" layoutX="140.0" layoutY="12.0" prefHeight="31.0" prefWidth="128.0" style="-fx-background-color: #9c948f;" />
+                  <TextField fx:id="searchValue" layoutX="282.0" layoutY="14.0" />
+                  <JFXButton fx:id="btnSearch" layoutX="483.0" layoutY="15.0" onAction="#btnSearchClicked" text="Search" textFill="#fd5f3a">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </Pane>
             </children>
         </AnchorPane>
     </top>

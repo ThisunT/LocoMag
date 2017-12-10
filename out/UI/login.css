@@ -1,6 +1,6 @@
 #AP1{
 
-    -fx-background-image: url("../Images/train-station.jpg");
+    -fx-background-image: url("Images/train-station.jpg");
     -fx-background-size:cover,auto;
     -fx-border-color: #293D52;
     -fx-border-width: 5px;
