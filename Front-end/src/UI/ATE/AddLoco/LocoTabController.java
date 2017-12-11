@@ -16,16 +16,14 @@ import java.util.ResourceBundle;
 /**
  * Created by piumiindeevari on 10/20/2017.
  */
-public class LocoTabController implements Initializable {
+public class LocoTabController {
 
     @FXML
     private Tab viewLocoTab;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize() {
         try {
-            AnchorPane locoBase = FXMLLoader.load(getClass().getResource("../../Dashboard/emptyView.fxml"));
-            UI.Index.IndexController.setNodeLoco(locoBase);
+            AnchorPane locoBase = FXMLLoader.load(getClass().getResource("/UI/Index/home.fxml"));
             viewLocoTab.setContent(locoBase);
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,8 +1,7 @@
-package UI.Dashboard.Locomotive;
+package UI.Dashboard.Employee;
 
 import Connection.DBReader;
-import Connection.GetImage;
-import Connection.Update;
+import UI.Dashboard.Employee.EmployeeProfile;
 import javafx.scene.Node;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.ScrollPane;
@@ -12,16 +11,15 @@ import javafx.util.Callback;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-/**
- * Created by Thisun Pathirage on 10/21/2017.
- */
-public class LocomotiveViewer {
+
+public class EmployeeViewer {
 
 
 
     Pagination pagination = new Pagination();
 
     public AnchorPane createPage(int numberOfObjects, int pageIndex, JSONArray response) {
+
         AnchorPane boxAnchor = new AnchorPane();
         boxAnchor.prefWidth(1090.0); boxAnchor.prefHeight(740.0); boxAnchor.setStyle("-fx-background-color: #f1f1f1;");
 
@@ -37,28 +35,30 @@ public class LocomotiveViewer {
             }
             else {
                 VBox element = new VBox();
-                LocoProfile locoProfile = new LocoProfile();
+                EmployeeProfile empProfile = new EmployeeProfile();
+
                 try {
-                    locoProfile.setTrueImage("UI/Images/locos/"+String.valueOf(response.getJSONObject(i).getInt("EngineNumber"))+".png");
-                    locoProfile.setLocoNumber(response.getJSONObject(i).getInt("EngineNumber"));
-                    locoProfile.setLocoType(response.getJSONObject(i).getString("EngineType"));
-                    locoProfile.setLocoState(response.getJSONObject(i).getString("State"));
-                    locoProfile.setLocoPosition(response.getJSONObject(i).getString("Shed"));
-                } catch (JSONException e) {
-                    System.out.println(e.getMessage());
+                    empProfile.setTrueImage("UI/Images/emp.jpg");
+                    empProfile.setEmployee_ID(1);//response.getJSONObject(i).getInt("employeeId"));
+                    empProfile.setProfession("Foreman");//response.getJSONObject(i).getString("profession"));
+                    empProfile.setName("Mr.Perera");//response.getJSONObject(i).getString("name"));
+                    empProfile.setAge(40);//response.getJSONObject(i).getInt("age"));
+
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
+
                     try {
-                        locoProfile.setLocoNumber(response.getJSONObject(i).getInt("EngineNumber"));
-                        locoProfile.setLocoType(response.getJSONObject(i).getString("EngineType"));
-                        locoProfile.setLocoState(response.getJSONObject(i).getString("State"));
-                        locoProfile.setLocoPosition(response.getJSONObject(i).getString("Shed"));
-                        locoProfile.setTrueImage("UI/Images/train.png");
-                    } catch (JSONException e1) {
+                        empProfile.setEmployee_ID(2);//response.getJSONObject(i).getInt("employeeId"));
+                        empProfile.setProfession("Foreman");//response.getJSONObject(i).getString("profession"));
+                        empProfile.setName("Mr.Peris");//response.getJSONObject(i).getString("name"));
+                        empProfile.setAge(30);//response.getJSONObject(i).getInt("age"));
+                        empProfile.setTrueImage("UI/Images/emp.jpg");
+                    } catch (Exception e1) {
                         e1.printStackTrace();
                     }
                 }
 
-                AnchorPane obj = locoProfile.createLocoProfile();
+                AnchorPane obj = empProfile.createEmpProfile();
                 element.getChildren().add(obj);
                 box1.getChildren().add(element);
             }
@@ -78,27 +78,28 @@ public class LocomotiveViewer {
             }
             else {
                 VBox element = new VBox();
-                LocoProfile locoProfile = new LocoProfile();
+                EmployeeProfile empProfile = new EmployeeProfile();
                 try {
-                    locoProfile.setTrueImage("UI/Images/locos/"+String.valueOf(response.getJSONObject(j).getInt("EngineNumber"))+".png");
-                    locoProfile.setLocoNumber(response.getJSONObject(j).getInt("EngineNumber"));
-                    locoProfile.setLocoType(response.getJSONObject(j).getString("EngineType"));
-                    locoProfile.setLocoState(response.getJSONObject(j).getString("State"));
-                    locoProfile.setLocoPosition(response.getJSONObject(j).getString("Shed"));
-                } catch (JSONException e) {
-                    System.out.println(e.getMessage());
+                    empProfile.setTrueImage("UI/Images/emp.jpg");
+                    empProfile.setEmployee_ID(4);//response.getJSONObject(j).getInt("employeeId"));
+                    empProfile.setProfession("Driver");//response.getJSONObject(j).getString("profession"));
+                    empProfile.setName("Mr.Lakmal");//response.getJSONObject(j).getString("name"));
+                    empProfile.setAge(30);//response.getJSONObject(j).getInt("age"));
+
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                //} catch (Exception e) {
                     try {
-                        locoProfile.setLocoNumber(response.getJSONObject(j).getInt("EngineNumber"));
-                        locoProfile.setLocoType(response.getJSONObject(j).getString("EngineType"));
-                        locoProfile.setLocoState(response.getJSONObject(j).getString("State"));
-                        locoProfile.setLocoPosition(response.getJSONObject(j).getString("Shed"));
-                        locoProfile.setTrueImage("UI/Images/train.png");
-                    } catch (JSONException e1) {
+                        empProfile.setTrueImage("UI/Images/emp.jpg");
+                        empProfile.setEmployee_ID(5);//response.getJSONObject(j).getInt("employeeId"));
+                        empProfile.setProfession("Foreman");//response.getJSONObject(j).getString("profession"));
+                        empProfile.setName("Mr.Jason");//response.getJSONObject(j).getString("name"));
+                        empProfile.setAge(27);//response.getJSONObject(j).getInt("age"));
+                    } catch (Exception e1) {
                         e1.printStackTrace();
                     }
                 }
-                AnchorPane obj = locoProfile.createLocoProfile();
+                AnchorPane obj = empProfile.createEmpProfile();
                 element.getChildren().addAll(obj);
                 box2.getChildren().add(element);
             }
@@ -116,27 +117,27 @@ public class LocomotiveViewer {
             }
             else {
                 VBox element = new VBox();
-                LocoProfile locoProfile = new LocoProfile();
+                EmployeeProfile empProfile = new EmployeeProfile();
                 try {
-                    locoProfile.setTrueImage("UI/Images/locos/"+String.valueOf(response.getJSONObject(k).getInt("EngineNumber"))+".png");
-                    locoProfile.setLocoNumber(response.getJSONObject(k).getInt("EngineNumber"));
-                    locoProfile.setLocoType(response.getJSONObject(k).getString("EngineType"));
-                    locoProfile.setLocoState(response.getJSONObject(k).getString("State"));
-                    locoProfile.setLocoPosition(response.getJSONObject(k).getString("Shed"));
-                } catch (JSONException e) {
-                    System.out.println(e.getMessage());
+                    empProfile.setTrueImage("UI/Images/emp.jpg");
+                    empProfile.setEmployee_ID(6);//response.getJSONObject(k).getInt("employeeId"));
+                    empProfile.setProfession("Driver");//response.getJSONObject(k).getString("profession"));
+                    empProfile.setName("Mr.Jagath");//response.getJSONObject(k).getString("name"));
+                    empProfile.setAge(34);//response.getJSONObject(k).getInt("age"));
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                //} catch (Exception e) {
                     try {
-                        locoProfile.setLocoNumber(response.getJSONObject(k).getInt("EngineNumber"));
-                        locoProfile.setLocoType(response.getJSONObject(k).getString("EngineType"));
-                        locoProfile.setLocoState(response.getJSONObject(k).getString("State"));
-                        locoProfile.setLocoPosition(response.getJSONObject(k).getString("Shed"));
-                        locoProfile.setTrueImage("UI/Images/train.png");
-                    } catch (JSONException e1) {
+                        empProfile.setTrueImage("UI/Images/emp.jpg");
+                        empProfile.setEmployee_ID(7);//response.getJSONObject(k).getInt("employeeId"));
+                        empProfile.setProfession("Guard");//response.getJSONObject(k).getString("profession"));
+                        empProfile.setName("Sanath");//response.getJSONObject(k).getString("name"));
+                        empProfile.setAge(45);//response.getJSONObject(k).getInt("age"));
+                    } catch (Exception e1) {
                         e1.printStackTrace();
                     }
                 }
-                AnchorPane obj = locoProfile.createLocoProfile();
+                AnchorPane obj = empProfile.createEmpProfile();
                 element.getChildren().addAll(obj);
                 box3.getChildren().add(element);
             }
@@ -147,8 +148,8 @@ public class LocomotiveViewer {
     }
 
     public AnchorPane pages(){
+
         JSONArray response = DBReader.returnLocomotives();
-        System.out.println(response);
 
         int limitingFac = (response.length())%6;
         int var;

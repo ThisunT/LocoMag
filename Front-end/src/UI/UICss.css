@@ -43,8 +43,13 @@
     -fx-background-color: #000000;
     -fx-alignment: CENTER;
     -fx-text-fill: #ff6600;
+}
 
-
+#viewLocoTab{
+    -fx-tab-max-width:5px;
+}
+#viewLocoTab:selected{
+    -fx-tab-max-width:5px;
 }
 
 .tab-pane {

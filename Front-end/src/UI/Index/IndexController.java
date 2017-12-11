@@ -4,8 +4,11 @@ import Connection.DBReader;
 import Connection.GetRequest;
 import Connection.Synchronising;
 import Connection.Update;
+import UI.Dashboard.Employee.EmployeeViewer;
 import UI.Dashboard.Failure.FailureViewer;
 import UI.Dashboard.Locomotive.LocomotiveViewer;
+import UI.Dashboard.Maintenance.MaintenanceViewer;
+import UI.Dashboard.Trips.TripViewer;
 import UI.setGlobals;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
@@ -111,7 +114,10 @@ public class IndexController implements Initializable{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                setNodeLoco(locoBase);
+                /*
+                setNodeLoco(locoBase);*/
+
+                setNodeEmployee(locoBase);
                 locomotives = locoBase;
                 failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
                 trips = FXMLLoader.load(getClass().getResource("../Foreman/Trip/TripTab.fxml"));
@@ -132,13 +138,12 @@ public class IndexController implements Initializable{
         else if (switchUser.equals("A")) {
             labl_username.setText("ATE");
             try {
-                home = FXMLLoader.load(getClass().getResource("home.fxml"));
-                locomotives = FXMLLoader.load(getClass().getResource("../ATE/AddLoco/locoTab.fxml"));
+                home = FXMLLoader.load(getClass().getResource("../ATE/AddLoco/locoTab.fxml"));
+                //locomotives = FXMLLoader.load(getClass().getResource("../ATE/AddLoco/locoTab.fxml"));
                 trips = FXMLLoader.load(getClass().getResource("../Foreman/Trip/TripTab.fxml"));
                 delays = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
                 //maintenance = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
-                maintenance = FXMLLoader.load(getClass().getResource("../Foreman/Maintenance/maintenanceTab.fxml"));
                 employees = FXMLLoader.load(getClass().getResource("../ATE/Employee/employeeTab.fxml"));
                 locoposition = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 report= FXMLLoader.load(getClass().getResource("../Dashboard/Reports/reportView.fxml"));
@@ -158,7 +163,7 @@ public class IndexController implements Initializable{
                 locomotives = FXMLLoader.load(getClass().getResource("../ChiefEngineer/Locomotive/locoTab.fxml"));
                 failures = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 schedule = FXMLLoader.load(getClass().getResource("../Dashboard/Schedule/schedule.fxml"));
-                maintenance = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
+                //maintenance = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 employees = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 locoposition = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 report= FXMLLoader.load(getClass().getResource("../Dashboard/Reports/reportView.fxml"));
@@ -209,6 +214,59 @@ public class IndexController implements Initializable{
         ft.play();
     }
 
+    public void setNodeTrips(){
+
+        TripViewer tripViewer = new TripViewer();
+        AnchorPane tripViewereAnchor = new AnchorPane();
+        tripViewereAnchor.getChildren().add(tripViewer.pages());
+        holderPane.getChildren().clear();
+        holderPane.getChildren().add(tripViewereAnchor);
+
+        FadeTransition ft = new FadeTransition(Duration.millis(1000));
+        ft.setNode(tripViewereAnchor);
+        ft.setFromValue(0.1);
+        ft.setToValue(1);
+        ft.setCycleCount(1);
+        ft.setAutoReverse(false);
+        ft.play();
+    }
+
+    public void setNodeMaintenance(){
+
+        MaintenanceViewer maintenanceViewer = new MaintenanceViewer();
+        AnchorPane maintenanceViewerAnchor = new AnchorPane();
+        maintenanceViewerAnchor.getChildren().add(maintenanceViewer.pages());
+        holderPane.getChildren().clear();
+        holderPane.getChildren().add(maintenanceViewerAnchor);
+
+        FadeTransition ft = new FadeTransition(Duration.millis(1000));
+        ft.setNode(maintenanceViewerAnchor);
+        ft.setFromValue(0.1);
+        ft.setToValue(1);
+        ft.setCycleCount(1);
+        ft.setAutoReverse(false);
+        ft.play();
+    }
+
+    public static void setNodeEmployee(AnchorPane emp){
+
+        EmployeeViewer employeeView = new EmployeeViewer();
+        AnchorPane employeeViewerAnchor = new AnchorPane();
+        employeeViewerAnchor.getChildren().add(employeeView.pages());
+
+        emp.getChildren().clear();
+        emp.getChildren().add(employeeViewerAnchor);
+
+        FadeTransition ft = new FadeTransition(Duration.millis(1000));
+        ft.setNode(employeeViewerAnchor);
+        ft.setFromValue(0.1);
+        ft.setToValue(1);
+        ft.setCycleCount(1);
+        ft.setAutoReverse(false);
+        ft.play();
+    }
+
+
     public static void setNodeLoco(AnchorPane loco){
 
         LocomotiveViewer locoView = new LocomotiveViewer();
@@ -216,6 +274,22 @@ public class IndexController implements Initializable{
         locoViewerAnchor.getChildren().add(locoView.pages());
         loco.getChildren().clear();
         loco.getChildren().add(locoViewerAnchor);
+
+        FadeTransition ft = new FadeTransition(Duration.millis(1000));
+        ft.setNode(locoViewerAnchor);
+        ft.setFromValue(0.1);
+        ft.setToValue(1);
+        ft.setCycleCount(1);
+        ft.setAutoReverse(false);
+        ft.play();
+    }
+
+    public void setNodeLoco(){
+        LocomotiveViewer locoView = new LocomotiveViewer();
+        AnchorPane locoViewerAnchor = new AnchorPane();
+        locoViewerAnchor.getChildren().add(locoView.pages());
+        holderPane.getChildren().clear();
+        holderPane.getChildren().add(locoViewerAnchor);
 
         FadeTransition ft = new FadeTransition(Duration.millis(1000));
         ft.setNode(locoViewerAnchor);
@@ -347,7 +421,7 @@ public class IndexController implements Initializable{
     @FXML
     private void switchLocomotives(ActionEvent event) {
         searchPane.setVisible(false);
-        setNode(locomotives);
+        setNodeLoco();
     }
 
     @FXML
@@ -370,17 +444,24 @@ public class IndexController implements Initializable{
     @FXML
     private void switchTrips(ActionEvent event){
         searchPane.setVisible(false);
-        setNode(trips);}
+        setNodeTrips();}
+
+
 
     @FXML
     private void switchMaintenance(ActionEvent event){
         searchPane.setVisible(false);
-        setNode(maintenance);}
+        setNodeMaintenance();}
 
     @FXML
     private void switchLocoPosition(ActionEvent event){
         searchPane.setVisible(false);
         setNode(locoposition);}
+
+    @FXML
+    private void switchDelays(ActionEvent event){
+        searchPane.setVisible(false);
+        setNodeTrips();}
 
     @FXML
     private void switchEmployee(ActionEvent event){

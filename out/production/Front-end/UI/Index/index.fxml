@@ -17,7 +17,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@indexCss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Index.IndexController">
     <left>
-        <AnchorPane prefHeight="800.0" prefWidth="190.0" style="-fx-background-color: #4c4743;" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="740.0" prefWidth="190.0" style="-fx-background-color: #4c4743;" BorderPane.alignment="CENTER">
             <children>
 
                 <JFXButton fx:id="btnEmployee" layoutX="2.0" layoutY="461.0" onAction="#switchEmployee" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Employees" textFill="#9e9691">
@@ -68,7 +68,7 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnDelay" layoutX="2.0" layoutY="299.0" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Delays" textFill="#9e9691">
+                <JFXButton fx:id="btnDelay" layoutX="2.0" layoutY="299.0" onAction="#switchDelays" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Delays" textFill="#9e9691">
                     <graphic>
                         <OctIconView fill="#9e9691" glyphName="HISTORY" size="20" text="" />
                     </graphic>
@@ -112,7 +112,7 @@
     <top>
         <AnchorPane prefHeight="60.0" prefWidth="1291.0" style="-fx-background-color: #4c4743;" BorderPane.alignment="CENTER">
             <children>
-                <Pane prefHeight="60.0" prefWidth="192.0" style="-fx-background-color: #fd5f3a;">
+                <Pane prefHeight="60.0" prefWidth="191.0" style="-fx-background-color: #fd5f3a;">
                     <children>
                         <ImageView fx:id="locoLogo" fitHeight="46.0" fitWidth="51.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -126,7 +126,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <JFXButton fx:id="btnHome" layoutX="191.0" onAction="#switchHome" prefHeight="60.0" prefWidth="87.0" text=" ">
+                <JFXButton fx:id="btnHome" layoutX="190.0" onAction="#switchHome" prefHeight="60.0" prefWidth="87.0" text=" ">
                     <graphic>
                         <MaterialDesignIconView fill="#9e9691" glyphName="HOME" size="40" />
                     </graphic>

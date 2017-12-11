@@ -1,7 +1,6 @@
-package UI.Dashboard.Trips;
+package UI.Dashboard.Maintenance;
 
 import Connection.DBReader;
-import UI.Dashboard.Trips.TripProfile;
 import javafx.scene.Node;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.ScrollPane;
@@ -14,7 +13,7 @@ import org.json.JSONException;
 /**
  * Created by Thisun Pathirage on 12/6/2017.
  */
-public class TripViewer {
+public class MaintenanceViewer {
     Pagination pagination = new Pagination();
 
     public AnchorPane createPage(int numberOfObjects, int pageIndex, JSONArray failureResponse) {
@@ -33,21 +32,20 @@ public class TripViewer {
             }
             else {
                 VBox element = new VBox();
-                TripProfile tripProfile = new TripProfile();
+                MaintenanceProfile maintenanceProfile = new MaintenanceProfile();
                 try {
-                    tripProfile.setLocoNumber(String.valueOf(failureResponse.getJSONObject(i).getInt("loco_ID")));
-                    tripProfile.setDate(failureResponse.getJSONObject(i).getString("date"));
-                    tripProfile.setRouteID(String.valueOf(failureResponse.getJSONObject(i).getInt("route_ID")));
-                    tripProfile.setTripDetails(failureResponse.getJSONObject(i).getString("trip_details"));
-                    tripProfile.setTime(failureResponse.getJSONObject(i).getString("start_time"));
-                    tripProfile.setDriverId(failureResponse.getJSONObject(i).getString("driver_ID"));
+                    maintenanceProfile.setLocoNumber(String.valueOf(failureResponse.getJSONObject(i).getInt("loco_ID")));
+                    maintenanceProfile.setDate(failureResponse.getJSONObject(i).getString("date"));
+                    maintenanceProfile.setRouteID(String.valueOf(failureResponse.getJSONObject(i).getInt("maintenance_ID")));
+                    maintenanceProfile.setTripDetails(failureResponse.getJSONObject(i).getString("note"));
+                    maintenanceProfile.setDriverId(failureResponse.getJSONObject(i).getString("suggestion"));
                 } catch (JSONException e) {
                     System.out.println(e.getMessage());
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
 
-                AnchorPane obj = tripProfile.createTripProfile();
+                AnchorPane obj = maintenanceProfile.createTripProfile();
                 element.getChildren().add(obj);
                 box1.getChildren().add(element);
             }
@@ -67,21 +65,20 @@ public class TripViewer {
             }
             else {
                 VBox element = new VBox();
-                TripProfile tripProfile = new TripProfile();
+                MaintenanceProfile maintenanceProfile = new MaintenanceProfile();
                 try {
-                    tripProfile.setLocoNumber(String.valueOf(failureResponse.getJSONObject(j).getInt("loco_ID")));
-                    tripProfile.setDate(failureResponse.getJSONObject(j).getString("date"));
-                    tripProfile.setRouteID(String.valueOf(failureResponse.getJSONObject(j).getInt("route_ID")));
-                    tripProfile.setTripDetails(failureResponse.getJSONObject(j).getString("trip_details"));
-                    tripProfile.setTime(failureResponse.getJSONObject(j).getString("start_time"));
-                    tripProfile.setDriverId(failureResponse.getJSONObject(j).getString("driver_ID"));
+                    maintenanceProfile.setLocoNumber(String.valueOf(failureResponse.getJSONObject(j).getInt("loco_ID")));
+                    maintenanceProfile.setDate(failureResponse.getJSONObject(j).getString("date"));
+                    maintenanceProfile.setRouteID(String.valueOf(failureResponse.getJSONObject(j).getInt("maintenance_ID")));
+                    maintenanceProfile.setTripDetails(failureResponse.getJSONObject(j).getString("note"));
+                    maintenanceProfile.setDriverId(failureResponse.getJSONObject(j).getString("suggestion"));
                 } catch (JSONException e) {
                     System.out.println(e.getMessage());
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
 
-                AnchorPane obj = tripProfile.createTripProfile();
+                AnchorPane obj = maintenanceProfile.createTripProfile();
                 element.getChildren().add(obj);
                 box1.getChildren().add(element);
             }
@@ -99,21 +96,20 @@ public class TripViewer {
             }
             else {
                 VBox element = new VBox();
-                TripProfile tripProfile = new TripProfile();
+                MaintenanceProfile maintenanceProfile = new MaintenanceProfile();
                 try {
-                    tripProfile.setLocoNumber(String.valueOf(failureResponse.getJSONObject(k).getInt("loco_ID")));
-                    tripProfile.setDate(failureResponse.getJSONObject(k).getString("date"));
-                    tripProfile.setRouteID(String.valueOf(failureResponse.getJSONObject(k).getInt("route_ID")));
-                    tripProfile.setTripDetails(failureResponse.getJSONObject(k).getString("trip_details"));
-                    tripProfile.setTime(failureResponse.getJSONObject(k).getString("start_time"));
-                    tripProfile.setDriverId(failureResponse.getJSONObject(k).getString("driver_ID"));
+                    maintenanceProfile.setLocoNumber(String.valueOf(failureResponse.getJSONObject(k).getInt("loco_ID")));
+                    maintenanceProfile.setDate(failureResponse.getJSONObject(k).getString("date"));
+                    maintenanceProfile.setRouteID(String.valueOf(failureResponse.getJSONObject(k).getInt("maintenance_ID\t")));
+                    maintenanceProfile.setTripDetails(failureResponse.getJSONObject(k).getString("note"));
+                    maintenanceProfile.setDriverId(failureResponse.getJSONObject(k).getString("suggestion"));
                 } catch (JSONException e) {
                     System.out.println(e.getMessage());
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
 
-                AnchorPane obj = tripProfile.createTripProfile();
+                AnchorPane obj = maintenanceProfile.createTripProfile();
                 element.getChildren().add(obj);
                 box1.getChildren().add(element);
             }
@@ -124,7 +120,7 @@ public class TripViewer {
     }
 
     public AnchorPane pages(){
-        JSONArray failureResponse = DBReader.returnTrips();
+        JSONArray failureResponse = DBReader.returnMaintenance();
 
         int limitingFac = (failureResponse.length())%6;
         int var;

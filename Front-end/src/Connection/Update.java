@@ -128,6 +128,25 @@ public class Update {
         }
     }
 
+    public static void updateMaintenance(){
+        final String targetUrlUser = "http://localhost:3000/api/maintenance/";
+
+        try {
+            String response = GetRequest.sendGetRequest(targetUrlUser);
+            System.out.println(response);
+            try{
+                FileWriter fw=new FileWriter("localDB/Maintenance.json");
+                fw.write(response);
+                fw.close();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void syncDB(){
         final String targetUrlUser = "http://localhost:3000/api/sync/state/";
 
@@ -153,6 +172,7 @@ public class Update {
         updateFailures();
         updateTrips();
         updateLocomotiveImages();
+        updateMaintenance();
         updateUser();
         updateEmployees();
         syncDB();
