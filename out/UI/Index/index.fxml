@@ -3,6 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import de.jensd.fx.glyphs.octicons.OctIconView?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -13,14 +15,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" stylesheets="@indexCss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Index.IndexController">
     <left>
-        <AnchorPane prefHeight="800.0" prefWidth="190.0" style="-fx-background-color: #4c4743;" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="740.0" prefWidth="190.0" style="-fx-background-color: #4c4743;" BorderPane.alignment="CENTER">
             <children>
 
-                <JFXButton fx:id="btnEmployee" layoutX="1.0" layoutY="489.0" onAction="#switchEmployee" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Employees" textFill="#9e9691">
+                <JFXButton fx:id="btnEmployee" layoutX="2.0" layoutY="461.0" onAction="#switchEmployee" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Employees" textFill="#9e9691">
                     <graphic>
                         <OctIconView fill="#9e9691" glyphName="ORGANIZATION" size="20" />
                     </graphic>
@@ -28,7 +28,7 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnLocomotive" layoutY="165.0" onAction="#switchLocomotives" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Locomotives" textFill="#9e9691">
+                <JFXButton fx:id="btnLocomotive" layoutY="137.0" onAction="#switchLocomotives" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Locomotives" textFill="#9e9691">
                     <graphic>
                         <MaterialDesignIconView fill="#9e9691" glyphName="SUBWAY" size="20" />
                     </graphic>
@@ -36,7 +36,7 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnFailure" layoutX="1.0" layoutY="219.0" onAction="#switchFailures" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Failures" textFill="#9e9691">
+                <JFXButton fx:id="btnFailure" layoutY="191.0" onAction="#switchFailures" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Failures" textFill="#9e9691">
                     <graphic>
                         <MaterialDesignIconView fill="#9e9691" glyphName="BUG" size="20" />
                     </graphic>
@@ -44,7 +44,7 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnTrip" layoutX="1.0" layoutY="273.0" onAction="#switchTrips" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Trips" textFill="#9e9691">
+                <JFXButton fx:id="btnTrip" layoutX="2.0" layoutY="245.0" onAction="#switchTrips" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Trips" textFill="#9e9691">
                     <graphic>
                         <OctIconView fill="#9e9691" glyphName="ROCKET" size="20" text="" />
                     </graphic>
@@ -52,7 +52,7 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnSchedule" layoutX="1.0" layoutY="381.0" onAction="#switchSchedule" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Schedule" textFill="#9e9691">
+                <JFXButton fx:id="btnSchedule" layoutY="353.0" onAction="#switchSchedule" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Schedule" textFill="#9e9691">
                     <graphic>
                         <OctIconView fill="#9e9691" glyphName="CALENDAR" size="20" text="" />
                     </graphic>
@@ -60,7 +60,7 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnReports" layoutY="543.0" onAction="#switchReports" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Reports" textFill="#9e9691">
+                <JFXButton fx:id="btnReports" layoutY="515.0" onAction="#switchReports" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Reports" textFill="#9e9691">
                     <graphic>
                         <MaterialDesignIconView fill="#9e9691" glyphName="NOTE_TEXT" size="20" />
                     </graphic>
@@ -68,7 +68,7 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnDelay" layoutX="1.0" layoutY="327.0" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Delays" textFill="#9e9691">
+                <JFXButton fx:id="btnDelay" layoutX="2.0" layoutY="299.0" onAction="#switchDelays" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Delays" textFill="#9e9691">
                     <graphic>
                         <OctIconView fill="#9e9691" glyphName="HISTORY" size="20" text="" />
                     </graphic>
@@ -76,7 +76,7 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnMaintenance" layoutY="435.0" onAction="#switchMaintenance" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Maintenance" textFill="#9e9691">
+                <JFXButton fx:id="btnMaintenance" layoutY="407.0" onAction="#switchMaintenance" prefHeight="54.0" prefWidth="189.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Maintenance" textFill="#9e9691">
                     <graphic>
                         <OctIconView fill="#9e9691" glyphName="TOOLS" size="20" text="" />
                     </graphic>
@@ -84,7 +84,7 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
-                <JFXButton fx:id="btnPosition" layoutY="596.0" onAction="#switchLocoPosition" prefHeight="58.0" prefWidth="192.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Loco Position" textFill="#9e9691">
+                <JFXButton fx:id="btnPosition" layoutX="-1.0" layoutY="569.0" onAction="#switchLocoPosition" prefHeight="58.0" prefWidth="192.0" style="-fx-border-style: solid; -fx-border-color: #433e3a   #4c4743;" text="Loco Position" textFill="#9e9691">
                     <graphic>
                         <MaterialDesignIconView fill="#9e9691" glyphName="HOME_VARIANT" size="20" />
                     </graphic>
@@ -92,6 +92,11 @@
                         <Font name="Raleway-Bold" size="15.0" />
                     </font>
                 </JFXButton>
+            <JFXButton fx:id="btnSync" layoutY="696.0" onAction="#syncButtonClicked" prefHeight="44.0" prefWidth="190.0" text="Not updated" textFill="#e4d5d5">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
             </children>
         </AnchorPane>
     </left>
@@ -107,7 +112,7 @@
     <top>
         <AnchorPane prefHeight="60.0" prefWidth="1291.0" style="-fx-background-color: #4c4743;" BorderPane.alignment="CENTER">
             <children>
-                <Pane prefHeight="60.0" prefWidth="192.0" style="-fx-background-color: #fd5f3a;">
+                <Pane prefHeight="60.0" prefWidth="191.0" style="-fx-background-color: #fd5f3a;">
                     <children>
                         <ImageView fx:id="locoLogo" fitHeight="46.0" fitWidth="51.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -121,7 +126,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <JFXButton fx:id="btnHome" layoutX="191.0" onAction="#switchHome" prefHeight="60.0" prefWidth="87.0" text=" ">
+                <JFXButton fx:id="btnHome" layoutX="190.0" onAction="#switchHome" prefHeight="60.0" prefWidth="87.0" text=" ">
                     <graphic>
                         <MaterialDesignIconView fill="#9e9691" glyphName="HOME" size="40" />
                     </graphic>
@@ -131,12 +136,12 @@
                         <Font size="17.0" />
                     </font>
                 </JFXButton>
-            <ImageView fitHeight="44.0" fitWidth="57.0" layoutX="1025.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="44.0" fitWidth="57.0" layoutX="1059.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/avatar.png" />
                </image>
             </ImageView>
-            <Label fx:id="labl_username" layoutX="1072.0" layoutY="22.0" prefHeight="21.0" prefWidth="85.0" text="Label" textFill="#c3baba" />
+            <Label fx:id="labl_username" layoutX="1108.0" layoutY="21.0" prefHeight="21.0" prefWidth="73.0" text="Label" textFill="#c3baba" />
             <JFXButton fx:id="btnSearchDummy" layoutX="278.0" layoutY="1.0" onAction="#searchDummyClicked" prefHeight="59.0" prefWidth="65.0" text=" " textFill="#fd5f3a">
                <graphic>
                   <MaterialDesignIconView fill="#fd5f3a" glyphName="MAGNIFY" size="20" />

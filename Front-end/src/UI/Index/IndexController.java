@@ -108,7 +108,7 @@ public class IndexController implements Initializable{
         if (switchUser.equals("F")) {
             labl_username.setText("Foreman");
             try {
-                home = FXMLLoader.load(getClass().getResource("home.fxml"));
+                home = FXMLLoader.load(getClass().getResource("../Foreman/foremanTab.fxml"));
                 try {
                     locoBase = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 } catch (IOException e) {
@@ -117,7 +117,8 @@ public class IndexController implements Initializable{
                 /*
                 setNodeLoco(locoBase);*/
 
-                setNodeEmployee(locoBase);
+
+
                 locomotives = locoBase;
                 failures = FXMLLoader.load(getClass().getResource("../Foreman/Failure/failureTab.fxml"));
                 trips = FXMLLoader.load(getClass().getResource("../Foreman/Trip/TripTab.fxml"));
@@ -138,7 +139,7 @@ public class IndexController implements Initializable{
         else if (switchUser.equals("A")) {
             labl_username.setText("ATE");
             try {
-                home = FXMLLoader.load(getClass().getResource("../ATE/AddLoco/locoTab.fxml"));
+                home = FXMLLoader.load(getClass().getResource("../ATE/ATETab.fxml"));
                 //locomotives = FXMLLoader.load(getClass().getResource("../ATE/AddLoco/locoTab.fxml"));
                 trips = FXMLLoader.load(getClass().getResource("../Foreman/Trip/TripTab.fxml"));
                 delays = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
@@ -157,7 +158,7 @@ public class IndexController implements Initializable{
         else if (switchUser.equals("C")) {
             labl_username.setText("Chief Engineer");
             try {
-                home = FXMLLoader.load(getClass().getResource("home.fxml"));
+                home = FXMLLoader.load(getClass().getResource("../ChiefEngineer/chiefTab.fxml"));
                 trips = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 delays = FXMLLoader.load(getClass().getResource("../Dashboard/emptyView.fxml"));
                 locomotives = FXMLLoader.load(getClass().getResource("../ChiefEngineer/Locomotive/locoTab.fxml"));
@@ -248,14 +249,14 @@ public class IndexController implements Initializable{
         ft.play();
     }
 
-    public static void setNodeEmployee(AnchorPane emp){
+    public  void setNodeEmployee(){
 
         EmployeeViewer employeeView = new EmployeeViewer();
         AnchorPane employeeViewerAnchor = new AnchorPane();
         employeeViewerAnchor.getChildren().add(employeeView.pages());
 
-        emp.getChildren().clear();
-        emp.getChildren().add(employeeViewerAnchor);
+        holderPane.getChildren().clear();
+        holderPane.getChildren().add(employeeViewerAnchor);
 
         FadeTransition ft = new FadeTransition(Duration.millis(1000));
         ft.setNode(employeeViewerAnchor);
@@ -466,7 +467,7 @@ public class IndexController implements Initializable{
     @FXML
     private void switchEmployee(ActionEvent event){
         searchPane.setVisible(false);
-        setNode(employees);}
+        setNodeEmployee();}
 
 
     @FXML

@@ -14,7 +14,8 @@ import java.io.IOException;
  * Created by Thisun Pathirage on 12/10/2017.
  */
 public class Synchronising {
-    public static int synId=1;
+    public static int synId;
+
     public void synchronise(){
         Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
             String targetUrl="http://localhost:3000/api/sync/state";
