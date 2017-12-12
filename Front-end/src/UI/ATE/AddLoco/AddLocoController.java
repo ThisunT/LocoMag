@@ -18,6 +18,8 @@ import java.util.Map;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import static UI.loginController.infoBox;
+
 /**
  * Created by Thisun Pathirage on 10/10/2017.
  */
@@ -57,9 +59,9 @@ public class AddLocoController {
 
 
     public void submitClicked(){
-
         Locomotive loco = new Locomotive();
         loco.setEngineNumber(Integer.parseInt(engineNo.getText()));
+
         loco.setEngineType(engineType.getValue().toString());
         loco.setManufacturedDay(dateManufactured.getValue());
         loco.setManufacturer(manufacturer.getText());
@@ -75,6 +77,7 @@ public class AddLocoController {
 
         try {
             PostRequest.sendPostRequest(addLocoUrl,locoObject);
+            infoBox("Added Successfully", "Success", null);
         }catch (IOException e){
             System.out.println(e.getMessage());
         }

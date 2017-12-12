@@ -24,7 +24,7 @@ public class ReportLocoClass extends JFrame {
 
     public void showReport() throws JRException, ClassNotFoundException, SQLException {
 
-        File file = new File("E:\\UCSC\\LocoMaga\\LocoMag\\Front-end\\src\\Report\\Locomotives\\LocoReport.jrxml");
+        File file = new File("C:\\Users\\Toshiba®\\Documents\\GitHub\\LocoMag\\Front-end\\src\\Report\\Locomotives\\LocoReport.jrxml");
 
         try {
             JasperDesign jd  = JRXmlLoader.load(new FileInputStream(file));
@@ -35,7 +35,7 @@ public class ReportLocoClass extends JFrame {
             Map<String, Object> params = new HashMap<String, Object>();
 
             //list.add(parameters);
-            File file1 = new File("E:\\UCSC\\LocoMaga\\LocoMag\\localDB\\locomotives.json");
+            File file1 = new File("C:\\Users\\Toshiba®\\Documents\\GitHub\\LocoMag\\localDB\\locomotives.json");
             JsonDataSource dataSource = new JsonDataSource(file1);
 
             //params.put(JsonQueryExecuterFactory.JSON_INPUT_STREAM, new FileInputStream(file1));

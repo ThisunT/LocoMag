@@ -3,8 +3,6 @@ package UI.Foreman.Trip;
 import Connection.ObjectToJson;
 import Connection.PostRequest;
 import Models.Trip;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,7 +22,7 @@ import java.util.ResourceBundle;
 public class AddTripController implements Initializable {
 
     @FXML
-    public ComboBox<String> cmbbox;
+
 
     public TextField txt_En;
     public TextField txt_Dr;
@@ -35,7 +33,7 @@ public class AddTripController implements Initializable {
     public TextField Txt_Rid;
 
 
-    private String addTripUrl = "http://localhost:3000/api/trip/";
+    private String addTripUrl = "http://localhost:3000/api/trip";
 
 
 
@@ -65,10 +63,10 @@ public class AddTripController implements Initializable {
 
     }
 
-public void Submit(ActionEvent actionEvent)throws Exception{
-    if (ValidateFields()){
+public void Submit(ActionEvent actionEvent)throws Exception {
+    if (ValidateFields()) {
         try {
-            Trip trip=new Trip();
+            Trip trip = new Trip();
 
             LocalDate localDate = date.getValue();
             Date date_today1 = java.sql.Date.valueOf(localDate);
@@ -79,38 +77,43 @@ public void Submit(ActionEvent actionEvent)throws Exception{
             trip.setRouteId(Integer.parseInt(Txt_Rid.getText()));
             trip.setDriverId(Integer.parseInt(txt_Dr.getText()));
             trip.setGuardId(Integer.parseInt(Txt_Ag.getText()));
-            trip.setRouteId(Integer.parseInt(Txt_Rid.getText()));
-
-
-
-
-
-
-
 
 
             String tripObject = ObjectToJson.converter(trip);
             System.out.println(tripObject);
 
             try {
-                PostRequest.sendPostRequest(addTripUrl,tripObject);
-            }catch (IOException e){
+                PostRequest.sendPostRequest(addTripUrl, tripObject);
+            } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        Success("Successful",null,"Successfully updated");
+
+    }
+}
+
+    public static  void Success(String Title, String Header, String Content){
+        Alert alert=new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(Title);
+        alert.setHeaderText(Header);
+        alert.setContentText(Content);
+        alert.showAndWait();
+
 
     }
 
-}
+
 
 public void Reset(ActionEvent actionEvent){
     txt_En.setText("");
     txt_Dr.setText("");
     Txt_Ag.setText("");
     Txt_Rid.setText("");
+    date.getEditor().clear();
 
 }
 

@@ -39,19 +39,19 @@ public class EmployeeViewer {
 
                 try {
                     empProfile.setTrueImage("UI/Images/emp.jpg");
-                    empProfile.setEmployee_ID(1);//response.getJSONObject(i).getInt("employeeId"));
-                    empProfile.setProfession("Foreman");//response.getJSONObject(i).getString("profession"));
-                    empProfile.setName("Mr.Perera");//response.getJSONObject(i).getString("name"));
-                    empProfile.setAge(40);//response.getJSONObject(i).getInt("age"));
+                    empProfile.setEmployee_ID(response.getJSONObject(i).getString("employee_ID"));
+                    empProfile.setProfession(response.getJSONObject(i).getString("profession"));
+                    empProfile.setName(response.getJSONObject(i).getString("name"));
+                    empProfile.setAge(response.getJSONObject(i).getInt("age"));
 
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
 
                     try {
-                        empProfile.setEmployee_ID(2);//response.getJSONObject(i).getInt("employeeId"));
-                        empProfile.setProfession("Foreman");//response.getJSONObject(i).getString("profession"));
-                        empProfile.setName("Mr.Peris");//response.getJSONObject(i).getString("name"));
-                        empProfile.setAge(30);//response.getJSONObject(i).getInt("age"));
+                        empProfile.setEmployee_ID(response.getJSONObject(i).getString("employee_ID"));
+                        empProfile.setProfession(response.getJSONObject(i).getString("profession"));
+                        empProfile.setName(response.getJSONObject(i).getString("name"));
+                        empProfile.setAge(response.getJSONObject(i).getInt("age"));
                         empProfile.setTrueImage("UI/Images/emp.jpg");
                     } catch (Exception e1) {
                         e1.printStackTrace();
@@ -81,20 +81,20 @@ public class EmployeeViewer {
                 EmployeeProfile empProfile = new EmployeeProfile();
                 try {
                     empProfile.setTrueImage("UI/Images/emp.jpg");
-                    empProfile.setEmployee_ID(4);//response.getJSONObject(j).getInt("employeeId"));
-                    empProfile.setProfession("Driver");//response.getJSONObject(j).getString("profession"));
-                    empProfile.setName("Mr.Lakmal");//response.getJSONObject(j).getString("name"));
-                    empProfile.setAge(30);//response.getJSONObject(j).getInt("age"));
+                    empProfile.setEmployee_ID(response.getJSONObject(j).getString("employee_ID"));
+                    empProfile.setProfession(response.getJSONObject(j).getString("profession"));
+                    empProfile.setName(response.getJSONObject(j).getString("name"));
+                    empProfile.setAge(response.getJSONObject(j).getInt("age"));
 
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 //} catch (Exception e) {
                     try {
                         empProfile.setTrueImage("UI/Images/emp.jpg");
-                        empProfile.setEmployee_ID(5);//response.getJSONObject(j).getInt("employeeId"));
-                        empProfile.setProfession("Foreman");//response.getJSONObject(j).getString("profession"));
-                        empProfile.setName("Mr.Jason");//response.getJSONObject(j).getString("name"));
-                        empProfile.setAge(27);//response.getJSONObject(j).getInt("age"));
+                        empProfile.setEmployee_ID(response.getJSONObject(j).getString("employee_ID"));
+                        empProfile.setProfession(response.getJSONObject(j).getString("profession"));
+                        empProfile.setName(response.getJSONObject(j).getString("name"));
+                        empProfile.setAge(response.getJSONObject(j).getInt("age"));
                     } catch (Exception e1) {
                         e1.printStackTrace();
                     }
@@ -120,19 +120,19 @@ public class EmployeeViewer {
                 EmployeeProfile empProfile = new EmployeeProfile();
                 try {
                     empProfile.setTrueImage("UI/Images/emp.jpg");
-                    empProfile.setEmployee_ID(6);//response.getJSONObject(k).getInt("employeeId"));
-                    empProfile.setProfession("Driver");//response.getJSONObject(k).getString("profession"));
-                    empProfile.setName("Mr.Jagath");//response.getJSONObject(k).getString("name"));
-                    empProfile.setAge(34);//response.getJSONObject(k).getInt("age"));
+                    empProfile.setEmployee_ID(response.getJSONObject(k).getString("employee_ID"));
+                    empProfile.setProfession(response.getJSONObject(k).getString("profession"));
+                    empProfile.setName(response.getJSONObject(k).getString("name"));
+                    empProfile.setAge(response.getJSONObject(k).getInt("age"));
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 //} catch (Exception e) {
                     try {
                         empProfile.setTrueImage("UI/Images/emp.jpg");
-                        empProfile.setEmployee_ID(7);//response.getJSONObject(k).getInt("employeeId"));
-                        empProfile.setProfession("Guard");//response.getJSONObject(k).getString("profession"));
-                        empProfile.setName("Sanath");//response.getJSONObject(k).getString("name"));
-                        empProfile.setAge(45);//response.getJSONObject(k).getInt("age"));
+                        empProfile.setEmployee_ID(response.getJSONObject(k).getString("employee_ID"));
+                        empProfile.setProfession(response.getJSONObject(k).getString("profession"));
+                        empProfile.setName(response.getJSONObject(k).getString("name"));
+                        empProfile.setAge(response.getJSONObject(k).getInt("age"));
                     } catch (Exception e1) {
                         e1.printStackTrace();
                     }
@@ -149,7 +149,7 @@ public class EmployeeViewer {
 
     public AnchorPane pages(){
 
-        JSONArray response = DBReader.returnLocomotives();
+        JSONArray response = DBReader.returnEmployees();
 
         int limitingFac = (response.length())%6;
         int var;

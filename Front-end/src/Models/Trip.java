@@ -1,9 +1,5 @@
 package Models;
 
-
-
-import java.util.Date;
-
 /**
  * Created by piumiindeevari on 12/1/2017.
  */
@@ -16,7 +12,7 @@ public class Trip {
     private int locoId;
     private String date;// change date in the db
     private String startTime;
-    private String endTime; // add to db
+    private String endTime;// add to db
     private boolean delay; // add to db
     private boolean failures;
 

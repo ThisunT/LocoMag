@@ -36,8 +36,8 @@ public class EmployeeProfile {
     private ImageView imageView = new ImageView();
 
 
-    public void setEmployee_ID(int employee_ID) {
-        this.employee_ID.setText(Integer.toString(employee_ID));
+    public void setEmployee_ID(String employee_ID) {
+        this.employee_ID.setText((employee_ID));
     }
 
     public void setProfession(String profession) {
