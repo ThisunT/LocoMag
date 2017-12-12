@@ -84,6 +84,7 @@ public class DBReader {
     public static JSONArray returnEmployees() {
         FileReader fr = null;
         String[] textData = new String[1];
+        Update.updateEmployees();
         try {
             fr = new FileReader("localDB/Employees.json");
             BufferedReader text = new BufferedReader(fr);
@@ -101,9 +102,9 @@ public class DBReader {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         return jsonArray;
     }
-
     public static JSONArray returnUser() {
         FileReader fr = null;
         String[] textData = new String[1];

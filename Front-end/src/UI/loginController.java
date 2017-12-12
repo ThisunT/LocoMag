@@ -63,7 +63,7 @@ public class loginController implements Initializable {
                     if (pwd.equals(response.getJSONObject(i).getString("pwd"))) {
                         infoBox("Login Successfull", "Success", null);
                         ((Node) (event.getSource())).getScene().getWindow().hide();
-                        Parent root = FXMLLoader.load(getClass().getResource("index.fxml"));
+                        Parent root = FXMLLoader.load(getClass().getResource("Index/index.fxml"));
                         Stage stage = new Stage();
                         stage.setScene(new Scene(root));
                         stage.setTitle("Sri Lanka Railways Motive Power sub Department - Engine Failure management System");

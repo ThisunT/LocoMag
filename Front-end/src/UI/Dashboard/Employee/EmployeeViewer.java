@@ -1,8 +1,7 @@
-package UI.Dashboard.Locomotive;
+package UI.Dashboard.Employee;
 
 import Connection.DBReader;
-import Connection.GetImage;
-import Connection.Update;
+import UI.Dashboard.Employee.EmployeeProfile;
 import javafx.scene.Node;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.ScrollPane;
@@ -12,10 +11,8 @@ import javafx.util.Callback;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-/**
- * Created by Thisun Pathirage on 10/21/2017.
- */
-public class LocomotiveViewer {
+
+public class EmployeeViewer {
 
 
 
@@ -38,28 +35,30 @@ public class LocomotiveViewer {
             }
             else {
                 VBox element = new VBox();
-                LocoProfile locoProfile = new LocoProfile();
+                EmployeeProfile empProfile = new EmployeeProfile();
+
                 try {
-                    locoProfile.setTrueImage("UI/Images/locos/"+String.valueOf(response.getJSONObject(i).getInt("EngineNumber"))+".png");
-                    locoProfile.setLocoNumber(response.getJSONObject(i).getInt("EngineNumber"));
-                    locoProfile.setLocoType(response.getJSONObject(i).getString("EngineType"));
-                    locoProfile.setLocoState(response.getJSONObject(i).getString("State"));
-                    locoProfile.setLocoPosition(response.getJSONObject(i).getString("Shed"));
-                } catch (JSONException e) {
-                    System.out.println(e.getMessage());
+                    empProfile.setTrueImage("UI/Images/emp.jpg");
+                    empProfile.setEmployee_ID(response.getJSONObject(i).getString("employee_ID"));
+                    empProfile.setProfession(response.getJSONObject(i).getString("profession"));
+                    empProfile.setName(response.getJSONObject(i).getString("name"));
+                    empProfile.setAge(response.getJSONObject(i).getInt("age"));
+
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
+
                     try {
-                        locoProfile.setLocoNumber(response.getJSONObject(i).getInt("EngineNumber"));
-                        locoProfile.setLocoType(response.getJSONObject(i).getString("EngineType"));
-                        locoProfile.setLocoState(response.getJSONObject(i).getString("State"));
-                        locoProfile.setLocoPosition(response.getJSONObject(i).getString("Shed"));
-                        locoProfile.setTrueImage("UI/Images/train.png");
-                    } catch (JSONException e1) {
+                        empProfile.setEmployee_ID(response.getJSONObject(i).getString("employee_ID"));
+                        empProfile.setProfession(response.getJSONObject(i).getString("profession"));
+                        empProfile.setName(response.getJSONObject(i).getString("name"));
+                        empProfile.setAge(response.getJSONObject(i).getInt("age"));
+                        empProfile.setTrueImage("UI/Images/emp.jpg");
+                    } catch (Exception e1) {
                         e1.printStackTrace();
                     }
                 }
 
-                AnchorPane obj = locoProfile.createLocoProfile();
+                AnchorPane obj = empProfile.createEmpProfile();
                 element.getChildren().add(obj);
                 box1.getChildren().add(element);
             }
@@ -79,27 +78,28 @@ public class LocomotiveViewer {
             }
             else {
                 VBox element = new VBox();
-                LocoProfile locoProfile = new LocoProfile();
+                EmployeeProfile empProfile = new EmployeeProfile();
                 try {
-                    locoProfile.setTrueImage("UI/Images/locos/"+String.valueOf(response.getJSONObject(j).getInt("EngineNumber"))+".png");
-                    locoProfile.setLocoNumber(response.getJSONObject(j).getInt("EngineNumber"));
-                    locoProfile.setLocoType(response.getJSONObject(j).getString("EngineType"));
-                    locoProfile.setLocoState(response.getJSONObject(j).getString("State"));
-                    locoProfile.setLocoPosition(response.getJSONObject(j).getString("Shed"));
-                } catch (JSONException e) {
-                    System.out.println(e.getMessage());
+                    empProfile.setTrueImage("UI/Images/emp.jpg");
+                    empProfile.setEmployee_ID(response.getJSONObject(j).getString("employee_ID"));
+                    empProfile.setProfession(response.getJSONObject(j).getString("profession"));
+                    empProfile.setName(response.getJSONObject(j).getString("name"));
+                    empProfile.setAge(response.getJSONObject(j).getInt("age"));
+
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                //} catch (Exception e) {
                     try {
-                        locoProfile.setLocoNumber(response.getJSONObject(j).getInt("EngineNumber"));
-                        locoProfile.setLocoType(response.getJSONObject(j).getString("EngineType"));
-                        locoProfile.setLocoState(response.getJSONObject(j).getString("State"));
-                        locoProfile.setLocoPosition(response.getJSONObject(j).getString("Shed"));
-                        locoProfile.setTrueImage("UI/Images/train.png");
-                    } catch (JSONException e1) {
+                        empProfile.setTrueImage("UI/Images/emp.jpg");
+                        empProfile.setEmployee_ID(response.getJSONObject(j).getString("employee_ID"));
+                        empProfile.setProfession(response.getJSONObject(j).getString("profession"));
+                        empProfile.setName(response.getJSONObject(j).getString("name"));
+                        empProfile.setAge(response.getJSONObject(j).getInt("age"));
+                    } catch (Exception e1) {
                         e1.printStackTrace();
                     }
                 }
-                AnchorPane obj = locoProfile.createLocoProfile();
+                AnchorPane obj = empProfile.createEmpProfile();
                 element.getChildren().addAll(obj);
                 box2.getChildren().add(element);
             }
@@ -117,27 +117,27 @@ public class LocomotiveViewer {
             }
             else {
                 VBox element = new VBox();
-                LocoProfile locoProfile = new LocoProfile();
+                EmployeeProfile empProfile = new EmployeeProfile();
                 try {
-                    locoProfile.setTrueImage("UI/Images/locos/"+String.valueOf(response.getJSONObject(k).getInt("EngineNumber"))+".png");
-                    locoProfile.setLocoNumber(response.getJSONObject(k).getInt("EngineNumber"));
-                    locoProfile.setLocoType(response.getJSONObject(k).getString("EngineType"));
-                    locoProfile.setLocoState(response.getJSONObject(k).getString("State"));
-                    locoProfile.setLocoPosition(response.getJSONObject(k).getString("Shed"));
-                } catch (JSONException e) {
-                    System.out.println(e.getMessage());
+                    empProfile.setTrueImage("UI/Images/emp.jpg");
+                    empProfile.setEmployee_ID(response.getJSONObject(k).getString("employee_ID"));
+                    empProfile.setProfession(response.getJSONObject(k).getString("profession"));
+                    empProfile.setName(response.getJSONObject(k).getString("name"));
+                    empProfile.setAge(response.getJSONObject(k).getInt("age"));
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                //} catch (Exception e) {
                     try {
-                        locoProfile.setLocoNumber(response.getJSONObject(k).getInt("EngineNumber"));
-                        locoProfile.setLocoType(response.getJSONObject(k).getString("EngineType"));
-                        locoProfile.setLocoState(response.getJSONObject(k).getString("State"));
-                        locoProfile.setLocoPosition(response.getJSONObject(k).getString("Shed"));
-                        locoProfile.setTrueImage("UI/Images/train.png");
-                    } catch (JSONException e1) {
+                        empProfile.setTrueImage("UI/Images/emp.jpg");
+                        empProfile.setEmployee_ID(response.getJSONObject(k).getString("employee_ID"));
+                        empProfile.setProfession(response.getJSONObject(k).getString("profession"));
+                        empProfile.setName(response.getJSONObject(k).getString("name"));
+                        empProfile.setAge(response.getJSONObject(k).getInt("age"));
+                    } catch (Exception e1) {
                         e1.printStackTrace();
                     }
                 }
-                AnchorPane obj = locoProfile.createLocoProfile();
+                AnchorPane obj = empProfile.createEmpProfile();
                 element.getChildren().addAll(obj);
                 box3.getChildren().add(element);
             }
@@ -149,7 +149,7 @@ public class LocomotiveViewer {
 
     public AnchorPane pages(){
 
-        JSONArray response = DBReader.returnLocomotives();
+        JSONArray response = DBReader.returnEmployees();
 
         int limitingFac = (response.length())%6;
         int var;
@@ -176,7 +176,7 @@ public class LocomotiveViewer {
         anchor.prefWidth(1090.0); anchor.prefHeight(740.0); anchor.setStyle("-fx-background-color: #f1f1f1;");
         AnchorPane.setTopAnchor(pagination, 10.0);
         AnchorPane.setRightAnchor(pagination, 10.0);
-        AnchorPane.setBottomAnchor(pagination, 40.0);
+        AnchorPane.setBottomAnchor(pagination, 5.0);
         AnchorPane.setLeftAnchor(pagination, 10.0);
         anchor.getChildren().add(pagination);
 
@@ -219,7 +219,7 @@ public class LocomotiveViewer {
         anchor.prefWidth(1090.0); anchor.prefHeight(740.0); anchor.setStyle("-fx-background-color: #f1f1f1;");
         AnchorPane.setTopAnchor(pagination, 10.0);
         AnchorPane.setRightAnchor(pagination, 10.0);
-        AnchorPane.setBottomAnchor(pagination, 40.0);
+        AnchorPane.setBottomAnchor(pagination, 5.0);
         AnchorPane.setLeftAnchor(pagination, 10.0);
         anchor.getChildren().add(pagination);
 

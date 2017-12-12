@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class Employee {
 
-    private int employeeId;
+    private String employeeId;
     private String profession;
     private String name;
     private String nic;
@@ -22,8 +22,8 @@ public class Employee {
     private String email;
     private String address;
 
-    public int getEmployeeId (){ return this.employeeId;}
-    public void setEmployeeId(int employeeId){this.employeeId= employeeId;}
+    public String getEmployeeId (){ return this.employeeId;}
+    public void setEmployeeId(String employeeId){this.employeeId= employeeId;}
 
     public String getProfession (){ return this.profession;}
     public void setProfession(String profession){this.profession= profession;}
