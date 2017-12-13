@@ -53,12 +53,9 @@ public class EmployeeProfile {
 
 
     public void setTrueImage(String url){
-        if(url=="UI/Images/emp.jpg"){
+        
             imageView.setFitHeight(100.0); imageView.setFitWidth(100.0); imageView.setLayoutX(160.0); imageView.setLayoutY(50.0); imageView.setPickOnBounds(true); imageView.setPreserveRatio(true);
-        }
-        else {
-            imageView.setFitHeight(125.0); imageView.setFitWidth(125.0); imageView.setLayoutX(148.0); imageView.setLayoutY(40.0); imageView.setPickOnBounds(true); imageView.setPreserveRatio(true);
-        }
+
         Image img = new Image(url);
         imageView.setImage(img);
 

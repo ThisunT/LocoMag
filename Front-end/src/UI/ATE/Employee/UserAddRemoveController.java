@@ -14,11 +14,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Optional;
+
+import Connection.DeleteRequest;
+
 
 /**
  * Created by piumiindeevari on 12/7/2017.
@@ -39,32 +43,34 @@ public class UserAddRemoveController {
 
     private String addUserUrl = "http://localhost:3000/api/user/";
 
-
+//set all text fields null
     public void setTextNull(){
         txt_empID.setText("");
         txt_username.setText("");
         pwd.setText("");
         confirmPwd.setText("");
     }
-
+//Checks if same EmployeeID is repeated
     public Boolean employeeExists(String employeeID) {
-        Boolean userIn = false;
+        Boolean empIn = false;
+        Update.updateUser();
         JSONArray response = DBReader.returnUser();
         for (int i = 0; i < response.length(); i++) {
             try {
                 if (employeeID.equals(response.getJSONObject(i).getString("employee_ID"))) {
-                    userIn =true;
+                    empIn =true;
                     break;
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        return userIn;
+        return empIn;
     }
-
+//Checks if same username is repeated
     public Boolean userExists(String username) {
         Boolean userIn = false;
+        Update.updateUser();
         JSONArray response = DBReader.returnUser();
         for (int i = 0; i < response.length(); i++) {
             try {
@@ -78,16 +84,51 @@ public class UserAddRemoveController {
         }
         return userIn;
     }
+//Check if any TextField is not filled
+    public boolean checkNull(TextField txt){
+        if (txt.getText().equals("")){
+            return true;
+        }
+        else {
+            return false;
+        }
 
+    }
+//Check if any PasswordField is not filled
+    public boolean checkNull(PasswordField pwd){
+        if (pwd.getText().equals("")){
+            return true;
+        }
+        else {
+            return false;
+        }
 
+    }
+//Apply checkNull to all the fields
+    public boolean checkAll(){
+        return checkNull(txt_empID)||checkNull(txt_username)||checkNull(pwd)||checkNull(confirmPwd);
 
+    }
+//Submit Button
     public void addClicked(){
         Update.updateUser();
+        //check if any field is not filled
+        if(checkAll()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill all the fields!");
+            alert.showAndWait();
+            return;
+        }
+
         String employeeID = txt_empID.getText();
         String username = txt_username.getText();;
         String password = pwd.getText();
         String confirmPassword = confirmPwd.getText();
 
+
+        //create a user object
         User user = new User();
 
         LocalDate localDate = date_today.getValue();
@@ -100,10 +141,22 @@ public class UserAddRemoveController {
         user.setPwd(pwd.getText());
 
 
-
+    //convert user object to a json object
         String userObject = ObjectToJson.converter(user);
         System.out.println(userObject);
-        if(password.equals(confirmPassword)) {
+
+    //check if password has enough strength
+        if(password.length()<5){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("The password should atleast have 5 characters");
+            alert.showAndWait();
+            confirmPwd.setText("");
+            pwd.setText("");
+        }
+    //check if password equals with confirm
+        else if(password.equals(confirmPassword)) {
             if ( employeeExists(employeeID)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -113,6 +166,7 @@ public class UserAddRemoveController {
                 setTextNull();
 
             }
+        //check if username is already used
             else if(userExists(username)){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
@@ -123,6 +177,7 @@ public class UserAddRemoveController {
             }
 
             else {
+            //send post request
                     try {
                         PostRequest.sendPostRequest(addUserUrl, userObject);
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -136,17 +191,20 @@ public class UserAddRemoveController {
                     }
             }
         }
-        else{
+
+        else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
             alert.setContentText("The passwords you entered does not match!");
             alert.showAndWait();
             confirmPwd.setText("");
+            pwd.setText("");
         }
     }
 
     public void removeClicked(){
+        Update.updateUser();
         String employeeID = txt_empID.getText();
         String password = pwd.getText();
         try {
@@ -165,21 +223,26 @@ public class UserAddRemoveController {
                         Optional<ButtonType> result = alert.showAndWait();
 
                         if (result.get() == ButtonType.OK){
-                            String deleteUserUrl = "http://localhost:3000/api/user/" + employeeID;
+                            Update.updateUser();
+                            String targetUserUrl = "http://localhost:3000/api/user/" + employeeID;
                             try {
-                                //DeleteRequest.sendDeleteRequest(deleteUserUrl,response.getJSONObject(i));
+                                DeleteRequest.sendDeleteRequest(targetUserUrl);
+                                Update.updateUser();
                                 if( employeeExists(employeeID)){
                                     Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
                                     alert2.setTitle("Information");
                                     alert2.setHeaderText(null);
                                     alert2.setContentText("unable to delete user!");
+                                    alert2.showAndWait();
                                     setTextNull();
                                 }
                                 else{
+
                                     Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
                                     alert2.setTitle("Information");
                                     alert2.setHeaderText(null);
                                     alert2.setContentText("User successfully deleted!");
+                                    alert2.showAndWait();
                                     setTextNull();
                                 }
                             }catch (Exception e){
@@ -200,6 +263,8 @@ public class UserAddRemoveController {
                         alert.setHeaderText("Wrong Password!");
                         alert.setContentText("The password you entered is incorrect!");
                         alert.showAndWait();
+                        pwd.setText("");
+                        confirmPwd.setText("");
 
                     }
                     userIn = true;
@@ -212,7 +277,7 @@ public class UserAddRemoveController {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText("No User "+employeeID);
-                alert.setContentText("The user you are trying to delete has already beeen deleted");
+                alert.setContentText("The user you are trying to delete has already been deleted");
                 alert.showAndWait();
 
             }

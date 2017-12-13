@@ -106,6 +106,22 @@ public class FailureProfile {
 
     }
 
+    public void profileClicked(){
+
+        try {
+
+
+            VarFailure.EngineNo=locoNumber.getText();
+            Parent root = FXMLLoader.load(getClass().getResource("FailureFullProfile.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Sri Lanka Railways Motive Power sub Department - Engine Failure management System");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void setResolvedColor(String bool){
         if(bool.equals("0")){
             resolvedOrNot.setStyle("-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 14;");
@@ -199,6 +215,14 @@ public class FailureProfile {
             try {
                 resolvedOrNotClicked();
             } catch (JSONException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        profile.setOnAction(e->{
+            try {
+                profileClicked();
+            } catch (Exception e1) {
                 e1.printStackTrace();
             }
         });
