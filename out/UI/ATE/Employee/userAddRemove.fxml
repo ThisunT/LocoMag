@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="userAddAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../../UICss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ATE.Employee.UserAddRemoveController">
+<AnchorPane fx:id="userAddAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../../UICss.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ATE.Employee.UserAddRemoveController">
    <children>
       <Button fx:id="btn_submit" layoutX="67.0" layoutY="508.0" mnemonicParsing="false" onAction="#addClicked" prefHeight="26.0" prefWidth="161.0" text="Add User" />
       <Label layoutX="51.0" layoutY="63.0" text="Date:" />
@@ -31,6 +31,6 @@
       <Label layoutX="41.0" layoutY="426.0" text="Confirm Password:" />
       <TextField fx:id="txt_username" layoutX="276.0" layoutY="241.0" prefHeight="41.0" prefWidth="189.0" />
       <Label layoutX="41.0" layoutY="261.0" text="User name:" />
-      <Button fx:id="btn_submit1" layoutX="354.0" layoutY="508.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="161.0" text="Remove User" />
+      <Button fx:id="btn_submit1" layoutX="354.0" layoutY="508.0" mnemonicParsing="false" onAction="#removeClicked" prefHeight="42.0" prefWidth="161.0" text="Remove User" />
    </children>
 </AnchorPane>
