@@ -67,14 +67,12 @@ public class LocoProfile {
 
     }
 
-    public AnchorPane profileClicked(){
+    public void profileClicked(){
 
         try {
 
             VarLoco.EngineTyp= locoType.getText();
             VarLoco.EngineNo=locoNumber.getText();
-            System.out.println(VarLoco.EngineTyp);
-            System.out.println(VarLoco.EngineNo);
             Parent root = FXMLLoader.load(getClass().getResource("locomotiveProfile.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -83,8 +81,6 @@ public class LocoProfile {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return anchor;
     }
 
     public AnchorPane createLocoProfile() {

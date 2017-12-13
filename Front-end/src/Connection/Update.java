@@ -114,7 +114,6 @@ public class Update {
 
         try {
             String response = GetRequest.sendGetRequest(targetUrlUser);
-            System.out.println(response);
             try{
                 FileWriter fw=new FileWriter("localDB/User.json");
                 fw.write(response);
@@ -133,7 +132,6 @@ public class Update {
 
         try {
             String response = GetRequest.sendGetRequest(targetUrlUser);
-            System.out.println(response);
             try{
                 FileWriter fw=new FileWriter("localDB/Maintenance.json");
                 fw.write(response);
@@ -152,7 +150,6 @@ public class Update {
 
         try {
             String response = GetRequest.sendGetRequest(targetUrlUser);
-            System.out.println(response);
             try{
                 FileWriter fw=new FileWriter("localDB/Sync.json");
                 fw.write(response);

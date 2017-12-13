@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="FailureAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1090.0" stylesheets="@../UICss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ATE.Employee.EmpTabController">
+    <children>
+        <TabPane layoutX="124.0" layoutY="32.0" prefHeight="734.0" prefWidth="926.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <tabs>
+            <Tab text="Home">
+               <content>
+                  <fx:include source="../Index/home.fxml" />
+               </content>
+            </Tab>
+
+
+                <Tab fx:id="viewEmpTab" text="Discard Locomotives">
+
+                </Tab>
+
+                <Tab text="Justifify recovery options on failures">
+
+               </Tab>
+
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

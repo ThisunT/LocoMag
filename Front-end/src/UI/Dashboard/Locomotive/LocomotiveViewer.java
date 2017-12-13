@@ -17,8 +17,6 @@ import org.json.JSONException;
  */
 public class LocomotiveViewer {
 
-
-
     Pagination pagination = new Pagination();
 
     public AnchorPane createPage(int numberOfObjects, int pageIndex, JSONArray response) {
@@ -148,7 +146,6 @@ public class LocomotiveViewer {
 
     public AnchorPane pages(){
         JSONArray response = DBReader.returnLocomotives();
-        System.out.println(response);
 
         int limitingFac = (response.length())%6;
         int var;

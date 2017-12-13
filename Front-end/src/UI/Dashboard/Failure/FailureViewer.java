@@ -34,6 +34,8 @@ public class FailureViewer {
                 VBox element = new VBox();
                 FailureProfile failureProfile = new FailureProfile();
                 try {
+                    failureProfile.setFailureJsonObject(failureResponse.getJSONObject(i));
+                    failureProfile.setID(String.valueOf(failureResponse.getJSONObject(i).getInt("ID")));
                     failureProfile.setLocoNumber(String.valueOf(failureResponse.getJSONObject(i).getInt("loco_ID")));
                     failureProfile.setDate(DBReader.readByValues("Trips","ID",failureResponse.getJSONObject(i).getInt("trip_ID"),"date"));
                     failureProfile.setFailureType(failureResponse.getJSONObject(i).getString("failure_ID"));
@@ -69,6 +71,8 @@ public class FailureViewer {
                 VBox element = new VBox();
                 FailureProfile failureProfile = new FailureProfile();
                 try {
+                    failureProfile.setFailureJsonObject(failureResponse.getJSONObject(j));
+                    failureProfile.setID(String.valueOf(failureResponse.getJSONObject(j).getInt("ID")));
                     failureProfile.setLocoNumber(String.valueOf(failureResponse.getJSONObject(j).getInt("loco_ID")));
                     failureProfile.setDate(DBReader.readByValues("Trips","ID",failureResponse.getJSONObject(j).getInt("trip_ID"),"date"));
                     failureProfile.setFailureType(failureResponse.getJSONObject(j).getString("failure_ID"));
@@ -102,6 +106,8 @@ public class FailureViewer {
                 VBox element = new VBox();
                 FailureProfile failureProfile = new FailureProfile();
                 try {
+                    failureProfile.setFailureJsonObject(failureResponse.getJSONObject(k));
+                    failureProfile.setID(String.valueOf(failureResponse.getJSONObject(k).getInt("ID")));
                     failureProfile.setLocoNumber(String.valueOf(failureResponse.getJSONObject(k).getInt("loco_ID")));
                     failureProfile.setDate(DBReader.readByValues("Trips","ID",failureResponse.getJSONObject(k).getInt("trip_ID"),"date"));
                     failureProfile.setFailureType(failureResponse.getJSONObject(k).getString("failure_ID"));

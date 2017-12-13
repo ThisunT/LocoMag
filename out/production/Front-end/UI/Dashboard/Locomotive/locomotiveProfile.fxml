@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="758.0" prefWidth="820.0" stylesheets="@../../UICss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dashboard.Locomotive.locomotiveProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="758.0" prefWidth="820.0" stylesheets="@../../UICss.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dashboard.Locomotive.locomotiveProfileController">
    <children>
       <Label layoutX="324.0" layoutY="40.0" text="Locomotive Profile" />
       <Label layoutX="126.0" layoutY="433.0" />
@@ -25,13 +25,13 @@
       <Label fx:id="labelTopSpeed" layoutX="564.0" layoutY="268.0" text="Top Speed" />
       <Label fx:id="labelManufacturedDate" layoutX="564.0" layoutY="318.0" text="Manufactured date" />
       <Label fx:id="labelCurrentStateLoco" layoutX="174.0" layoutY="276.0" text="Current state of loco:" />
-      <TableView fx:id="tableFailure" layoutX="42.0" layoutY="494.0" prefHeight="223.0" prefWidth="724.0">
+      <TableView fx:id="tableFailure" layoutX="42.0" layoutY="494.0" prefHeight="223.0" prefWidth="632.0">
          <columns>
-            <TableColumn prefWidth="106.0" text="Engine No" />
-            <TableColumn prefWidth="128.0" text="Failiure No" />
-            <TableColumn prefWidth="126.0" text="Failiure Type" />
-            <TableColumn prefWidth="144.0" text="Solution" />
-            <TableColumn prefWidth="128.0" text="Description" />
+            <TableColumn fx:id="eNo" prefWidth="106.0" text="Engine No" />
+            <TableColumn fx:id="fNo" prefWidth="128.0" text="Failiure No" />
+            <TableColumn fx:id="fTy" prefWidth="126.0" text="Failiure Type" />
+            <TableColumn fx:id="sol" prefWidth="144.0" text="Solution" />
+            <TableColumn fx:id="des" prefWidth="128.0" text="Description" />
          </columns>
       </TableView>
       <Label layoutX="49.0" layoutY="450.0" text="Failures occured:" />

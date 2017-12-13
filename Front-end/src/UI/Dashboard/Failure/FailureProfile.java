@@ -1,14 +1,27 @@
 package UI.Dashboard.Failure;
 
+import UI.Dashboard.Locomotive.VarLoco;
+import UI.setGlobals;
 import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
+import javafx.stage.Stage;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import static UI.loginController.infoBox;
 
 /**
  * Created by Thisun Pathirage on 12/6/2017.
@@ -22,9 +35,21 @@ public class FailureProfile {
     private Label recordedEmployee = new Label();
     private Label failureType = new Label();
     private Label place = new Label();
+    private Label space = new Label();
     private Pane pane = new Pane();
+    private Label ID = new Label();
     private JFXButton profile = new JFXButton();
     private JFXButton resolvedOrNot = new JFXButton();
+    public static int failureID;
+    private JSONObject failureJsonObject = new JSONObject();
+
+    public void setFailureJsonObject(JSONObject jsonObject){
+        this.failureJsonObject=jsonObject;
+    }
+
+    public JSONObject getFailureJsonObject(){
+        return failureJsonObject;
+    }
 
     public void setLocoNumber(String locoNumber) {
         this.locoNumber.setText(locoNumber);
@@ -50,34 +75,65 @@ public class FailureProfile {
         this.place.setText(place);
     }
 
+    public void showReviewWindow(){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("reviewFailure.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Sri Lanka Railways Motive Power sub Department - Engine Failure management System");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //return anchor;
+    }
+
+    public void resolvedOrNotClicked() throws JSONException {
+
+        if((setGlobals.user).substring(0,1).equals("F") && getFailureJsonObject().getString("foremans_note").equals("")){
+            showReviewWindow();
+        }
+        else if((setGlobals.user).substring(0,1).equals("A") && getFailureJsonObject().getString("ATEs_review").equals("")){
+            showReviewWindow();
+        }
+        else if((setGlobals.user).substring(0,1).equals("C") && getFailureJsonObject().getString("chief_engs_justification").equals("")){
+
+        }
+        else {
+            infoBox("Its already reviewed.", "Success", null);
+        }
+
+    }
+
     public void setResolvedColor(String bool){
         if(bool.equals("0")){
             resolvedOrNot.setStyle("-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 14;");
-            resolvedOrNot.setText("Not Resolved Yet");
-            resolvedOrNot.setLayoutX(10.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
+            resolvedOrNot.setText("No one has reviewed");
+            resolvedOrNot.setLayoutX(5.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
         }
         else if(bool.equals("1")){
             resolvedOrNot.setStyle("-fx-background-color: #A569BD; -fx-text-fill: white; -fx-font-size: 14;");
             resolvedOrNot.setText("Foreman has not reviewed");
-            resolvedOrNot.setLayoutX(10.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
+            resolvedOrNot.setLayoutX(5.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
         }
 
         else if(bool.equals("2")){
             resolvedOrNot.setStyle("-fx-background-color: #85929E; -fx-text-fill: white; -fx-font-size: 14;");
             resolvedOrNot.setText("ATE has not reviewed");
-            resolvedOrNot.setLayoutX(10.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
+            resolvedOrNot.setLayoutX(5.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
         }
 
         else if(bool.equals("3")){
-            resolvedOrNot.setStyle("-fx-background-color: #F4D03F ; -fx-text-fill: white; -fx-font-size: 14;");
+            resolvedOrNot.setStyle("-fx-background-color: #F4D03F ; -fx-text-fill: white; -fx-font-size: 11;");
             resolvedOrNot.setText("Chief Engineer has not reviewed");
-            resolvedOrNot.setLayoutX(10.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
+            resolvedOrNot.setLayoutX(5.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
         }
 
         else {
             resolvedOrNot.setStyle("-fx-background-color: #66BB6A; -fx-text-fill: white; -fx-font-size: 14;");
             resolvedOrNot.setText("Failure Resolved");
-            resolvedOrNot.setLayoutX(10.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
+            resolvedOrNot.setLayoutX(5.0); resolvedOrNot.setLayoutY(9.0); resolvedOrNot.prefHeight(32.0); resolvedOrNot.prefWidth(118.0);
         }
     }
 
@@ -133,12 +189,21 @@ public class FailureProfile {
         fAviv.setWrappingWidth(22.0);
         failureType.setGraphic(fAviv);
 
+
+
         pane.setLayoutY(200.0); pane.prefHeight(50.0); pane.prefWidth(300.0); pane.setStyle("-fx-border-radius: 0 0 3 3; -fx-background-color: #E5E8EB; -fx-border-color: #C3C3C3; -fx-border-width: 1 0 0 1;");
-        profile.setLayoutX(168.0); profile.setLayoutY(9.0); profile.prefHeight(32.0); profile.prefWidth(118.0); profile.setStyle("-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;");
-        profile.setText("View More");
+        profile.setLayoutX(200.0); profile.setLayoutY(9.0); profile.prefHeight(32.0); profile.prefWidth(118.0); profile.setStyle("-fx-background-color: #337AB7; -fx-text-fill: white; -fx-font-size: 14;");
+        profile.setText("More");
 
+        resolvedOrNot.setOnAction(e->{
+            try {
+                resolvedOrNotClicked();
+            } catch (JSONException e1) {
+                e1.printStackTrace();
+            }
+        });
 
-        pane.getChildren().addAll(profile,resolvedOrNot);
+        pane.getChildren().addAll(profile,space,resolvedOrNot);
 
         anchor.getChildren().addAll(locoNumber, date, time, place, recordedEmployee, failureType, pane);
 
@@ -146,5 +211,8 @@ public class FailureProfile {
     }
 
 
+    public void setID(String ID) {
+        this.ID.setText(ID);
+    }
 
 }
