@@ -26,101 +26,95 @@ public class FailureFullProfileController implements Initializable {
 
 
         @FXML
-        private Label label;
+        private Label labelFailureID;
+
+        @FXML
+        private Label labelDate;
+
+        @FXML
+        private Label labelTime;
 
         @FXML
         private Label labelLocoID;
 
         @FXML
-        private Label labelEngineNo;
+        private Label labelDriverID;
 
         @FXML
-        private Label labelEngineType;
+        private Label labelTripID;
 
         @FXML
-        private Label labelManufacturer;
+        private Label labelRoute;
 
         @FXML
-        private Label labelTopSpeed;
+        private Label labelPlace;
 
         @FXML
-        private Label labelManufacturedDate;
+        private Label labelLocoStateAtFailure;
+
+        @FXML
+        private Label labelNearestYard;
+
+        @FXML
+        private Label labelDriverNote;
+
+        @FXML
+        private Label labelCounteraction;
+
+        @FXML
+        private Label labelForemanNote;
+
+        @FXML
+        private Label labelFailureDescription;
+
+        @FXML
+        private Label labelRecoveryOption;
+
+        @FXML
+        private Label labelATEReview;
+
+        @FXML
+        private Label labelChiefEngineerJustification;
 
         @FXML
         private Label labelCurrentStateLoco;
 
         @FXML
-        private ImageView imageLoco;
-
-        @FXML
-        private TableView tableFailure;
-
-        @FXML
-        private TableColumn eNo;
-
-        @FXML
-        private TableColumn fNo;
-
-        @FXML
-        private TableColumn fTy;
-
-        @FXML
-        private TableColumn sol;
-
-        @FXML
-        private TableColumn des;
+        public String EngineNumber= VarFailure.EngineNo;
 
 
-        @FXML
-        public String EngineType = VarLoco.EngineTyp;
-        @FXML
-        public String EngineNumber= VarLoco.EngineNo;
-
-        @Override
+    @Override
         public void initialize(URL location, ResourceBundle resources) {
 
             try {
-                JSONArray response = DBReader.returnLocomotives();
-                JSONArray failureResponse = DBReader.readByFields("Failures","loco_ID",EngineNumber);
+                JSONArray response = DBReader.returnFailures();
+
                 for (int i = 0; i < response.length(); i++) {
 
-                    if ((EngineType.equals(response.getJSONObject(i).getString("EngineType"))) && (EngineNumber.equals(String.valueOf(response.getJSONObject(i).getInt("EngineNumber"))))) {
+                    if ((EngineNumber.equals(String.valueOf(response.getJSONObject(i).getInt("loco_ID")))) ){
 
-                        labelEngineType.setText(response.getJSONObject(i).getString("EngineType"));
-                        labelEngineNo.setText(String.valueOf(response.getJSONObject(i).getInt("EngineNumber")));
-                        labelDateBought.setText(response.getJSONObject(i).getString("Today"));
-                        labelManufacturer.setText(response.getJSONObject(i).getString("Manufacturer"));
-                        labelTopSpeed.setText(String.valueOf(response.getJSONObject(i).getInt("TopSpeed")));
-                        labelManufacturedDate.setText(response.getJSONObject(i).getString("ManufacturedDay"));
-                        labelCurrentStateLoco.setText(response.getJSONObject(i).getString("State"));
-                        setTrueImage("UI/Images/locos/" + String.valueOf(response.getJSONObject(i).getInt("EngineNumber")) + ".png");
+                        labelFailureID.setText(response.getJSONObject(i).getString("failure_ID"));
+                        labelDate.setText(String.valueOf(response.getJSONObject(i).getString("date")));
+                        labelTime.setText(response.getJSONObject(i).getString("occured_time"));
+                        labelTripID.setText(String.valueOf(response.getJSONObject(i).getInt("trip_ID")));
+                        labelRoute.setText(response.getJSONObject(i).getString("place"));
+                        labelLocoID.setText(String.valueOf(response.getJSONObject(i).getInt("loco_ID")));
+                        labelDriverID.setText(response.getJSONObject(i).getString("emp_ID"));
+                        labelPlace.setText(response.getJSONObject(i).getString("place"));
+                        labelLocoStateAtFailure.setText(response.getJSONObject(i).getString("current_state_of_loco"));
+                        labelLocoStateAtFailure.setText(response.getJSONObject(i).getString("nearest_yard"));
+                        labelNearestYard.setText(response.getJSONObject(i).getString("nearest_yard"));
+                        labelDriverNote.setText(response.getJSONObject(i).getString("driver_note"));
+                        //labelCounteraction.setText(response.getJSONObject(i).getString("place"));
+                        labelForemanNote.setText(response.getJSONObject(i).getString("foremans_note"));
+                        labelFailureDescription.setText(response.getJSONObject(i).getString("failure_description"));
+                        labelRecoveryOption.setText(response.getJSONObject(i).getString("recovery_option"));
+                        labelATEReview.setText(response.getJSONObject(i).getString("ATEs_review"));
+                        labelChiefEngineerJustification.setText(response.getJSONObject(i).getString("chief_engs_justification"));
+                        labelCurrentStateLoco.setText(response.getJSONObject(i).getString("current_state_of_loco"));
                     }
                 }
-                ArrayList<FailureTable> listFails = new ArrayList<>();
-                for(int j=0;j<failureResponse.length();j++){
-                    FailureTable failureTable =new FailureTable(failureResponse.getJSONObject(j).getInt("loco_ID"), failureResponse.getJSONObject(j).getString("failure_ID"),failureResponse.getJSONObject(j).getInt("ID"),failureResponse.getJSONObject(j).getString("failure_description"),failureResponse.getJSONObject(j).getString("recovery_option"));
-                    listFails.add(failureTable);
-                }
-                ObservableList<FailureTable> oListFails = FXCollections.observableArrayList(listFails);
 
-
-                eNo.setCellValueFactory(
-                        new PropertyValueFactory<>("engineNumber")
-                );
-                fNo.setCellValueFactory(
-                        new PropertyValueFactory<>("failureId")
-                );
-                fTy.setCellValueFactory(
-                        new PropertyValueFactory<>("failureIdVal")
-                );
-                sol.setCellValueFactory(
-                        new PropertyValueFactory<>("failureDescription")
-                );
-                des.setCellValueFactory(
-                        new PropertyValueFactory<>("recoveryOption")
-                );
-
-                tableFailure.setItems(oListFails);
 
             } catch (Exception e) {
                 System.out.println(e);
@@ -128,20 +122,8 @@ public class FailureFullProfileController implements Initializable {
 
 
 
-        }
 
-        public void setTrueImage(String url) {
 
-            if(url=="UI/Images/train.png"){
-                imageLoco.setFitHeight(100.0); imageLoco.setFitWidth(100.0); imageLoco.setLayoutX(160.0); imageLoco.setLayoutY(50.0); imageLoco.setPickOnBounds(true); imageLoco.setPreserveRatio(true);
-            }
-            else {
-                imageLoco.setFitHeight(125.0); imageLoco.setFitWidth(125.0); imageLoco.setLayoutX(148.0); imageLoco.setLayoutY(40.0); imageLoco.setPickOnBounds(true); imageLoco.setPreserveRatio(true);
-            }
-            Image img = new Image(url);
-            imageLoco.setImage(img);
-
-        }
 
     }
 
