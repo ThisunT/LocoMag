@@ -3,8 +3,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="820.0" stylesheets="@../../UICss.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="820.0" stylesheets="@../../UICss.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Dashboard.Failure.FailureFullProfileController">
    <children>
       <Label layoutX="52.0" layoutY="127.0" text="Failure ID:" />
       <Label layoutX="315.0" layoutY="46.0" text="Failure Information" />
@@ -36,7 +35,7 @@
       <Label fx:id="labelPlace" layoutX="197.0" layoutY="492.0" text="Place:" />
       <Label fx:id="labelLocoStateAtFailure" layoutX="646.0" layoutY="127.0" text="Loco_state at failure:" />
       <Label fx:id="labelNearestYard" layoutX="194.0" layoutY="545.0" text="Nearest Yard:" />
-      <Label fx:id="labelDrivernote" layoutX="646.0" layoutY="177.0" text="Driver' note:" />
+      <Label fx:id="labelDriverNote" layoutX="646.0" layoutY="177.0" text="Driver' note:" />
       <Label fx:id="labelCounteraction" layoutX="646.0" layoutY="225.0" text="Counteraction:" />
       <Label fx:id="labelForemanNote" layoutX="643.0" layoutY="276.0" text="Foreman's note:" />
       <Label fx:id="labelFailureDescription" layoutX="643.0" layoutY="326.0" text="Failure Description:" />
