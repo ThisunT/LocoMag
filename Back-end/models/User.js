@@ -22,7 +22,7 @@ var User = {
         })
     },
     deleteUser: function (employee_ID, callback) {
-        return db.query("delete from user where employee_ID=?", [employee_ID], callback);
+        return db.query("DELETE FROM `locomagazine`.`user` WHERE `user`.`ID` = ?", [employee_ID], callback);
     },
 }
 

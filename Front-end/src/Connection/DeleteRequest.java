@@ -1,5 +1,6 @@
 package Connection;
 
+import javafx.fxml.FXML;
 import javafx.stage.PopupWindow;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,6 +20,8 @@ import java.net.URL;
 public class DeleteRequest {
 
     public static String sendDeleteRequest(String targetUrl) throws IOException {
+
+
 
         URL myUrl = new URL(targetUrl);
         HttpURLConnection con = (HttpURLConnection) myUrl.openConnection();
