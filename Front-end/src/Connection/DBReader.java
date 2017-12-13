@@ -11,6 +11,8 @@ import java.io.IOException;
 /**
  * Created by Thisun Pathirage on 12/3/2017.
  */
+
+//Reads from the local file system
 public class DBReader {
     public static JSONArray returnLocomotives() {
         FileReader fr = null;
@@ -150,6 +152,7 @@ public class DBReader {
         return jsonArray;
     }
 
+    //Querying from file system by file, the field and depending on the value we know we can get another field value which jad the same previous record
     public static String readByValues(String file, String knownField, String valueKnown, String filedWanted) {
         FileReader fr = null;
         String[] textData = new String[1];
@@ -181,6 +184,7 @@ public class DBReader {
         return result;
     }
 
+    //Querying the file based on the known field name and the values
     public static String readByValues(String file, String knownField, int valueKnown, String fieldWanted) {
         FileReader fr = null;
         String[] textData = new String[1];

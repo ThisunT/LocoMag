@@ -74,11 +74,13 @@ public class IndexController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //Load all fxmls in a cache
+
+        //Starting synchronise thread
 
         Synchronising synchronising = new Synchronising();
         synchronising.synchronise();
 
+        //Starting listening to synchronise thread
         Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -101,10 +103,10 @@ public class IndexController implements Initializable{
 
 
 
-
+        //selecting the user
         String switchUser = (setGlobals.user).substring(0,1);
 
-
+        //Load all fxmls in a cache
         if (switchUser.equals("F")) {
             labl_username.setText("Foreman");
             try {
@@ -179,6 +181,70 @@ public class IndexController implements Initializable{
     }
 
     //Set selected node to a content holder
+
+    @FXML
+    private void switchLocomotives(ActionEvent event) {
+        searchPane.setVisible(false);
+        setNodeLoco();
+    }
+
+    @FXML
+    private void switchHome(ActionEvent event) {
+        searchPane.setVisible(false);
+        setNode(home);
+    }
+
+
+    @FXML
+    private void switchFailures(ActionEvent event){
+        setNodeFailure();
+    }
+
+    @FXML
+    private void switchSchedule(ActionEvent event){
+        searchPane.setVisible(false);
+        setNode(schedule);}
+
+    @FXML
+    private void switchTrips(ActionEvent event){
+        searchPane.setVisible(false);
+        setNodeTrips();}
+
+
+
+    @FXML
+    private void switchMaintenance(ActionEvent event){
+        searchPane.setVisible(false);
+        setNodeMaintenance();}
+
+    @FXML
+    private void switchLocoPosition(ActionEvent event){
+        searchPane.setVisible(false);
+        setNode(locoposition);}
+
+    @FXML
+    private void switchDelays(ActionEvent event){
+        searchPane.setVisible(false);
+        setNodeTrips();}
+
+    @FXML
+    private void switchEmployee(ActionEvent event){
+        searchPane.setVisible(false);
+        setNodeEmployee();}
+
+
+    @FXML
+    private void switchReports(ActionEvent event){
+        searchPane.setVisible(false);
+        setNode(report);}
+
+    @FXML
+    private void syncButtonClicked(ActionEvent event){
+        Update.updateAll();
+        infoBox("Update Successful", "Success", null);
+    }
+
+    //Changing the anchorpane set to the holderpane
 
     public void transPane(){
         holderPane.getChildren().clear();
@@ -301,6 +367,8 @@ public class IndexController implements Initializable{
         ft.play();
     }
 
+    //Start of the coding of search function
+
     boolean visibility = false;
 
     @FXML
@@ -419,68 +487,9 @@ public class IndexController implements Initializable{
         }*/
     }
 
-    @FXML
-    private void switchLocomotives(ActionEvent event) {
-        searchPane.setVisible(false);
-        setNodeLoco();
-    }
-
-    @FXML
-    private void switchHome(ActionEvent event) {
-        searchPane.setVisible(false);
-        setNode(home);
-    }
 
 
-    @FXML
-    private void switchFailures(ActionEvent event){
-        setNodeFailure();
-    }
-
-    @FXML
-    private void switchSchedule(ActionEvent event){
-        searchPane.setVisible(false);
-        setNode(schedule);}
-
-    @FXML
-    private void switchTrips(ActionEvent event){
-        searchPane.setVisible(false);
-        setNodeTrips();}
-
-
-
-    @FXML
-    private void switchMaintenance(ActionEvent event){
-        searchPane.setVisible(false);
-        setNodeMaintenance();}
-
-    @FXML
-    private void switchLocoPosition(ActionEvent event){
-        searchPane.setVisible(false);
-        setNode(locoposition);}
-
-    @FXML
-    private void switchDelays(ActionEvent event){
-        searchPane.setVisible(false);
-        setNodeTrips();}
-
-    @FXML
-    private void switchEmployee(ActionEvent event){
-        searchPane.setVisible(false);
-        setNodeEmployee();}
-
-
-    @FXML
-    private void switchReports(ActionEvent event){
-        searchPane.setVisible(false);
-        setNode(report);}
-
-    @FXML
-    private void syncButtonClicked(ActionEvent event){
-        Update.updateAll();
-        infoBox("Update Successful", "Success", null);
-    }
-
+    //Logout code
 
     @FXML
     private void logoutPressed(ActionEvent event) throws Exception{

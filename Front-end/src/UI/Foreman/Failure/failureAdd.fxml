@@ -11,23 +11,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="failureAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../../UICss.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Foreman.Failure.FailureAddController">
+<AnchorPane fx:id="failureAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1100.0" style="-fx-background-color: white;" stylesheets="@../../UICss.css" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Foreman.Failure.FailureAddController">
    <children>
-      <Button fx:id="btn_submit" layoutX="315.0" layoutY="527.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Submit" />
-      <Label layoutX="38.0" layoutY="58.0" prefHeight="26.0" prefWidth="208.0" text="Engine Class:" />
-      <Label layoutX="450.0" layoutY="62.0" text="Engine No:" />
-      <TextField fx:id="txt_engineNo" layoutX="553.0" layoutY="58.0" prefHeight="25.0" prefWidth="77.0" />
-      <Label layoutX="35.0" layoutY="114.0" text="Failure Name:" />
-      <ComboBox fx:id="combo_failureName" layoutX="275.0" layoutY="102.0" prefHeight="25.0" prefWidth="189.0" />
-      <Label layoutX="37.0" layoutY="165.0" text="Route:" />
-      <ComboBox fx:id="combo_route" layoutX="275.0" layoutY="150.0" prefHeight="25.0" prefWidth="189.0" />
-      <Label layoutX="36.0" layoutY="200.0" text="Date:" />
-      <Label layoutX="35.0" layoutY="374.0" text="Driver's Note:" />
-      <Label layoutX="465.0" layoutY="200.0" text="Time:" />
-      <TextField fx:id="txt_time" layoutX="505.0" layoutY="196.0" prefHeight="25.0" prefWidth="129.0" />
-      <DatePicker fx:id="date" layoutX="276.0" layoutY="196.0" prefHeight="25.0" prefWidth="129.0" />
-      <TextArea fx:id="txt_counteraction" layoutX="273.0" layoutY="295.0" prefHeight="41.0" prefWidth="355.0" />
-      <TextArea fx:id="txt_driverNote" layoutX="273.0" layoutY="362.0" prefHeight="41.0" prefWidth="355.0" />
+      <Button fx:id="btn_submit" layoutX="315.0" layoutY="527.0" mnemonicParsing="false" onAction="#OnSubmitButtonPress" prefHeight="26.0" prefWidth="110.0" text="Submit" />
+      <Label layoutX="35.0" layoutY="78.0" text="Engine No:" />
+      <TextField fx:id="txt_engineNo" layoutX="275.0" layoutY="58.0" prefHeight="25.0" prefWidth="77.0" />
+      <Label layoutX="37.0" layoutY="116.0" text="Failure ID:" />
+      <Label layoutX="39.0" layoutY="196.0" text="Trip ID:" />
+      <TextField fx:id="txt_trip" layoutX="277.0" layoutY="183.0" prefHeight="25.0" prefWidth="77.0" />
+      <Label layoutX="436.0" layoutY="77.0" text="Date:" />
+      <Label layoutX="436.0" layoutY="120.0" text="Time:" />
+      <TextField fx:id="txt_time" layoutX="505.0" layoutY="105.0" prefHeight="25.0" prefWidth="129.0" />
+      <DatePicker fx:id="date" layoutX="505.0" layoutY="57.0" prefHeight="25.0" prefWidth="129.0" />
+      <TextArea fx:id="txt_counteraction" layoutX="274.0" layoutY="346.0" prefHeight="41.0" prefWidth="355.0" />
       <Label layoutX="37.0" layoutY="435.0" text="Failure Description:" />
       <Label layoutX="35.0" layoutY="488.0" text="State of the engine at the failure:" />
       <ComboBox fx:id="combo_engineState" layoutX="275.0" layoutY="484.0" prefHeight="25.0" prefWidth="189.0" />
@@ -39,12 +35,14 @@
             <DropShadow blurType="ONE_PASS_BOX" height="112.67" offsetX="1.0" offsetY="0.9" radius="91.4175" spread="0.44" width="255.0" />
          </effect>
       </ImageView>
-      <TextField fx:id="txt_place" layoutX="276.0" layoutY="247.0" prefHeight="25.0" prefWidth="129.0" />
-      <TextField fx:id="txt_nearestYard" layoutX="505.0" layoutY="247.0" prefHeight="25.0" prefWidth="129.0" />
-      <Label layoutX="35.0" layoutY="251.0" text="Place:" />
-      <Label layoutX="429.0" layoutY="251.0" text="Nearest yard:" />
+      <TextField fx:id="txt_place" layoutX="276.0" layoutY="279.0" prefHeight="25.0" prefWidth="129.0" />
+      <TextField fx:id="txt_nearestYard" layoutX="273.0" layoutY="231.0" prefHeight="25.0" prefWidth="129.0" />
+      <Label layoutX="43.0" layoutY="295.0" text="Place:" />
+      <Label layoutX="38.0" layoutY="244.0" text="Nearest yard:" />
       <TextArea fx:id="txt_description" layoutX="273.0" layoutY="423.0" prefHeight="41.0" prefWidth="355.0" />
-      <Label layoutX="35.0" layoutY="307.0" text="counteraction:" />
-      <ComboBox fx:id="combo_engineClass" layoutX="276.0" layoutY="59.0" prefHeight="25.0" prefWidth="129.0" />
+      <Label layoutX="39.0" layoutY="366.0" text="counteraction:" />
+      <TextField fx:id="txt_failure" layoutX="275.0" layoutY="102.0" prefHeight="27.0" prefWidth="76.0" />
+      <Label layoutX="40.0" layoutY="156.0" text="Employee ID" />
+      <TextField fx:id="txt_emp" layoutX="276.0" layoutY="142.0" prefHeight="27.0" prefWidth="79.0" />
    </children>
 </AnchorPane>

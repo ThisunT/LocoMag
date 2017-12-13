@@ -1,46 +1,36 @@
 package Models;
 
-
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.Date;
-
-/**
- * Created by piumiindeevari on 12/1/2017.
- */
 public class FailureOccured {
 
-    private int engineNumber;
-    private int failureId;
+    private int locoID;
+    private String failureId;
     private int tripId;
     private String place;
     private String nearestYard;
-    private String occuredTime;
-    private int employeeId;
+    private String time;
+    private String employeeId;
     private String driverNote;
-    private String counteraction;//add to db
+    private String counteraction;
     private String failureDescription;
-    private String recoveryOption;
     private String foremanNote;
     private String ATEReview;
     private String chiefEngineerReview;
     private String currentState;
+    private String date;
 
-    public int getEngineNumber() {
-        return engineNumber;
+    public int getLocoID() {
+        return locoID;
     }
 
-    public void setEngineNumber(int engineNumber) {
-        this.engineNumber = engineNumber;
+    public void setLocoID(int locoID ){
+        this.locoID = locoID;
     }
 
-    public int getFailureId() {
+    public String getFailureId() {
         return failureId;
     }
 
-    public void setFailureId(int failureId) {
+    public void setFailureId(String failureId) {
         this.failureId = failureId;
     }
 
@@ -68,19 +58,19 @@ public class FailureOccured {
         this.nearestYard = nearestYard;
     }
 
-    public String getOccuredTime() {
-        return occuredTime;
+    public String getTime() {
+        return time;
     }
 
-    public void setOccuredTime(String occuredTime) {
-        this.occuredTime = occuredTime;
+    public void setTime(String time) {
+        this.time =time;
     }
 
-    public int getEmployeeId() {
+    public String getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(int employeeId) {
+    public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
 
@@ -105,16 +95,7 @@ public class FailureOccured {
     }
 
     public void setFailureDescription(String failureDescription) {
-        this.failureDescription = failureDescription;
-    }
-
-    public String getRecoveryOption() {
-        return recoveryOption;
-    }
-
-    public void setRecoveryOption(String recoveryOption) {
-        this.recoveryOption = recoveryOption;
-    }
+        this.failureDescription = failureDescription;}
 
     public String getForemanNote() {
         return foremanNote;
@@ -147,4 +128,10 @@ public class FailureOccured {
     public void setCurrentState(String currentState) {
         this.currentState = currentState;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {this.date = date;}
 }

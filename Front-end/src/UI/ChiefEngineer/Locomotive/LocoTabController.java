@@ -1,8 +1,5 @@
 package UI.ChiefEngineer.Locomotive;
 
-//import Model.FailureOccured;
-//import UI.Index.Connect;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

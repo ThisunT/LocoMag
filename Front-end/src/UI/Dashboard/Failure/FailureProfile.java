@@ -41,7 +41,7 @@ public class FailureProfile {
     private JFXButton profile = new JFXButton();
     private JFXButton resolvedOrNot = new JFXButton();
     public static int failureID;
-    private JSONObject failureJsonObject = new JSONObject();
+    public static JSONObject failureJsonObject = new JSONObject();
 
     public void setFailureJsonObject(JSONObject jsonObject){
         this.failureJsonObject=jsonObject;
@@ -98,7 +98,7 @@ public class FailureProfile {
             showReviewWindow();
         }
         else if((setGlobals.user).substring(0,1).equals("C") && getFailureJsonObject().getString("chief_engs_justification").equals("")){
-
+            showReviewWindow();
         }
         else {
             infoBox("Its already reviewed.", "Success", null);
